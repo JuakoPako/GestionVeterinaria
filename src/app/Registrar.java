@@ -26,86 +26,165 @@ public class Registrar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblUsuario = new javax.swing.JLabel();
-        lblContraseña = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        panelFondoRegistro = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        panelEntrar = new javax.swing.JPanel();
+        lblEntrar = new javax.swing.JLabel();
+        lblIniciarSesion = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        lblUsuario1 = new javax.swing.JLabel();
+        lblUsuario2 = new javax.swing.JLabel();
+        lblUsuario3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
-        lblUsuario.setText("             Usuario");
+        panelFondoRegistro.setBackground(new java.awt.Color(251, 252, 253));
+        panelFondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblContraseña.setText("          Contraseña");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("         Veterinaria Ortz");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("      Registrarse");
-
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField1.setText("Registre su nombre de usuario");
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
+        panelFondoRegistro.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 310, 40));
+
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setBorder(null);
+        panelFondoRegistro.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 280, -1));
+
+        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField2.setText("Registre su numero de telefono");
+        jTextField2.setBorder(null);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        panelFondoRegistro.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 40));
+
+        jTextField3.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField3.setText("Registre su correo electronico");
+        jTextField3.setBorder(null);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        panelFondoRegistro.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 310, 40));
+
+        panelEntrar.setBackground(new java.awt.Color(1, 136, 123));
+        panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelEntrarMouseEntered(evt);
+            }
+        });
+
+        lblEntrar.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEntrar.setText("REGISTRAR");
+        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEntrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblEntrarMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelEntrarLayout = new javax.swing.GroupLayout(panelEntrar);
+        panelEntrar.setLayout(panelEntrarLayout);
+        panelEntrarLayout.setHorizontalGroup(
+            panelEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        panelEntrarLayout.setVerticalGroup(
+            panelEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelFondoRegistro.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 110, 30));
+
+        lblIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblIniciarSesion.setText("Ingrese sus datos");
+        panelFondoRegistro.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+
+        lblUsuario.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblUsuario.setText("Correo");
+        panelFondoRegistro.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 90, -1));
+
+        lblUsuario1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblUsuario1.setText("Usuario");
+        panelFondoRegistro.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, -1));
+
+        lblUsuario2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblUsuario2.setText("Contraseña");
+        panelFondoRegistro.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, -1));
+
+        lblUsuario3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblUsuario3.setText("Telefono");
+        panelFondoRegistro.add(lblUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 90, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
+        panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 240, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(95, 95, 95))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(30, 30, 30))
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(135, 135, 135))
+            .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1)
-                .addGap(18, 18, 18)
-                .addComponent(lblContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, Short.MAX_VALUE)
-                .addGap(45, 45, 45))
+            .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
+        javax.swing.JOptionPane.showMessageDialog(this, "Ha iniciado sesion");
+    }//GEN-LAST:event_lblEntrarMouseClicked
+
+    private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
+
+    }//GEN-LAST:event_lblEntrarMouseEntered
+
+    private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
+
+    }//GEN-LAST:event_panelEntrarMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblContraseña;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblEntrar;
+    private javax.swing.JLabel lblIniciarSesion;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblUsuario1;
+    private javax.swing.JLabel lblUsuario2;
+    private javax.swing.JLabel lblUsuario3;
+    private javax.swing.JPanel panelEntrar;
+    private javax.swing.JPanel panelFondoRegistro;
     // End of variables declaration//GEN-END:variables
 }
