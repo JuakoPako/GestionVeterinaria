@@ -5,6 +5,7 @@
 package app;
 
 import java.awt.Color;
+import model.Cliente;
 
 /**
  *
@@ -93,6 +94,9 @@ public class LoginPrueba extends javax.swing.JFrame {
 
         panelEntrar.setBackground(new java.awt.Color(1, 136, 123));
         panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelEntrarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelEntrarMouseEntered(evt);
             }
@@ -154,7 +158,9 @@ public class LoginPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_pfEntradaContraseñaActionPerformed
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
+            
 
+        
     }//GEN-LAST:event_lblEntrarMouseEntered
 
     private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
@@ -185,8 +191,29 @@ public class LoginPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_pfEntradaContraseñaMousePressed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        javax.swing.JOptionPane.showMessageDialog(this, "Ha iniciado sesion");
+        Cliente oCliente = new Cliente();
+        oCliente.setNombreUsuario("admin");
+        oCliente.setContraseña("1234");
+        
+        String password = new String(pfEntradaContraseña.getPassword());
+        if (txtEntradaUsuario.getText().equals(oCliente.getNombreUsuario()) && password.equals(oCliente.getContraseña())) {
+            
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Has Iniciado Sesion Correctamente");
+            Menu Menu = new Menu();
+            Menu.setVisible(true);
+            this.dispose();
+        }
+        
+        else {
+            javax.swing.JOptionPane.showMessageDialog(rootPane, "Credenciales Incorrectas");
+        }
+        
+        
     }//GEN-LAST:event_lblEntrarMouseClicked
+
+    private void panelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelEntrarMouseClicked
 
     /**
      * @param args the command line arguments

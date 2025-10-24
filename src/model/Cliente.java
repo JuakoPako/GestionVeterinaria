@@ -64,5 +64,9 @@ public class Cliente {
     }
     
     
+    public void verificarDatos() {
+        
+    }
+    
     
 }
