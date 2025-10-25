@@ -118,7 +118,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         panelFondoRegistro.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 110, 30));
 
         lblRegistrarse.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        lblRegistrarse.setText("Ingrese sus datos");
+        lblRegistrarse.setText("Registre sus datos");
         panelFondoRegistro.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         lblCorreo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
