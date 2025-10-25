@@ -40,7 +40,7 @@ public class LoginPrueba extends javax.swing.JFrame {
         lblEntrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblUsuario1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblRegistrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -133,13 +133,13 @@ public class LoginPrueba extends javax.swing.JFrame {
         lblUsuario1.setText("Usuario");
         panelFondo.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
 
-        jLabel1.setText("jLabel1");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRegistrar.setText("jLabel1");
+        lblRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lblRegistrarMouseClicked(evt);
             }
         });
-        panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, -1));
+        panelFondo.add(lblRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,9 +224,11 @@ public class LoginPrueba extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelEntrarMouseClicked
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
+            RegistrarPrueba registrarVentana = new RegistrarPrueba();
+            registrarVentana.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_lblRegistrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -265,13 +267,13 @@ public class LoginPrueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIcono;
     private javax.swing.JLabel lblIniciarSesion;
+    private javax.swing.JLabel lblRegistrar;
     private javax.swing.JLabel lblUsuario1;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondo;

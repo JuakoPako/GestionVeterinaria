@@ -1,17 +1,21 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package app;
 
+import model.Cliente;
 
-public class Registrar extends javax.swing.JPanel {
+/**
+ *
+ * @author Joaquin
+ */
+public class RegistrarPrueba extends javax.swing.JFrame {
 
     GestorClientes gestor = new GestorClientes();
     
-    public Registrar() {
+    public RegistrarPrueba() {
         initComponents();
-        
     }
 
     /**
@@ -23,6 +27,7 @@ public class Registrar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         panelFondoRegistro = new javax.swing.JPanel();
         txtUsuario = new javax.swing.JTextField();
         pwContra = new javax.swing.JPasswordField();
@@ -36,6 +41,9 @@ public class Registrar extends javax.swing.JPanel {
         lblContraseña = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelFondoRegistro.setBackground(new java.awt.Color(251, 252, 253));
         panelFondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,16 +140,47 @@ public class Registrar extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
         panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 240, 560));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        lblLogin.setText("jLabel1");
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLoginMouseClicked(evt);
+            }
+        });
+        panelFondoRegistro.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 40, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
@@ -157,33 +196,50 @@ public class Registrar extends javax.swing.JPanel {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
-        
-        
-        
+
     }//GEN-LAST:event_lblRegistrarMouseClicked
 
     private void lblRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseEntered
-        
+
         String usuario = txtUsuario.getText();
         String contraseña = new String(pwContra.getPassword());
         String telefono = txtTelefono.getText();
         String correo = txtCorreo.getText();
-        
+
         //Validacion de Campos vacios
-        
+
         if (usuario.isEmpty() || contraseña.isEmpty() || telefono.isEmpty() || correo.isEmpty()) {
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
+
+        }
         
-        javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
+        Cliente nuevoCliente = new Cliente(usuario, contraseña, telefono, correo);
         
-    }
-        
-        
+        gestor.agregarCliente(nuevoCliente);
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
+
+    
+        LoginPrueba login = new LoginPrueba();
+         login.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_lblRegistrarMouseEntered
 
     private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
 
     }//GEN-LAST:event_panelEntrarMouseEntered
 
+    private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+        LoginPrueba Login = new LoginPrueba();
+        Login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblLoginMouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -198,31 +254,30 @@ public class Registrar extends javax.swing.JPanel {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registrar().setVisible(true);
+                new RegistrarPrueba().setVisible(true);
             }
         });
     }
-    
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblRegistrar;
     private javax.swing.JLabel lblRegistrarse;
     private javax.swing.JLabel lblTelefono;
