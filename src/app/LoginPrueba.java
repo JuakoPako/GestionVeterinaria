@@ -31,7 +31,6 @@ public class LoginPrueba extends javax.swing.JFrame {
 
         panelFondo = new javax.swing.JPanel();
         lblIniciarSesion = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
         txtEntradaUsuario = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         lblContraseña = new javax.swing.JLabel();
@@ -40,6 +39,8 @@ public class LoginPrueba extends javax.swing.JFrame {
         panelEntrar = new javax.swing.JPanel();
         lblEntrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblUsuario1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -50,10 +51,6 @@ public class LoginPrueba extends javax.swing.JFrame {
         lblIniciarSesion.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
         lblIniciarSesion.setText("Iniciar sesion");
         panelFondo.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
-
-        lblUsuario.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario.setText("Usuario");
-        panelFondo.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
 
         txtEntradaUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaUsuario.setForeground(new java.awt.Color(204, 204, 204));
@@ -131,6 +128,18 @@ public class LoginPrueba extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/fondoLogin.jpg"))); // NOI18N
         panelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 210, 560));
+
+        lblUsuario1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblUsuario1.setText("Usuario");
+        panelFondo.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
+
+        jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,6 +224,10 @@ public class LoginPrueba extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelEntrarMouseClicked
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -252,13 +265,14 @@ public class LoginPrueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIcono;
     private javax.swing.JLabel lblIniciarSesion;
-    private javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblUsuario1;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPasswordField pfEntradaContraseña;
