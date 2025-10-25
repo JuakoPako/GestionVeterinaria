@@ -8,17 +8,15 @@ public class Cliente {
     
     private String nombreUsuario;
     private String contraseña;
-    private String nombreCompleto;
     private String telefono;
     private String correo;
 
     public Cliente() {
     }
 
-    public Cliente(String nombreUsuario, String contraseña, String nombreCompleto, String telefono, String correo) {
+    public Cliente(String nombreUsuario, String contraseña, String telefono, String correo) {
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
-        this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;
         this.correo = correo;
     }
@@ -39,13 +37,6 @@ public class Cliente {
         this.contraseña = contraseña;
     }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
-
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
-    }
 
     public String getTelefono() {
         return telefono;
