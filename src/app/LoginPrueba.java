@@ -40,7 +40,8 @@ public class LoginPrueba extends javax.swing.JFrame {
         lblEntrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblUsuario1 = new javax.swing.JLabel();
-        lblRegistrar = new javax.swing.JLabel();
+        panelInicioSesion = new javax.swing.JPanel();
+        lblRegistrar1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -73,6 +74,7 @@ public class LoginPrueba extends javax.swing.JFrame {
         lblContraseña.setText("Contraseña");
         panelFondo.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 110, -1));
 
+        pfEntradaContraseña.setText("************");
         pfEntradaContraseña.setBorder(null);
         pfEntradaContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -133,13 +135,39 @@ public class LoginPrueba extends javax.swing.JFrame {
         lblUsuario1.setText("Usuario");
         panelFondo.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 60, -1));
 
-        lblRegistrar.setText("jLabel1");
-        lblRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRegistrarMouseClicked(evt);
+        panelInicioSesion.setBackground(new java.awt.Color(245, 245, 220));
+        panelInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelInicioSesionMouseEntered(evt);
             }
         });
-        panelFondo.add(lblRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, -1, -1));
+
+        lblRegistrar1.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblRegistrar1.setForeground(new java.awt.Color(1, 136, 123));
+        lblRegistrar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRegistrar1.setText("REGISTRARME");
+        lblRegistrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegistrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegistrar1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRegistrar1MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelInicioSesionLayout = new javax.swing.GroupLayout(panelInicioSesion);
+        panelInicioSesion.setLayout(panelInicioSesionLayout);
+        panelInicioSesionLayout.setHorizontalGroup(
+            panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        panelInicioSesionLayout.setVerticalGroup(
+            panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelFondo.add(panelInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,9 +195,8 @@ public class LoginPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_pfEntradaContraseñaActionPerformed
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
-            
 
-        
+
     }//GEN-LAST:event_lblEntrarMouseEntered
 
     private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
@@ -203,32 +230,38 @@ public class LoginPrueba extends javax.swing.JFrame {
         Cliente oCliente = new Cliente();
         oCliente.setNombreUsuario("admin");
         oCliente.setContraseña("1234");
-        
+
         String password = new String(pfEntradaContraseña.getPassword());
         if (txtEntradaUsuario.getText().equals(oCliente.getNombreUsuario()) && password.equals(oCliente.getContraseña())) {
-            
+
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Has Iniciado Sesion Correctamente");
             Menu Menu = new Menu();
             Menu.setVisible(true);
             this.dispose();
-        }
-        
-        else {
+        } else {
             javax.swing.JOptionPane.showMessageDialog(rootPane, "Credenciales Incorrectas");
         }
-        
-        
+
+
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void panelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_panelEntrarMouseClicked
 
-    private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
-            RegistrarPrueba registrarVentana = new RegistrarPrueba();
-            registrarVentana.setVisible(true);
-            this.dispose();
-    }//GEN-LAST:event_lblRegistrarMouseClicked
+    private void lblRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseClicked
+        RegistrarPrueba registrarVentana = new RegistrarPrueba();
+        registrarVentana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblRegistrar1MouseClicked
+
+    private void lblRegistrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblRegistrar1MouseEntered
+
+    private void panelInicioSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioSesionMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelInicioSesionMouseEntered
 
     /**
      * @param args the command line arguments
@@ -273,10 +306,11 @@ public class LoginPrueba extends javax.swing.JFrame {
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIcono;
     private javax.swing.JLabel lblIniciarSesion;
-    private javax.swing.JLabel lblRegistrar;
+    private javax.swing.JLabel lblRegistrar1;
     private javax.swing.JLabel lblUsuario1;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondo;
+    private javax.swing.JPanel panelInicioSesion;
     private javax.swing.JPasswordField pfEntradaContraseña;
     private javax.swing.JTextField txtEntradaUsuario;
     // End of variables declaration//GEN-END:variables

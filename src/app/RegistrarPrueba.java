@@ -4,6 +4,7 @@
  */
 package app;
 
+import java.awt.Color;
 import model.Cliente;
 
 /**
@@ -13,7 +14,7 @@ import model.Cliente;
 public class RegistrarPrueba extends javax.swing.JFrame {
 
     GestorClientes gestor = new GestorClientes();
-    
+
     public RegistrarPrueba() {
         initComponents();
     }
@@ -41,7 +42,8 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         lblContraseña = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lblLogin = new javax.swing.JLabel();
+        panelInicioSesion = new javax.swing.JPanel();
+        lblRegistrar1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,8 +51,12 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         panelFondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
-        txtUsuario.setText("Registre su nombre de usuario");
         txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUsuarioMousePressed(evt);
+            }
+        });
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -59,13 +65,21 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         panelFondoRegistro.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 310, 40));
 
         pwContra.setForeground(new java.awt.Color(204, 204, 204));
-        pwContra.setText("jPasswordField1");
         pwContra.setBorder(null);
+        pwContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pwContraMousePressed(evt);
+            }
+        });
         panelFondoRegistro.add(pwContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 280, -1));
 
         txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
-        txtTelefono.setText("Registre su numero de telefono");
         txtTelefono.setBorder(null);
+        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTelefonoMousePressed(evt);
+            }
+        });
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
@@ -74,8 +88,12 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         panelFondoRegistro.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 40));
 
         txtCorreo.setForeground(new java.awt.Color(204, 204, 204));
-        txtCorreo.setText("Registre su correo electronico");
         txtCorreo.setBorder(null);
+        txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCorreoMousePressed(evt);
+            }
+        });
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
@@ -140,13 +158,39 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
         panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 240, 560));
 
-        lblLogin.setText("jLabel1");
-        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblLoginMouseClicked(evt);
+        panelInicioSesion.setBackground(new java.awt.Color(245, 245, 220));
+        panelInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelInicioSesionMouseEntered(evt);
             }
         });
-        panelFondoRegistro.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 40, -1));
+
+        lblRegistrar1.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblRegistrar1.setForeground(new java.awt.Color(1, 136, 123));
+        lblRegistrar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRegistrar1.setText("INICIO DE SESION");
+        lblRegistrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegistrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRegistrar1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRegistrar1MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelInicioSesionLayout = new javax.swing.GroupLayout(panelInicioSesion);
+        panelInicioSesion.setLayout(panelInicioSesionLayout);
+        panelInicioSesionLayout.setHorizontalGroup(
+            panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        panelInicioSesionLayout.setVerticalGroup(
+            panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelFondoRegistro.add(panelInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 110, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -196,34 +240,30 @@ public class RegistrarPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoActionPerformed
 
     private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
-
-    }//GEN-LAST:event_lblRegistrarMouseClicked
-
-    private void lblRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseEntered
-
         String usuario = txtUsuario.getText();
         String contraseña = new String(pwContra.getPassword());
         String telefono = txtTelefono.getText();
         String correo = txtCorreo.getText();
 
         //Validacion de Campos vacios
-
         if (usuario.isEmpty() || contraseña.isEmpty() || telefono.isEmpty() || correo.isEmpty()) {
 
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
 
         }
-        
+
         Cliente nuevoCliente = new Cliente(usuario, contraseña, telefono, correo);
-        
+
         gestor.agregarCliente(nuevoCliente);
 
         javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
 
-    
         LoginPrueba login = new LoginPrueba();
-         login.setVisible(true);
+        login.setVisible(true);
         this.dispose();
+    }//GEN-LAST:event_lblRegistrarMouseClicked
+
+    private void lblRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseEntered
 
     }//GEN-LAST:event_lblRegistrarMouseEntered
 
@@ -231,11 +271,35 @@ public class RegistrarPrueba extends javax.swing.JFrame {
 
     }//GEN-LAST:event_panelEntrarMouseEntered
 
-    private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
+
+    }//GEN-LAST:event_txtUsuarioMousePressed
+
+    private void pwContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pwContraMousePressed
+        
+    }//GEN-LAST:event_pwContraMousePressed
+
+    private void txtTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMousePressed
+        
+    }//GEN-LAST:event_txtTelefonoMousePressed
+
+    private void txtCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoMousePressed
+        
+    }//GEN-LAST:event_txtCorreoMousePressed
+
+    private void lblRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseClicked
         LoginPrueba Login = new LoginPrueba();
         Login.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblLoginMouseClicked
+    }//GEN-LAST:event_lblRegistrar1MouseClicked
+
+    private void lblRegistrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblRegistrar1MouseEntered
+
+    private void panelInicioSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioSesionMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelInicioSesionMouseEntered
 
     /**
      * @param args the command line arguments
@@ -277,13 +341,14 @@ public class RegistrarPrueba extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
-    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblRegistrar;
+    private javax.swing.JLabel lblRegistrar1;
     private javax.swing.JLabel lblRegistrarse;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblUsuario1;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondoRegistro;
+    private javax.swing.JPanel panelInicioSesion;
     private javax.swing.JPasswordField pwContra;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtTelefono;
