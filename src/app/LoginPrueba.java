@@ -13,10 +13,10 @@ import model.Cliente;
  */
 public class LoginPrueba extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginPrueba
-     */
-    public LoginPrueba() {
+    private GestorClientes gestor;
+    
+    public LoginPrueba(GestorClientes gestor1) {
+        this.gestor = gestor1;
         initComponents();
     }
 
@@ -227,20 +227,29 @@ public class LoginPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_pfEntradaContraseñaMousePressed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        Cliente oCliente = new Cliente();
-        oCliente.setNombreUsuario("admin");
-        oCliente.setContraseña("1234");
 
-        String password = new String(pfEntradaContraseña.getPassword());
-        if (txtEntradaUsuario.getText().equals(oCliente.getNombreUsuario()) && password.equals(oCliente.getContraseña())) {
+        
+    String nombreUsuario = txtEntradaUsuario.getText();
+    String password = new String(pfEntradaContraseña.getPassword());
+    
+    boolean encontrado = false;
 
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Has Iniciado Sesion Correctamente");
-            Menu Menu = new Menu();
-            Menu.setVisible(true);
-            this.dispose();
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(rootPane, "Credenciales Incorrectas");
+    for (Cliente cliente : gestor.getListaClientes()) {
+        if (cliente.getNombreUsuario().equals(nombreUsuario) && 
+            cliente.getContraseña().equals(password)) {
+            encontrado = true;
+            break;
         }
+    }
+
+    if (encontrado) {
+        javax.swing.JOptionPane.showMessageDialog(rootPane, "Has iniciado sesión correctamente");
+        Menu menu = new Menu();
+        menu.setVisible(true);
+        this.dispose();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(rootPane, "Credenciales incorrectas");
+    }
 
 
     }//GEN-LAST:event_lblEntrarMouseClicked
@@ -250,7 +259,7 @@ public class LoginPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_panelEntrarMouseClicked
 
     private void lblRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseClicked
-        RegistrarPrueba registrarVentana = new RegistrarPrueba();
+        RegistrarPrueba registrarVentana = new RegistrarPrueba(gestor);
         registrarVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrar1MouseClicked
@@ -294,7 +303,8 @@ public class LoginPrueba extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPrueba().setVisible(true);
+                GestorClientes gestor = new GestorClientes();
+                new LoginPrueba(gestor).setVisible(true);
             }
         });
     }

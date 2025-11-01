@@ -13,9 +13,10 @@ import model.Cliente;
  */
 public class RegistrarPrueba extends javax.swing.JFrame {
 
-    GestorClientes gestor = new GestorClientes();
+    private GestorClientes gestor;
 
-    public RegistrarPrueba() {
+    public RegistrarPrueba(GestorClientes gestor) {
+        this.gestor = gestor;
         initComponents();
     }
 
@@ -249,7 +250,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         if (usuario.isEmpty() || contraseña.isEmpty() || telefono.isEmpty() || correo.isEmpty()) {
 
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
-
+            return;
         }
 
         Cliente nuevoCliente = new Cliente(usuario, contraseña, telefono, correo);
@@ -258,7 +259,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
 
         javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
 
-        LoginPrueba login = new LoginPrueba();
+        LoginPrueba login = new LoginPrueba(gestor);
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrarMouseClicked
@@ -288,7 +289,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoMousePressed
 
     private void lblRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseClicked
-        LoginPrueba Login = new LoginPrueba();
+        LoginPrueba Login = new LoginPrueba(gestor);
         Login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrar1MouseClicked
@@ -304,37 +305,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistrarPrueba().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

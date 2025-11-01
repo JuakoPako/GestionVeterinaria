@@ -15,4 +15,8 @@ public class GestorClientes {
         listaClientes.add(cliente);
     }
     
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+    
 }
