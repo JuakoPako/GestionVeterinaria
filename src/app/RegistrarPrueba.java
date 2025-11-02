@@ -31,6 +31,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelFondoRegistro = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         pwContra = new javax.swing.JPasswordField();
         txtTelefono = new javax.swing.JTextField();
@@ -42,7 +43,6 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         lblUsuario1 = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         panelInicioSesion = new javax.swing.JPanel();
         lblRegistrar1 = new javax.swing.JLabel();
 
@@ -51,7 +51,9 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         panelFondoRegistro.setBackground(new java.awt.Color(251, 252, 253));
         panelFondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
+        panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
+
         txtUsuario.setBorder(null);
         txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -65,7 +67,6 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         });
         panelFondoRegistro.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 310, 40));
 
-        pwContra.setForeground(new java.awt.Color(204, 204, 204));
         pwContra.setBorder(null);
         pwContra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -74,7 +75,6 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         });
         panelFondoRegistro.add(pwContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 280, -1));
 
-        txtTelefono.setForeground(new java.awt.Color(204, 204, 204));
         txtTelefono.setBorder(null);
         txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -88,7 +88,6 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         });
         panelFondoRegistro.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 40));
 
-        txtCorreo.setForeground(new java.awt.Color(204, 204, 204));
         txtCorreo.setBorder(null);
         txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -155,9 +154,6 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         lblTelefono.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblTelefono.setText("Telefono");
         panelFondoRegistro.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 90, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
-        panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 240, 560));
 
         panelInicioSesion.setBackground(new java.awt.Color(245, 245, 220));
         panelInicioSesion.addMouseListener(new java.awt.event.MouseAdapter() {
