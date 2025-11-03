@@ -4,7 +4,7 @@
  */
 package app;
 
-import model.Cliente;
+
 
 /**
  *
@@ -12,12 +12,11 @@ import model.Cliente;
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
-     */
+    private GestorCitas gestorCitas;
+    
     public Menu() {
         initComponents();
-        
+        this.gestorCitas = new GestorCitas();
         
     }
 
@@ -32,10 +31,10 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        lblMenu = new javax.swing.JLabel();
+        PnlRegistrarMascota = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        pnlAgendarCita = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,15 +60,15 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 560));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Menu Principal");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 210, 40));
+        lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenu.setText("Menu Principal");
+        jPanel1.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 210, 40));
 
-        jPanel3.setBackground(new java.awt.Color(1, 136, 123));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        PnlRegistrarMascota.setBackground(new java.awt.Color(1, 136, 123));
+        PnlRegistrarMascota.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
+                PnlRegistrarMascotaMouseClicked(evt);
             }
         });
 
@@ -83,50 +82,60 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout PnlRegistrarMascotaLayout = new javax.swing.GroupLayout(PnlRegistrarMascota);
+        PnlRegistrarMascota.setLayout(PnlRegistrarMascotaLayout);
+        PnlRegistrarMascotaLayout.setHorizontalGroup(
+            PnlRegistrarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlRegistrarMascotaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        PnlRegistrarMascotaLayout.setVerticalGroup(
+            PnlRegistrarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlRegistrarMascotaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 150, 30));
+        jPanel1.add(PnlRegistrarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, 30));
 
-        jPanel5.setBackground(new java.awt.Color(1, 136, 123));
+        pnlAgendarCita.setBackground(new java.awt.Color(1, 136, 123));
+        pnlAgendarCita.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAgendarCitaMouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("AGENDAR HORA");
+        jLabel4.setText("AGENDAR CITA");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlAgendarCitaLayout = new javax.swing.GroupLayout(pnlAgendarCita);
+        pnlAgendarCita.setLayout(pnlAgendarCitaLayout);
+        pnlAgendarCitaLayout.setHorizontalGroup(
+            pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgendarCitaLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(24, 24, 24))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        pnlAgendarCitaLayout.setVerticalGroup(
+            pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAgendarCitaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 150, 30));
+        jPanel1.add(pnlAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,13 +153,25 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+    private void PnlRegistrarMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PnlRegistrarMascotaMouseClicked
         
-    }//GEN-LAST:event_jPanel3MouseClicked
+    }//GEN-LAST:event_PnlRegistrarMascotaMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void pnlAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAgendarCitaMouseClicked
+        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas);
+        ventanaCitas.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_pnlAgendarCitaMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas);
+        ventanaCitas.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -188,12 +209,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel PnlRegistrarMascota;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblMenu;
+    private javax.swing.JPanel pnlAgendarCita;
     // End of variables declaration//GEN-END:variables
 }
