@@ -3,17 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package app;
-import model.Mascota;
 
 
 /**
  *
  * @author Franco
  */
-public class VerMascotas extends javax.swing.JFrame {
+public class ActualizarMascotas extends javax.swing.JFrame {
 
     
-    public VerMascotas() {
+    public ActualizarMascotas() {
         initComponents();
         
     }
@@ -30,8 +29,6 @@ public class VerMascotas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblNombreMascota = new javax.swing.JLabel();
         txtEntradaNombre = new javax.swing.JTextField();
-        panelEntrar = new javax.swing.JPanel();
-        lblEntrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,45 +55,6 @@ public class VerMascotas extends javax.swing.JFrame {
         });
         jPanel1.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
 
-        panelEntrar.setBackground(new java.awt.Color(1, 136, 123));
-        panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelEntrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelEntrarMouseEntered(evt);
-            }
-        });
-
-        lblEntrar.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEntrar.setText("ENTRAR");
-        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblEntrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEntrarMouseEntered(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelEntrarLayout = new javax.swing.GroupLayout(panelEntrar);
-        panelEntrar.setLayout(panelEntrarLayout);
-        panelEntrarLayout.setHorizontalGroup(
-            panelEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEntrarLayout.createSequentialGroup()
-                .addComponent(lblEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelEntrarLayout.setVerticalGroup(
-            panelEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 80, 30));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
         pack();
@@ -110,32 +68,13 @@ public class VerMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
-    private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        Mascota oMascota = new Mascota();
-        
-    }//GEN-LAST:event_lblEntrarMouseClicked
-
-    private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
-
-    }//GEN-LAST:event_lblEntrarMouseEntered
-
-    private void panelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_panelEntrarMouseClicked
-
-    private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
-
-    }//GEN-LAST:event_panelEntrarMouseEntered
-
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblNombreMascota;
-    private javax.swing.JPanel panelEntrar;
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables
 }

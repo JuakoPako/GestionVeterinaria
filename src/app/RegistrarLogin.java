@@ -11,11 +11,11 @@ import model.Cliente;
  *
  * @author Joaquin
  */
-public class RegistrarPrueba extends javax.swing.JFrame {
+public class RegistrarLogin extends javax.swing.JFrame {
 
     private GestorClientes gestor;
 
-    public RegistrarPrueba(GestorClientes gestor) {
+    public RegistrarLogin(GestorClientes gestor) {
         this.gestor = gestor;
         initComponents();
     }
@@ -255,7 +255,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
 
         javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
 
-        LoginPrueba login = new LoginPrueba(gestor);
+        Login login = new Login(gestor);
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrarMouseClicked
@@ -285,7 +285,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoMousePressed
 
     private void lblVolverInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverInicioMouseClicked
-        LoginPrueba Login = new LoginPrueba(gestor);
+        Login Login = new Login(gestor);
         Login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverInicioMouseClicked

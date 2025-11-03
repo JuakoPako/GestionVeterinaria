@@ -11,11 +11,11 @@ import model.Cliente;
  *
  * @author Franco
  */
-public class LoginPrueba extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     private GestorClientes gestor;
     
-    public LoginPrueba(GestorClientes gestor1) {
+    public Login(GestorClientes gestor1) {
         this.gestor = gestor1;
         initComponents();
     }
@@ -256,7 +256,7 @@ public class LoginPrueba extends javax.swing.JFrame {
     }//GEN-LAST:event_panelEntrarMouseClicked
 
     private void lblRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseClicked
-        RegistrarPrueba registrarVentana = new RegistrarPrueba(gestor);
+        RegistrarLogin registrarVentana = new RegistrarLogin(gestor);
         registrarVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrar1MouseClicked
@@ -286,14 +286,20 @@ public class LoginPrueba extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPrueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -301,7 +307,7 @@ public class LoginPrueba extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 GestorClientes gestor = new GestorClientes();
-                new LoginPrueba(gestor).setVisible(true);
+                new Login(gestor).setVisible(true);
             }
         });
     }

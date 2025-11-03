@@ -226,9 +226,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
-    RegistroMascotas registro = new RegistroMascotas();
-    registro.setVisible(true);
-    this.dispose();
+    
     
     }//GEN-LAST:event_lblRegistroMouseClicked
 
