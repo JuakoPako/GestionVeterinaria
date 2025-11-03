@@ -40,10 +40,10 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(251, 252, 253));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel2.setBackground(new java.awt.Color(51, 102, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -62,7 +62,7 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
         lblGestionDeMascotas.setText("Gestion de mascotas");
         jPanel1.add(lblGestionDeMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, -1, -1));
 
-        panelEntrar.setBackground(new java.awt.Color(51, 51, 255));
+        panelEntrar.setBackground(new java.awt.Color(51, 102, 255));
         panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelEntrarMouseEntered(evt);
@@ -99,7 +99,7 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
 
         jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 130, 30));
 
-        panelEntrar1.setBackground(new java.awt.Color(51, 51, 255));
+        panelEntrar1.setBackground(new java.awt.Color(51, 102, 255));
         panelEntrar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelEntrar1MouseEntered(evt);
@@ -136,7 +136,7 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
 
         jPanel1.add(panelEntrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 130, 30));
 
-        panelEntrar2.setBackground(new java.awt.Color(51, 51, 255));
+        panelEntrar2.setBackground(new java.awt.Color(51, 102, 255));
         panelEntrar2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelEntrar2MouseEntered(evt);
@@ -173,7 +173,7 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
 
         jPanel1.add(panelEntrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 30));
 
-        panelEntrar3.setBackground(new java.awt.Color(51, 51, 255));
+        panelEntrar3.setBackground(new java.awt.Color(51, 102, 255));
         panelEntrar3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelEntrar3MouseEntered(evt);
@@ -225,26 +225,8 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
-        String usuario = txtUsuario.getText();
-        String contraseña = new String(pwContra.getPassword());
-        String telefono = txtTelefono.getText();
-        String correo = txtCorreo.getText();
-
-        //Validacion de Campos vacios
-        if (usuario.isEmpty() || contraseña.isEmpty() || telefono.isEmpty() || correo.isEmpty()) {
-
-            javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
-            return;
-        }
-
-        Cliente nuevoCliente = new Cliente(usuario, contraseña, telefono, correo);
-
-        gestor.agregarCliente(nuevoCliente);
-
-        javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
-
-        LoginPrueba login = new LoginPrueba(gestor);
-        login.setVisible(true);
+        RegistroMascotas registroMascotas = new RegistroMascotas();
+        registroMascotas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrarMouseClicked
 
@@ -295,7 +277,6 @@ public class GestionMascotaMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
