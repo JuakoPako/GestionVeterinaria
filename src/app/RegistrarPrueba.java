@@ -44,7 +44,7 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         lblContraseña = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         panelInicioSesion = new javax.swing.JPanel();
-        lblRegistrar1 = new javax.swing.JLabel();
+        lblVolverInicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,17 +162,17 @@ public class RegistrarPrueba extends javax.swing.JFrame {
             }
         });
 
-        lblRegistrar1.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblRegistrar1.setForeground(new java.awt.Color(1, 136, 123));
-        lblRegistrar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistrar1.setText("INICIO DE SESION");
-        lblRegistrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblRegistrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblVolverInicio.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblVolverInicio.setForeground(new java.awt.Color(1, 136, 123));
+        lblVolverInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVolverInicio.setText("INICIO DE SESION");
+        lblVolverInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolverInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblRegistrar1MouseClicked(evt);
+                lblVolverInicioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblRegistrar1MouseEntered(evt);
+                lblVolverInicioMouseEntered(evt);
             }
         });
 
@@ -180,11 +180,11 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         panelInicioSesion.setLayout(panelInicioSesionLayout);
         panelInicioSesionLayout.setHorizontalGroup(
             panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addComponent(lblVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
         panelInicioSesionLayout.setVerticalGroup(
             panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblRegistrar1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(lblVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         panelFondoRegistro.add(panelInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 110, 30));
@@ -284,15 +284,15 @@ public class RegistrarPrueba extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtCorreoMousePressed
 
-    private void lblRegistrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseClicked
+    private void lblVolverInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverInicioMouseClicked
         LoginPrueba Login = new LoginPrueba(gestor);
         Login.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_lblRegistrar1MouseClicked
+    }//GEN-LAST:event_lblVolverInicioMouseClicked
 
-    private void lblRegistrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseEntered
+    private void lblVolverInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverInicioMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblRegistrar1MouseEntered
+    }//GEN-LAST:event_lblVolverInicioMouseEntered
 
     private void panelInicioSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioSesionMouseEntered
         // TODO add your handling code here:
@@ -309,10 +309,10 @@ public class RegistrarPrueba extends javax.swing.JFrame {
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblRegistrar;
-    private javax.swing.JLabel lblRegistrar1;
     private javax.swing.JLabel lblRegistrarse;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblUsuario1;
+    private javax.swing.JLabel lblVolverInicio;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondoRegistro;
     private javax.swing.JPanel panelInicioSesion;

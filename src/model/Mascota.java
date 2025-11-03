@@ -7,18 +7,18 @@ package model;
 public class Mascota {
     
     private String nombre;
-    private String especie;
+    private String id;
     private String raza;
-    private int edad;
+    private String edad;
     private String sexo;
     private String observaciones;
 
     public Mascota() {
     }
 
-    public Mascota(String nombre, String especie, String raza, int edad, String sexo, String observaciones) {
+    public Mascota(String nombre, String id, String raza, String edad, String sexo, String observaciones) {
         this.nombre = nombre;
-        this.especie = especie;
+        this.id = id;
         this.raza = raza;
         this.edad = edad;
         this.sexo = sexo;
@@ -34,11 +34,11 @@ public class Mascota {
     }
 
     public String getEspecie() {
-        return especie;
+        return id;
     }
 
     public void setEspecie(String especie) {
-        this.especie = especie;
+        this.id = especie;
     }
 
     public String getRaza() {
@@ -49,11 +49,11 @@ public class Mascota {
         this.raza = raza;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 

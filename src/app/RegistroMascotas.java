@@ -4,16 +4,17 @@
  */
 package app;
 
+import model.Mascota;
+
 /**
  *
  * @author Franco
  */
 public class RegistroMascotas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroMascotas
-     */
-    public RegistroMascotas() {
+    private GestorMascotas gestor;
+    public RegistroMascotas(GestorMascotas gestor) {
+        this.gestor = gestor;
         initComponents();
     }
 
@@ -26,131 +27,154 @@ public class RegistroMascotas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblGestionDeMascotas = new javax.swing.JLabel();
-        txtEntradaUsuario = new javax.swing.JTextField();
-        lblUsuario1 = new javax.swing.JLabel();
-        lblUsuario2 = new javax.swing.JLabel();
-        txtEntradaUsuario1 = new javax.swing.JTextField();
-        lblUsuario3 = new javax.swing.JLabel();
-        txtEntradaUsuario2 = new javax.swing.JTextField();
-        lblUsuario4 = new javax.swing.JLabel();
-        txtEntradaUsuario3 = new javax.swing.JTextField();
-        lblUsuario5 = new javax.swing.JLabel();
-        txtEntradaUsuario4 = new javax.swing.JTextField();
-        panelEntrar = new javax.swing.JPanel();
+        panelFondo = new javax.swing.JPanel();
+        lblIngreseDatos = new javax.swing.JLabel();
+        lblNombreMascota = new javax.swing.JLabel();
+        txtEntradaNombre = new javax.swing.JTextField();
+        lblIdMascota = new javax.swing.JLabel();
+        txtEntradaId = new javax.swing.JTextField();
+        lblRazaMascota = new javax.swing.JLabel();
+        txtEntradaRaza = new javax.swing.JTextField();
+        lblEdadMascota = new javax.swing.JLabel();
+        txtEntradaEdad = new javax.swing.JTextField();
+        lblSexoMascota = new javax.swing.JLabel();
+        txtEntradaSexo = new javax.swing.JTextField();
+        lblSintomasMascotas = new javax.swing.JLabel();
+        txtEntradaSintomas = new javax.swing.JTextField();
+        panelRegistrar = new javax.swing.JPanel();
         lblRegistrar = new javax.swing.JLabel();
+        panelVolverMenu = new javax.swing.JPanel();
+        lblVolverMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(251, 252, 253));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelFondo.setBackground(new java.awt.Color(251, 252, 253));
+        panelFondo.setForeground(new java.awt.Color(255, 255, 255));
+        panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblGestionDeMascotas.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        lblGestionDeMascotas.setText("Ingrese los datos");
-        jPanel1.add(lblGestionDeMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        lblIngreseDatos.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblIngreseDatos.setText("Ingrese los datos");
+        panelFondo.add(lblIngreseDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        txtEntradaUsuario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaUsuario.setForeground(new java.awt.Color(204, 204, 204));
-        txtEntradaUsuario.setBorder(null);
-        txtEntradaUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblNombreMascota.setText("Nombre de la mascota");
+        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 160, -1));
+
+        txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaNombre.setForeground(new java.awt.Color(204, 204, 204));
+        txtEntradaNombre.setBorder(null);
+        txtEntradaNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaUsuarioMousePressed(evt);
+                txtEntradaNombreMousePressed(evt);
             }
         });
-        txtEntradaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaUsuarioActionPerformed(evt);
+                txtEntradaNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 200, 30));
+        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 200, 30));
 
-        lblUsuario1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario1.setText("Nombre de la mascota");
-        jPanel1.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 160, -1));
+        lblIdMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblIdMascota.setText("Asignele una ID a su mascota");
+        panelFondo.add(lblIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 200, -1));
 
-        lblUsuario2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario2.setText("Raza de la mascota");
-        jPanel1.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 160, -1));
-
-        txtEntradaUsuario1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaUsuario1.setForeground(new java.awt.Color(204, 204, 204));
-        txtEntradaUsuario1.setBorder(null);
-        txtEntradaUsuario1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEntradaId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaId.setForeground(new java.awt.Color(204, 204, 204));
+        txtEntradaId.setBorder(null);
+        txtEntradaId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaUsuario1MousePressed(evt);
+                txtEntradaIdMousePressed(evt);
             }
         });
-        txtEntradaUsuario1.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaUsuario1ActionPerformed(evt);
+                txtEntradaIdActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, 30));
+        panelFondo.add(txtEntradaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 30));
 
-        lblUsuario3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario3.setText("Edad de la mascota (años)");
-        jPanel1.add(lblUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 250, -1));
+        lblRazaMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblRazaMascota.setText("Raza de la mascota");
+        panelFondo.add(lblRazaMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 160, -1));
 
-        txtEntradaUsuario2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaUsuario2.setForeground(new java.awt.Color(204, 204, 204));
-        txtEntradaUsuario2.setBorder(null);
-        txtEntradaUsuario2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaRaza.setForeground(new java.awt.Color(204, 204, 204));
+        txtEntradaRaza.setBorder(null);
+        txtEntradaRaza.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaUsuario2MousePressed(evt);
+                txtEntradaRazaMousePressed(evt);
             }
         });
-        txtEntradaUsuario2.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaRaza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaUsuario2ActionPerformed(evt);
+                txtEntradaRazaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 200, 30));
+        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, 30));
 
-        lblUsuario4.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario4.setText("Sexo de la mascota");
-        jPanel1.add(lblUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 160, -1));
+        lblEdadMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblEdadMascota.setText("Edad de la mascota (años)");
+        panelFondo.add(lblEdadMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 250, -1));
 
-        txtEntradaUsuario3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaUsuario3.setForeground(new java.awt.Color(204, 204, 204));
-        txtEntradaUsuario3.setBorder(null);
-        txtEntradaUsuario3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEntradaEdad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaEdad.setForeground(new java.awt.Color(204, 204, 204));
+        txtEntradaEdad.setBorder(null);
+        txtEntradaEdad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaUsuario3MousePressed(evt);
+                txtEntradaEdadMousePressed(evt);
             }
         });
-        txtEntradaUsuario3.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaEdad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaUsuario3ActionPerformed(evt);
+                txtEntradaEdadActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 200, 30));
+        panelFondo.add(txtEntradaEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 200, 30));
 
-        lblUsuario5.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario5.setText("Sintomas de la mascota");
-        jPanel1.add(lblUsuario5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 160, -1));
+        lblSexoMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblSexoMascota.setText("Sexo de la mascota");
+        panelFondo.add(lblSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 160, -1));
 
-        txtEntradaUsuario4.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaUsuario4.setForeground(new java.awt.Color(204, 204, 204));
-        txtEntradaUsuario4.setBorder(null);
-        txtEntradaUsuario4.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEntradaSexo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaSexo.setForeground(new java.awt.Color(204, 204, 204));
+        txtEntradaSexo.setBorder(null);
+        txtEntradaSexo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaUsuario4MousePressed(evt);
+                txtEntradaSexoMousePressed(evt);
             }
         });
-        txtEntradaUsuario4.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaUsuario4ActionPerformed(evt);
+                txtEntradaSexoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 200, 30));
+        panelFondo.add(txtEntradaSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 200, 30));
 
-        panelEntrar.setBackground(new java.awt.Color(51, 102, 255));
-        panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblSintomasMascotas.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblSintomasMascotas.setText("Sintomas de la mascota");
+        panelFondo.add(lblSintomasMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 160, -1));
+
+        txtEntradaSintomas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaSintomas.setForeground(new java.awt.Color(204, 204, 204));
+        txtEntradaSintomas.setBorder(null);
+        txtEntradaSintomas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtEntradaSintomasMousePressed(evt);
+            }
+        });
+        txtEntradaSintomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEntradaSintomasActionPerformed(evt);
+            }
+        });
+        panelFondo.add(txtEntradaSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 200, 30));
+
+        panelRegistrar.setBackground(new java.awt.Color(51, 102, 255));
+        panelRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelEntrarMouseEntered(evt);
+                panelRegistrarMouseEntered(evt);
             }
         });
 
@@ -168,94 +192,171 @@ public class RegistroMascotas extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panelEntrarLayout = new javax.swing.GroupLayout(panelEntrar);
-        panelEntrar.setLayout(panelEntrarLayout);
-        panelEntrarLayout.setHorizontalGroup(
-            panelEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelRegistrarLayout = new javax.swing.GroupLayout(panelRegistrar);
+        panelRegistrar.setLayout(panelRegistrarLayout);
+        panelRegistrarLayout.setHorizontalGroup(
+            panelRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
-        panelEntrarLayout.setVerticalGroup(
-            panelEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelRegistrarLayout.setVerticalGroup(
+            panelRegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 110, 30));
+        panelFondo.add(panelRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 110, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
+        panelVolverMenu.setBackground(new java.awt.Color(245, 245, 220));
+        panelVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelVolverMenuMouseEntered(evt);
+            }
+        });
+
+        lblVolverMenu.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblVolverMenu.setForeground(new java.awt.Color(51, 102, 255));
+        lblVolverMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVolverMenu.setText("VOLVER AL MENU");
+        lblVolverMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblVolverMenuMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVolverMenuLayout = new javax.swing.GroupLayout(panelVolverMenu);
+        panelVolverMenu.setLayout(panelVolverMenuLayout);
+        panelVolverMenuLayout.setHorizontalGroup(
+            panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        panelVolverMenuLayout.setVerticalGroup(
+            panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        panelFondo.add(panelVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 110, 30));
+
+        getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtEntradaUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaUsuarioMousePressed
+    private void txtEntradaNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaNombreMousePressed
 
-    }//GEN-LAST:event_txtEntradaUsuarioMousePressed
+    }//GEN-LAST:event_txtEntradaNombreMousePressed
 
-    private void txtEntradaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaUsuarioActionPerformed
+    private void txtEntradaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuarioActionPerformed
+    }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
-    private void txtEntradaUsuario1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaUsuario1MousePressed
+    private void txtEntradaRazaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaRazaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario1MousePressed
+    }//GEN-LAST:event_txtEntradaRazaMousePressed
 
-    private void txtEntradaUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaUsuario1ActionPerformed
+    private void txtEntradaRazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaRazaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario1ActionPerformed
+    }//GEN-LAST:event_txtEntradaRazaActionPerformed
 
-    private void txtEntradaUsuario2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaUsuario2MousePressed
+    private void txtEntradaEdadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaEdadMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario2MousePressed
+    }//GEN-LAST:event_txtEntradaEdadMousePressed
 
-    private void txtEntradaUsuario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaUsuario2ActionPerformed
+    private void txtEntradaEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaEdadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario2ActionPerformed
+    }//GEN-LAST:event_txtEntradaEdadActionPerformed
 
-    private void txtEntradaUsuario3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaUsuario3MousePressed
+    private void txtEntradaSexoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaSexoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario3MousePressed
+    }//GEN-LAST:event_txtEntradaSexoMousePressed
 
-    private void txtEntradaUsuario3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaUsuario3ActionPerformed
+    private void txtEntradaSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaSexoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario3ActionPerformed
+    }//GEN-LAST:event_txtEntradaSexoActionPerformed
 
-    private void txtEntradaUsuario4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaUsuario4MousePressed
+    private void txtEntradaSintomasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaSintomasMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario4MousePressed
+    }//GEN-LAST:event_txtEntradaSintomasMousePressed
 
-    private void txtEntradaUsuario4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaUsuario4ActionPerformed
+    private void txtEntradaSintomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaSintomasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaUsuario4ActionPerformed
+    }//GEN-LAST:event_txtEntradaSintomasActionPerformed
 
     private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
+        String nombre = txtEntradaNombre.getText();
+        String id = txtEntradaId.getText();
+        String raza = txtEntradaRaza.getText();
+        String edad = txtEntradaEdad.getText();
+        String sexo = txtEntradaSexo.getText();
+        String sintomas = txtEntradaSintomas.getText();
 
+        if (nombre.isEmpty() || id.isEmpty() || raza.isEmpty() || edad.isEmpty() || sexo.isEmpty() || sintomas.isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
+            return;
+        }
+        Mascota nuevaMascota = new Mascota(nombre, id, raza, edad, sexo, sintomas);
+        gestor.agregarMascotas(nuevaMascota);
+        javax.swing.JOptionPane.showMessageDialog(this, "Mascota registrada correctamente.");
+        MenuGestionMascotas menuMascotas = new MenuGestionMascotas();
+        menuMascotas.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_lblRegistrarMouseClicked
 
     private void lblRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseEntered
 
     }//GEN-LAST:event_lblRegistrarMouseEntered
 
-    private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
+    private void panelRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRegistrarMouseEntered
 
-    }//GEN-LAST:event_panelEntrarMouseEntered
+    }//GEN-LAST:event_panelRegistrarMouseEntered
+
+    private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
+        MenuGestionMascotas menuMascotas = new MenuGestionMascotas();
+        menuMascotas.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblVolverMenuMouseClicked
+
+    private void lblVolverMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblVolverMenuMouseEntered
+
+    private void panelVolverMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVolverMenuMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelVolverMenuMouseEntered
+
+    private void txtEntradaIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaIdMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEntradaIdMousePressed
+
+    private void txtEntradaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEntradaIdActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblGestionDeMascotas;
+    private javax.swing.JLabel lblEdadMascota;
+    private javax.swing.JLabel lblIdMascota;
+    private javax.swing.JLabel lblIngreseDatos;
+    private javax.swing.JLabel lblNombreMascota;
+    private javax.swing.JLabel lblRazaMascota;
     private javax.swing.JLabel lblRegistrar;
-    private javax.swing.JLabel lblUsuario1;
-    private javax.swing.JLabel lblUsuario2;
-    private javax.swing.JLabel lblUsuario3;
-    private javax.swing.JLabel lblUsuario4;
-    private javax.swing.JLabel lblUsuario5;
-    private javax.swing.JPanel panelEntrar;
-    private javax.swing.JTextField txtEntradaUsuario;
-    private javax.swing.JTextField txtEntradaUsuario1;
-    private javax.swing.JTextField txtEntradaUsuario2;
-    private javax.swing.JTextField txtEntradaUsuario3;
-    private javax.swing.JTextField txtEntradaUsuario4;
+    private javax.swing.JLabel lblSexoMascota;
+    private javax.swing.JLabel lblSintomasMascotas;
+    private javax.swing.JLabel lblVolverMenu;
+    private javax.swing.JPanel panelFondo;
+    private javax.swing.JPanel panelRegistrar;
+    private javax.swing.JPanel panelVolverMenu;
+    private javax.swing.JTextField txtEntradaEdad;
+    private javax.swing.JTextField txtEntradaId;
+    private javax.swing.JTextField txtEntradaNombre;
+    private javax.swing.JTextField txtEntradaRaza;
+    private javax.swing.JTextField txtEntradaSexo;
+    private javax.swing.JTextField txtEntradaSintomas;
     // End of variables declaration//GEN-END:variables
 }
