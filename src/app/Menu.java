@@ -11,10 +11,12 @@ package app;
 public class Menu extends javax.swing.JFrame {
 
     private GestorCitas gestorCitas;
+    private GestorMascotas gestorMascotas;
 
     public Menu() {
         initComponents();
         this.gestorCitas = new GestorCitas();
+        this.gestorMascotas = new GestorMascotas();
 
     }
 
@@ -156,7 +158,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlGestionarMascotaMouseClicked
 
     private void lblGestionarMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarMascotaMouseClicked
-    MenuGestionMascotas menuMascotas = new MenuGestionMascotas();
+    MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestorMascotas);
     menuMascotas.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_lblGestionarMascotaMouseClicked

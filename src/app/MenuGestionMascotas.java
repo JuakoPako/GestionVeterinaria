@@ -11,10 +11,9 @@ package app;
  */
 public class MenuGestionMascotas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroMascotas
-     */
-    public MenuGestionMascotas() {
+    private GestorMascotas gestor;
+    public MenuGestionMascotas(GestorMascotas gestor) {
+        this.gestor = gestor;
         initComponents();
     }
 
@@ -226,7 +225,9 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
-    
+        RegistroMascotas registro = new RegistroMascotas(gestor);
+        registro.setVisible(true);
+        this.dispose();
     
     }//GEN-LAST:event_lblRegistroMouseClicked
 
@@ -239,7 +240,9 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRegistroMouseEntered
 
     private void lblVerMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMascotaMouseClicked
-        // TODO add your handling code here:
+        VerMascotas ver = new VerMascotas(gestor);
+        ver.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblVerMascotaMouseClicked
 
     private void lblVerMascotaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMascotaMouseEntered

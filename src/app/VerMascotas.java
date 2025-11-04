@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package app;
-import model.Mascota;
 
+import model.Mascota;
 
 /**
  *
@@ -12,10 +12,12 @@ import model.Mascota;
  */
 public class VerMascotas extends javax.swing.JFrame {
 
-    
-    public VerMascotas() {
+    private GestorMascotas gestor;
+
+    public VerMascotas(GestorMascotas gestor) {
+        this.gestor = gestor;
         initComponents();
-        
+
     }
 
     /**
@@ -111,8 +113,40 @@ public class VerMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        Mascota oMascota = new Mascota();
-        
+        String idBuscada = txtEntradaNombre.getText().trim();
+        if (idBuscada.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese una ID", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        boolean encontrado = false;
+        if (gestor != null && gestor.getListaMascotas() != null) {
+            for (model.Mascota m : gestor.getListaMascotas()) {
+                // Nota: en tu modelo actual el getter del id es getEspecie() (ver comentario abajo).
+                String idMascota = m.getEspecie(); // temporal, usar getId() tras arreglar modelo
+                if (idBuscada.equals(idMascota)) {
+                    encontrado = true;
+                    String msg = String.format(
+                            "ID: %s%nNombre: %s%nRaza: %s%nEdad: %s%nSexo: %s%nObservaciones: %s",
+                            idMascota,
+                            safe(m.getNombre()),
+                            safe(m.getRaza()),
+                            safe(m.getEdad()),
+                            safe(m.getSexo()),
+                            safe(m.getObservaciones())
+                    );
+                    javax.swing.JOptionPane.showMessageDialog(this, msg, "Datos de la mascota", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            }
+        }
+
+        if (!encontrado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró mascota con ID: " + idBuscada, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private String safe(String s) {
+        return s == null ? "" : s;
+
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
