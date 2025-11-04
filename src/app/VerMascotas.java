@@ -173,3 +173,4 @@ public class VerMascotas extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables
 }
+//HOLA
