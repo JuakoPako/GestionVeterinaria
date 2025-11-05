@@ -12,9 +12,9 @@ import model.Mascota;
  */
 public class VerMascotas extends javax.swing.JFrame {
 
-    private GestorMascotas gestor;
+    private GestorMain gestor;
 
-    public VerMascotas(GestorMascotas gestor) {
+    public VerMascotas(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
 

@@ -40,12 +40,10 @@
               <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="pnlAgendarCita" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="pnlVerCitas" max="32767" attributes="0"/>
-                      <Component id="pnlActualizarCita" max="32767" attributes="0"/>
-                      <Component id="pnlCancelarCita" max="32767" attributes="0"/>
-                      <Component id="pnlVolverMenu" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="pnlVerCitas" max="32767" attributes="0"/>
+                  <Component id="pnlActualizarCita" max="32767" attributes="0"/>
+                  <Component id="pnlCancelarCita" max="32767" attributes="0"/>
+                  <Component id="pnlVolverMenu" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="lblGestionDeMascotas" min="-2" max="-2" attributes="0"/>

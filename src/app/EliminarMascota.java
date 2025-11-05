@@ -12,9 +12,9 @@ import model.Mascota;
  */
 public class EliminarMascota extends javax.swing.JFrame {
 
-    private GestorMascotas gestor;
+    private GestorMain gestor;
 
-    public EliminarMascota(GestorMascotas gestor) {
+    public EliminarMascota(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
 

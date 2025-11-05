@@ -14,7 +14,7 @@ public class Cita {
     public Cita() {
     }
 
-    public Cita(String nombreCliente, String nombreMascota, String veterinario, String dia, String hora, String motivo) {
+    public Cita(String nombreMascota, String veterinario, String dia, String hora, String motivo) {
         this.nombreMascota = nombreMascota;
         this.veterinario = veterinario;
         this.dia = dia;

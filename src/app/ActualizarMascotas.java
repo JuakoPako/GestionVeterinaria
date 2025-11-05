@@ -8,10 +8,10 @@ import model.Mascota;
 
 public class ActualizarMascotas extends javax.swing.JFrame {
 
-    private GestorMascotas gestor;
+    private GestorMain gestor;
     private model.Mascota current = null;
 
-    public ActualizarMascotas(GestorMascotas gestor) {
+    public ActualizarMascotas(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
 

@@ -11,11 +11,9 @@ package app;
  */
 public class MenuGestionMascotas extends javax.swing.JFrame {
 
-    private GestorMascotas gestorMascotas;
-    private GestorCitas gestorCitas;
-    public MenuGestionMascotas(GestorMascotas gestor) {
-        this.gestorMascotas = gestor;
-        this.gestorCitas = gestorCitas;
+    private GestorMain gestor;
+    public MenuGestionMascotas(GestorMain gestor) {
+        this.gestor = gestor;
         initComponents();
     }
 
@@ -263,7 +261,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
-        RegistroMascotas registro = new RegistroMascotas(gestorMascotas);
+        RegistroMascotas registro = new RegistroMascotas(gestor);
         registro.setVisible(true);
         this.dispose();
     
@@ -278,7 +276,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRegistroMouseEntered
 
     private void lblVerMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMascotaMouseClicked
-        VerMascotas ver = new VerMascotas(gestorMascotas);
+        VerMascotas ver = new VerMascotas(gestor);
         ver.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVerMascotaMouseClicked
@@ -292,7 +290,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelVerMascotaMouseEntered
 
     private void lblActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseClicked
-        ActualizarMascotas actualizarMascotas = new ActualizarMascotas(gestorMascotas);
+        ActualizarMascotas actualizarMascotas = new ActualizarMascotas(gestor);
         actualizarMascotas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblActualizarMouseClicked
@@ -306,7 +304,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelActualizarMouseEntered
 
     private void lblEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseClicked
-        EliminarMascota eliminar = new EliminarMascota(gestorMascotas);
+        EliminarMascota eliminar = new EliminarMascota(gestor);
         eliminar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblEliminarMouseClicked
@@ -320,7 +318,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelEliminarMouseEntered
 
     private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
-        Menu menu = new Menu(gestorCitas, gestorMascotas);
+        Menu menu = new Menu(gestor);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMenuMouseClicked

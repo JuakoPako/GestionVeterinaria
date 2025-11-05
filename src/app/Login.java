@@ -13,9 +13,9 @@ import model.Cliente;
  */
 public class Login extends javax.swing.JFrame {
 
-    private GestorClientes gestor;
+    private GestorMain gestor;
     
-    public Login(GestorClientes gestor1) {
+    public Login(GestorMain gestor1) {
         this.gestor = gestor1;
         initComponents();
     }
@@ -306,7 +306,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                GestorClientes gestor = new GestorClientes();
+                GestorMain gestor = new GestorMain();
                 new Login(gestor).setVisible(true);
             }
         });

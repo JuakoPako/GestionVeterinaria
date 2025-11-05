@@ -12,9 +12,9 @@ import model.Mascota;
  */
 public class RegistroMascotas extends javax.swing.JFrame {
 
-    private GestorMascotas gestorMascotas;
-    public RegistroMascotas(GestorMascotas gestor) {
-        this.gestorMascotas = gestor;
+    private GestorMain gestor;
+    public RegistroMascotas(GestorMain gestor) {
+        this.gestor = gestor;
         initComponents();
     }
 
@@ -297,9 +297,9 @@ public class RegistroMascotas extends javax.swing.JFrame {
             return;
         }
         Mascota nuevaMascota = new Mascota(nombre, id, raza, edad, sexo, sintomas);
-        gestorMascotas.agregarMascotas(nuevaMascota);
+        gestor.agregarMascotas(nuevaMascota);
         javax.swing.JOptionPane.showMessageDialog(this, "Mascota registrada correctamente.");
-        MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestorMascotas);
+        MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestor);
         menuMascotas.setVisible(true);
         this.dispose();
         
@@ -314,7 +314,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRegistrarMouseEntered
 
     private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
-        MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestorMascotas);
+        MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestor);
         menuMascotas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMenuMouseClicked

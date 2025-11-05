@@ -17,14 +17,12 @@ public class AgendarCita extends javax.swing.JFrame {
 
     private ArrayList<Veterinario> veterinarios;
     
-    private GestorCitas gestorCitas;
-    private GestorMascotas gestorMascotas;
+    private GestorMain gestor;
     
     
-    public AgendarCita(GestorCitas gestorCitas, GestorMascotas gestorMascotas) {
+    public AgendarCita(GestorMain gestor) {
         initComponents();
-        this.gestorCitas = gestorCitas;
-        this.gestorMascotas = gestorMascotas;
+        this.gestor = gestor;
         inicializarVeterinarios();
         inicializarMascotas();
         
@@ -50,7 +48,7 @@ public class AgendarCita extends javax.swing.JFrame {
     
     private void inicializarMascotas() {
         cmbMascotas.removeAllItems();
-        for (Mascota m: gestorMascotas.getListaMascotas()) {
+        for (Mascota m: gestor.getListaMascotas()) {
             cmbMascotas.addItem(m.getNombre());
         }
     }
@@ -74,15 +72,12 @@ public class AgendarCita extends javax.swing.JFrame {
         lblIdMascota1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaMotivo = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
-        lblSeleccionarMascota1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         lblSeleccionarMascota2 = new javax.swing.JLabel();
         cmbDia = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        lblSeleccionarMascota3 = new javax.swing.JLabel();
+        cmbHoras = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,55 +170,6 @@ public class AgendarCita extends javax.swing.JFrame {
         txtAreaMotivo.setRows(5);
         jScrollPane1.setViewportView(txtAreaMotivo);
 
-        lblSeleccionarMascota1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblSeleccionarMascota1.setText("Seleccione una Hora");
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("09:00");
-
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("11:00");
-
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("15:00");
-
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("18:00");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2))
-                    .addComponent(lblSeleccionarMascota1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSeleccionarMascota1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
-                .addContainerGap())
-        );
-
         lblSeleccionarMascota2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSeleccionarMascota2.setText("Seleccione un Dia");
 
@@ -241,7 +187,7 @@ public class AgendarCita extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSeleccionarMascota2, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addComponent(lblSeleccionarMascota2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(cmbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -257,6 +203,39 @@ public class AgendarCita extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblSeleccionarMascota3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblSeleccionarMascota3.setText("Seleccione Hora");
+
+        cmbHoras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09:00", "12:00", "15:00", "17:00" }));
+        cmbHoras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbHorasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeleccionarMascota3, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSeleccionarMascota3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,15 +245,12 @@ public class AgendarCita extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblIdMascota1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 77, Short.MAX_VALUE))
+                                .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblIdMascota1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblSeleccionarVeterinario)
@@ -282,9 +258,9 @@ public class AgendarCita extends javax.swing.JFrame {
                                         .addComponent(lblSeleccionarMascota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblAgendarHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(49, 49, 49)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130))
                     .addGroup(layout.createSequentialGroup()
@@ -297,16 +273,16 @@ public class AgendarCita extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(lblAgendarHora)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblSeleccionarMascota)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(lblSeleccionarVeterinario))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(lblSeleccionarVeterinario)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -328,17 +304,17 @@ public class AgendarCita extends javax.swing.JFrame {
         String nombreMascota = (String) cmbMascotas.getSelectedItem();
         String veterinario = (String) cmbVeterinarios.getSelectedItem();
         String dia = (String) cmbDia.getSelectedItem();
-        String hora = "";
+        String hora = (String) cmbHoras.getSelectedItem();
         String motivo = txtAreaMotivo.getText();
 
         if (nombreMascota.isEmpty() || veterinario.isEmpty() || dia.isEmpty() || hora.isEmpty() || motivo.isEmpty()){
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
             return;
         }
-        Cita nuevaCita = new Cita(nombreMascota, nombreMascota, veterinario, dia, hora, motivo);
-        gestorCitas.agregarCita(nuevaCita);
+        Cita nuevaCita = new Cita(nombreMascota, veterinario, dia, hora, motivo);
+        gestor.agregarCita(nuevaCita);
         javax.swing.JOptionPane.showMessageDialog(this, "Cita Agendada Correctamente.");
-        GestionCitasMenu menuCitas = new GestionCitasMenu(gestorCitas, gestorMascotas);
+        GestionCitasMenu menuCitas = new GestionCitasMenu(gestor);
         menuCitas.setVisible(true);
         this.dispose();
 
@@ -353,7 +329,7 @@ public class AgendarCita extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAgendarMouseEntered
 
     private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
-        GestionCitasMenu menuCitas = new GestionCitasMenu(gestorCitas, gestorMascotas);
+        GestionCitasMenu menuCitas = new GestionCitasMenu(gestor);
         menuCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMenuMouseClicked
@@ -374,6 +350,10 @@ public class AgendarCita extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbDiaActionPerformed
 
+    private void cmbHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHorasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbHorasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -382,21 +362,18 @@ public class AgendarCita extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbDia;
+    private javax.swing.JComboBox<String> cmbHoras;
     private javax.swing.JComboBox<String> cmbMascotas;
     private javax.swing.JComboBox<String> cmbVeterinarios;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAgendarHora;
     private javax.swing.JLabel lblIdMascota1;
     private javax.swing.JLabel lblRegistrar;
     private javax.swing.JLabel lblSeleccionarMascota;
-    private javax.swing.JLabel lblSeleccionarMascota1;
     private javax.swing.JLabel lblSeleccionarMascota2;
+    private javax.swing.JLabel lblSeleccionarMascota3;
     private javax.swing.JLabel lblSeleccionarVeterinario;
     private javax.swing.JLabel lblVolverMenu;
     private javax.swing.JPanel panelAgendar;

@@ -10,24 +10,20 @@ package app;
  */
 public class Menu extends javax.swing.JFrame {
 
-    private GestorCitas gestorCitas;
-    private GestorMascotas gestorMascotas;
+    private GestorMain gestor;
     
     //primer inicio
     
     public Menu() {
     initComponents();
-    this.gestorCitas = new GestorCitas();
-    this.gestorMascotas = new GestorMascotas();
+    this.gestor = new GestorMain();
     }
     
     
     //para volver al menu y mantener el gestor
-    public Menu(GestorCitas gestorCitas, GestorMascotas gestorMascotas) {
+    public Menu(GestorMain gestor) {
         initComponents();
-        this.gestorCitas = gestorCitas;
-        this.gestorMascotas =  gestorMascotas;
-
+        this.gestor = gestor;
     }
 
     /**
@@ -168,19 +164,19 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlGestionarMascotaMouseClicked
 
     private void lblGestionarMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarMascotaMouseClicked
-    MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestorMascotas);
+    MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestor);
     menuMascotas.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_lblGestionarMascotaMouseClicked
 
     private void pnlAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAgendarCitaMouseClicked
-        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas, gestorMascotas);
+        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestor);
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_pnlAgendarCitaMouseClicked
 
     private void lblAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgendarCitaMouseClicked
-        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas, gestorMascotas);
+        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestor);
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAgendarCitaMouseClicked

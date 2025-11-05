@@ -13,9 +13,9 @@ import model.Cliente;
  */
 public class RegistrarLogin extends javax.swing.JFrame {
 
-    private GestorClientes gestor;
+    private GestorMain gestor;
 
-    public RegistrarLogin(GestorClientes gestor) {
+    public RegistrarLogin(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
     }
