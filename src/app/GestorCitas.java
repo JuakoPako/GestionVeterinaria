@@ -9,7 +9,7 @@ public class GestorCitas {
     
     private ArrayList<Cita> listaCitas = new ArrayList<>();
     
-    public void agregarHora(Cita cita) {
+    public void agregarCita(Cita cita) {
         listaCitas.add(cita);
     }
     

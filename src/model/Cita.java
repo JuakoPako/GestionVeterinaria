@@ -1,40 +1,27 @@
 
 package model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 
 public class Cita {
-    
-    private String nombreCliente;
     private String nombreMascota;
     private String veterinario;
-    private LocalDate fecha;
-    private LocalTime hora;
+    private String dia;
+    private String hora;
     private String motivo;
-    private boolean atendida;
 
     public Cita() {
     }
 
-    public Cita(String nombreCliente, String nombreMascota, String veterinario, LocalDate fecha, LocalTime hora, String motivo, boolean atendida) {
-        this.nombreCliente = nombreCliente;
+    public Cita(String nombreCliente, String nombreMascota, String veterinario, String dia, String hora, String motivo) {
         this.nombreMascota = nombreMascota;
         this.veterinario = veterinario;
-        this.fecha = fecha;
+        this.dia = dia;
         this.hora = hora;
         this.motivo = motivo;
-        this.atendida = atendida;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
-    }
 
     public String getNombreMascota() {
         return nombreMascota;
@@ -52,19 +39,19 @@ public class Cita {
         this.veterinario = veterinario;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public String getDia() {
+        return dia;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setDia(String fecha) {
+        this.dia = fecha;
     }
 
-    public LocalTime getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -75,15 +62,5 @@ public class Cita {
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
-
-    public boolean isAtendida() {
-        return atendida;
-    }
-
-    public void setAtendida(boolean atendida) {
-        this.atendida = atendida;
-    }
-    
-    
     
 }

@@ -306,7 +306,9 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelActualizarMouseEntered
 
     private void lblEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseClicked
-        // TODO add your handling code here:
+        EliminarMascota eliminar = new EliminarMascota(gestorMascotas);
+        eliminar.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblEliminarMouseClicked
 
     private void lblEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarMouseEntered

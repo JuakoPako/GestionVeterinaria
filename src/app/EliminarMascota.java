@@ -34,6 +34,8 @@ public class EliminarMascota extends javax.swing.JFrame {
         txtEntradaId = new javax.swing.JTextField();
         panelEntrar = new javax.swing.JPanel();
         lblEntrar = new javax.swing.JLabel();
+        panelVolver = new javax.swing.JPanel();
+        lblVolver = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,6 +101,45 @@ public class EliminarMascota extends javax.swing.JFrame {
 
         jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 80, 30));
 
+        panelVolver.setBackground(new java.awt.Color(1, 136, 123));
+        panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelVolverMouseEntered(evt);
+            }
+        });
+
+        lblVolver.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblVolver.setForeground(new java.awt.Color(255, 255, 255));
+        lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVolver.setText("VOLVER");
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblVolverMouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelVolverLayout = new javax.swing.GroupLayout(panelVolver);
+        panelVolver.setLayout(panelVolverLayout);
+        panelVolverLayout.setHorizontalGroup(
+            panelVolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelVolverLayout.createSequentialGroup()
+                .addComponent(lblVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        panelVolverLayout.setVerticalGroup(
+            panelVolverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 80, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
         pack();
@@ -128,6 +169,24 @@ public class EliminarMascota extends javax.swing.JFrame {
 
     }//GEN-LAST:event_panelEntrarMouseEntered
 
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+        MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblVolverMouseClicked
+
+    private void lblVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblVolverMouseEntered
+
+    private void panelVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVolverMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelVolverMouseClicked
+
+    private void panelVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVolverMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelVolverMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -136,7 +195,9 @@ public class EliminarMascota extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIngresarId;
+    private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel panelEntrar;
+    private javax.swing.JPanel panelVolver;
     private javax.swing.JTextField txtEntradaId;
     // End of variables declaration//GEN-END:variables
 }

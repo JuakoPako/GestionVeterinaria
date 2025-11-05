@@ -180,14 +180,14 @@ public class RegistrarLogin extends javax.swing.JFrame {
         panelInicioSesion.setLayout(panelInicioSesionLayout);
         panelInicioSesionLayout.setHorizontalGroup(
             panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addComponent(lblVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
         );
         panelInicioSesionLayout.setVerticalGroup(
             panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondoRegistro.add(panelInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 110, 30));
+        panelFondoRegistro.add(panelInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 140, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
