@@ -243,11 +243,10 @@ public class GestionCitasMenu extends javax.swing.JFrame {
                 .addGap(0, 89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pnlVerCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlCancelarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(pnlVerCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlCancelarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22)
                 .addComponent(lblGestionDeMascotas)
                 .addGap(179, 179, 179)
@@ -298,7 +297,9 @@ public class GestionCitasMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlAgendarCitaMouseEntered
 
     private void lblVerCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerCitasMouseClicked
-        // TODO add your handling code here:
+        VerCitas ventanaVerCitas = new VerCitas(gestor);
+        ventanaVerCitas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblVerCitasMouseClicked
 
     private void lblVerCitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerCitasMouseEntered

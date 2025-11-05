@@ -314,6 +314,7 @@ public class AgendarCita extends javax.swing.JFrame {
         Cita nuevaCita = new Cita(nombreMascota, veterinario, dia, hora, motivo);
         gestor.agregarCita(nuevaCita);
         javax.swing.JOptionPane.showMessageDialog(this, "Cita Agendada Correctamente.");
+        
         GestionCitasMenu menuCitas = new GestionCitasMenu(gestor);
         menuCitas.setVisible(true);
         this.dispose();
