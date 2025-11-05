@@ -11,9 +11,11 @@ package app;
  */
 public class MenuGestionMascotas extends javax.swing.JFrame {
 
-    private GestorMascotas gestor;
+    private GestorMascotas gestorMascotas;
+    private GestorCitas gestorCitas;
     public MenuGestionMascotas(GestorMascotas gestor) {
-        this.gestor = gestor;
+        this.gestorMascotas = gestor;
+        this.gestorCitas = gestorCitas;
         initComponents();
     }
 
@@ -37,6 +39,8 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
         lblActualizar = new javax.swing.JLabel();
         panelEliminar = new javax.swing.JPanel();
         lblEliminar = new javax.swing.JLabel();
+        pnlVolverMenu = new javax.swing.JPanel();
+        lblVolverMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -210,6 +214,40 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
 
         jPanel1.add(panelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 130, 30));
 
+        pnlVolverMenu.setBackground(new java.awt.Color(51, 102, 255));
+        pnlVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlVolverMenuMouseEntered(evt);
+            }
+        });
+
+        lblVolverMenu.setForeground(new java.awt.Color(255, 255, 255));
+        lblVolverMenu.setText("       Volver al Menu");
+        lblVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMenuMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlVolverMenuLayout = new javax.swing.GroupLayout(pnlVolverMenu);
+        pnlVolverMenu.setLayout(pnlVolverMenuLayout);
+        pnlVolverMenuLayout.setHorizontalGroup(
+            pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVolverMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlVolverMenuLayout.setVerticalGroup(
+            pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVolverMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(pnlVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 130, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -225,7 +263,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistroMouseClicked
-        RegistroMascotas registro = new RegistroMascotas(gestor);
+        RegistroMascotas registro = new RegistroMascotas(gestorMascotas);
         registro.setVisible(true);
         this.dispose();
     
@@ -240,7 +278,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRegistroMouseEntered
 
     private void lblVerMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVerMascotaMouseClicked
-        VerMascotas ver = new VerMascotas(gestor);
+        VerMascotas ver = new VerMascotas(gestorMascotas);
         ver.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVerMascotaMouseClicked
@@ -254,7 +292,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelVerMascotaMouseEntered
 
     private void lblActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseClicked
-        ActualizarMascotas actualizarMascotas = new ActualizarMascotas(gestor);
+        ActualizarMascotas actualizarMascotas = new ActualizarMascotas(gestorMascotas);
         actualizarMascotas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblActualizarMouseClicked
@@ -279,6 +317,16 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelEliminarMouseEntered
 
+    private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
+        Menu menu = new Menu(gestorCitas, gestorMascotas);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblVolverMenuMouseClicked
+
+    private void pnlVolverMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVolverMenuMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlVolverMenuMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -290,10 +338,12 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     private javax.swing.JLabel lblGestionDeMascotas;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JLabel lblVerMascota;
+    private javax.swing.JLabel lblVolverMenu;
     private javax.swing.JPanel panelActualizar;
     private javax.swing.JPanel panelEliminar;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelRegistro;
     private javax.swing.JPanel panelVerMascota;
+    private javax.swing.JPanel pnlVolverMenu;
     // End of variables declaration//GEN-END:variables
 }
