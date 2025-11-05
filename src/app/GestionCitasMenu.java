@@ -4,6 +4,8 @@
  */
 package app;
 
+
+
 /**
  *
  * @author Joaquin
@@ -11,10 +13,12 @@ package app;
 public class GestionCitasMenu extends javax.swing.JFrame {
 
     private GestorCitas gestorCitas;
+    private GestorMascotas gestorMascotas;
     
-    public GestionCitasMenu(GestorCitas gestorCitas) {
+    public GestionCitasMenu(GestorCitas gestorCitas, GestorMascotas gestorMascotas) {
         initComponents();
         this.gestorCitas = gestorCitas;
+        this.gestorMascotas = gestorMascotas;
     }
 
 
@@ -34,6 +38,8 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         lblActualizarCita = new javax.swing.JLabel();
         pnlCancelarCita = new javax.swing.JPanel();
         lblCancelarCitas = new javax.swing.JLabel();
+        pnlVolverMenu = new javax.swing.JPanel();
+        lblVolverMenu = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
@@ -87,7 +93,10 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         );
         pnlAgendarCitaLayout.setVerticalGroup(
             pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(pnlAgendarCitaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pnlVerCitas.setBackground(new java.awt.Color(51, 102, 255));
@@ -157,7 +166,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         );
         pnlActualizarCitaLayout.setVerticalGroup(
             pnlActualizarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(lblActualizarCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         pnlCancelarCita.setBackground(new java.awt.Color(51, 102, 255));
@@ -186,13 +195,45 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         pnlCancelarCitaLayout.setHorizontalGroup(
             pnlCancelarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCancelarCitaLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
                 .addComponent(lblCancelarCitas, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(5, 5, 5))
         );
         pnlCancelarCitaLayout.setVerticalGroup(
             pnlCancelarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCancelarCitas, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(lblCancelarCitas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        pnlVolverMenu.setBackground(new java.awt.Color(51, 102, 255));
+        pnlVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pnlVolverMenuMouseEntered(evt);
+            }
+        });
+
+        lblVolverMenu.setForeground(new java.awt.Color(255, 255, 255));
+        lblVolverMenu.setText("       Volver al Menu");
+        lblVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMenuMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlVolverMenuLayout = new javax.swing.GroupLayout(pnlVolverMenu);
+        pnlVolverMenu.setLayout(pnlVolverMenuLayout);
+        pnlVolverMenuLayout.setHorizontalGroup(
+            pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVolverMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlVolverMenuLayout.setVerticalGroup(
+            pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVolverMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -200,13 +241,15 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 101, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlAgendarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlActualizarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addGap(0, 89, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnlVerCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlCancelarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(22, 22, 22)
                 .addComponent(lblGestionDeMascotas)
                 .addGap(179, 179, 179)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,25 +260,34 @@ public class GestionCitasMenu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(pnlAgendarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(pnlVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(pnlActualizarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(pnlCancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(lblGestionDeMascotas))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(lblGestionDeMascotas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(pnlAgendarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(pnlVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(pnlActualizarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(pnlCancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addComponent(pnlVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgendarCitaMouseClicked
-
+        AgendarCita agendarCita = new AgendarCita(gestorCitas, gestorMascotas);
+        agendarCita.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblAgendarCitaMouseClicked
 
     private void lblAgendarCitaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgendarCitaMouseEntered
@@ -282,6 +334,16 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlCancelarCitaMouseEntered
 
+    private void pnlVolverMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVolverMenuMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlVolverMenuMouseEntered
+
+    private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
+        Menu menu = new Menu(gestorCitas, gestorMascotas);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblVolverMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -296,9 +358,11 @@ public class GestionCitasMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblCancelarCitas;
     private javax.swing.JLabel lblGestionDeMascotas;
     private javax.swing.JLabel lblVerCitas;
+    private javax.swing.JLabel lblVolverMenu;
     private javax.swing.JPanel pnlActualizarCita;
     private javax.swing.JPanel pnlAgendarCita;
     private javax.swing.JPanel pnlCancelarCita;
     private javax.swing.JPanel pnlVerCitas;
+    private javax.swing.JPanel pnlVolverMenu;
     // End of variables declaration//GEN-END:variables
 }

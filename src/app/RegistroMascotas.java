@@ -230,7 +230,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
         panelVolverMenu.setLayout(panelVolverMenuLayout);
         panelVolverMenuLayout.setHorizontalGroup(
             panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+            .addComponent(lblVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
         );
         panelVolverMenuLayout.setVerticalGroup(
             panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

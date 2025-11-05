@@ -12,11 +12,21 @@ public class Menu extends javax.swing.JFrame {
 
     private GestorCitas gestorCitas;
     private GestorMascotas gestorMascotas;
-
+    
+    //primer inicio
+    
     public Menu() {
+    initComponents();
+    this.gestorCitas = new GestorCitas();
+    this.gestorMascotas = new GestorMascotas();
+    }
+    
+    
+    //para volver al menu y mantener el gestor
+    public Menu(GestorCitas gestorCitas, GestorMascotas gestorMascotas) {
         initComponents();
-        this.gestorCitas = new GestorCitas();
-        this.gestorMascotas = new GestorMascotas();
+        this.gestorCitas = gestorCitas;
+        this.gestorMascotas =  gestorMascotas;
 
     }
 
@@ -164,13 +174,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblGestionarMascotaMouseClicked
 
     private void pnlAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAgendarCitaMouseClicked
-        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas);
+        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas, gestorMascotas);
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_pnlAgendarCitaMouseClicked
 
     private void lblAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgendarCitaMouseClicked
-        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas);
+        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestorCitas, gestorMascotas);
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAgendarCitaMouseClicked
