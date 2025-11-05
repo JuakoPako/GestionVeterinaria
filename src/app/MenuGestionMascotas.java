@@ -254,7 +254,9 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelVerMascotaMouseEntered
 
     private void lblActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseClicked
-        // TODO add your handling code here:
+        ActualizarMascotas actualizarMascotas = new ActualizarMascotas(gestor);
+        actualizarMascotas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblActualizarMouseClicked
 
     private void lblActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseEntered
