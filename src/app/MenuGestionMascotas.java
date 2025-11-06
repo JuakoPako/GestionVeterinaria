@@ -89,10 +89,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
         panelRegistro.setLayout(panelRegistroLayout);
         panelRegistroLayout.setHorizontalGroup(
             panelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRegistroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lblRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
         panelRegistroLayout.setVerticalGroup(
             panelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,10 +123,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
         panelVerMascota.setLayout(panelVerMascotaLayout);
         panelVerMascotaLayout.setHorizontalGroup(
             panelVerMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelVerMascotaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblVerMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addComponent(lblVerMascota, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
         );
         panelVerMascotaLayout.setVerticalGroup(
             panelVerMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -325,7 +325,9 @@ public class GestionCitasMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlActualizarCitaMouseEntered
 
     private void lblCancelarCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarCitasMouseClicked
-        // TODO add your handling code here:
+        CancelarCita cancelarCita = new CancelarCita(gestor);
+        cancelarCita.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblCancelarCitasMouseClicked
 
     private void lblCancelarCitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarCitasMouseEntered

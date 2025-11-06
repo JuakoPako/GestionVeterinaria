@@ -15,38 +15,34 @@ import model.Cita;
 public class ActualizarCita extends javax.swing.JFrame {
 
     private GestorMain gestor;
-    
+
     public ActualizarCita(GestorMain gestor) {
         initComponents();
         this.gestor = gestor;
         mostrarCitasEnTabla();
     }
-    
 
     private void mostrarCitasEnTabla() {
-    String[] columnas = {"ID", "Mascota", "Día", "Hora"};
-    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+        String[] columnas = {"ID", "Mascota", "Día", "Hora"};
+        DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-    ArrayList<Cita> citas = gestor.getListaCitas();
-    for (int i = 0; i < citas.size(); i++) {
-        Cita c = citas.get(i);
-        Object[] fila = {
-            i + 1,
-            c.getNombreMascota(),
-            c.getDia(),
-            c.getHora()
-        };
-        modelo.addRow(fila);
+        ArrayList<Cita> citas = gestor.getListaCitas();
+        for (int i = 0; i < citas.size(); i++) {
+            Cita c = citas.get(i);
+            Object[] fila = {
+                i + 1,
+                c.getNombreMascota(),
+                c.getDia(),
+                c.getHora()
+            };
+            modelo.addRow(fila);
         }
 
         tblCitas.setModel(modelo);
     }
-    
-    
-    
-    
+
     @SuppressWarnings("unchecked")
-   
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -202,20 +198,20 @@ public class ActualizarCita extends javax.swing.JFrame {
 
     private void lblActualizarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarCitaMouseClicked
         try {
-        int id = Integer.parseInt(jTextField1.getText()) - 1; // porque en la tabla el ID parte desde 1
-        if (id >= 0 && id < gestor.getListaCitas().size()) {
-            model.Cita cita = gestor.getListaCitas().get(id);
-            
-            // Abres una nueva ventana de edición pasando la cita seleccionada
-            EditarCita editar = new EditarCita(gestor, cita, id);
-            editar.setVisible(true);
-            this.dispose();
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "ID no válido");
+            int id = Integer.parseInt(jTextField1.getText()) - 1; // porque en la tabla el ID parte desde 1
+            if (id >= 0 && id < gestor.getListaCitas().size()) {
+                model.Cita cita = gestor.getListaCitas().get(id);
+
+                // Abres una nueva ventana de edición pasando la cita seleccionada
+                EditarCita editar = new EditarCita(gestor, cita, id);
+                editar.setVisible(true);
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "ID no válido");
+            }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un número válido");
         }
-    } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un número válido");
-    }
     }//GEN-LAST:event_lblActualizarCitaMouseClicked
 
     private void lblActualizarCitaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarCitaMouseEntered
@@ -225,7 +221,6 @@ public class ActualizarCita extends javax.swing.JFrame {
     private void pnlVerCitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVerCitasMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlVerCitasMouseEntered
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -27,12 +27,12 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtIdCita" alignment="0" max="32767" attributes="0"/>
                       <Component id="panelVolverMenu" alignment="0" max="32767" attributes="0"/>
-                      <Component id="pnlVerCitas" alignment="0" max="32767" attributes="0"/>
+                      <Component id="pnlCancelarCita" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="lblIngreseCita" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                  <Component id="lblGestionDeMascotas" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTituloCancelar" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="spCitas" pref="550" max="32767" attributes="0"/>
@@ -46,13 +46,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblGestionDeMascotas" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTituloCancelar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="lblIngreseCita" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIdCita" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="pnlVerCitas" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlCancelarCita" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="panelVolverMenu" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -134,7 +134,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblGestionDeMascotas">
+    <Component class="javax.swing.JLabel" name="lblTituloCancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Black" size="22" style="1"/>
@@ -142,7 +142,7 @@
         <Property name="text" type="java.lang.String" value="Cancelar Cita"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtIdCita">
     </Component>
     <Component class="javax.swing.JLabel" name="lblIngreseCita">
       <Properties>
@@ -152,30 +152,30 @@
         <Property name="text" type="java.lang.String" value="Ingrese ID Cita"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="pnlVerCitas">
+    <Container class="javax.swing.JPanel" name="pnlCancelarCita">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="66" red="33" type="rgb"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlVerCitasMouseEntered"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pnlCancelarCitaMouseEntered"/>
       </Events>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblVerCitas" alignment="1" max="32767" attributes="0"/>
+              <Component id="lblCancelarCita" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="lblVerCitas" alignment="0" pref="30" max="32767" attributes="0"/>
+              <Component id="lblCancelarCita" alignment="0" pref="30" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblVerCitas">
+        <Component class="javax.swing.JLabel" name="lblCancelarCita">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto Condensed Light" size="12" style="1"/>
@@ -191,8 +191,8 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblVerCitasMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblVerCitasMouseEntered"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCancelarCitaMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCancelarCitaMouseEntered"/>
           </Events>
         </Component>
       </SubComponents>
