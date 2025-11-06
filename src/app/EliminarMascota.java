@@ -36,6 +36,9 @@ public class EliminarMascota extends javax.swing.JFrame {
         lblEntrar = new javax.swing.JLabel();
         panelVolver = new javax.swing.JPanel();
         lblVolver = new javax.swing.JLabel();
+        lblMenu = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -45,7 +48,7 @@ public class EliminarMascota extends javax.swing.JFrame {
 
         lblIngresarId.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblIngresarId.setText("Ingrese la ID de su mascota");
-        jPanel1.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 190, -1));
+        jPanel1.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 190, -1));
 
         txtEntradaId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaId.setForeground(new java.awt.Color(204, 204, 204));
@@ -60,9 +63,9 @@ public class EliminarMascota extends javax.swing.JFrame {
                 txtEntradaIdActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
+        jPanel1.add(txtEntradaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 30));
 
-        panelEntrar.setBackground(new java.awt.Color(1, 136, 123));
+        panelEntrar.setBackground(new java.awt.Color(102, 153, 255));
         panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelEntrarMouseClicked(evt);
@@ -99,9 +102,9 @@ public class EliminarMascota extends javax.swing.JFrame {
             .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 80, 30));
+        jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 80, 30));
 
-        panelVolver.setBackground(new java.awt.Color(1, 136, 123));
+        panelVolver.setBackground(new java.awt.Color(245, 245, 220));
         panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelVolverMouseClicked(evt);
@@ -112,7 +115,7 @@ public class EliminarMascota extends javax.swing.JFrame {
         });
 
         lblVolver.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblVolver.setForeground(new java.awt.Color(255, 255, 255));
+        lblVolver.setForeground(new java.awt.Color(102, 153, 255));
         lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolver.setText("VOLVER");
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -138,7 +141,20 @@ public class EliminarMascota extends javax.swing.JFrame {
             .addComponent(lblVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 80, 30));
+        jPanel1.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 80, 30));
+
+        lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenu.setText("Elimina los datos de tu mascota");
+        jPanel1.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 390, 40));
+
+        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoBasurero.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 90, 110));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 210, 560));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -154,7 +170,67 @@ public class EliminarMascota extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaIdActionPerformed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
+        String idTexto = txtEntradaId.getText().trim();
+        if (idTexto.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese una ID", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
+        if (gestor == null || gestor.getListaMascotas() == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Gestor no inicializado", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Buscar la mascota por ID (nota: en tu modelo actual getEspecie() devuelve el id)
+        model.Mascota encontrada = null;
+        for (model.Mascota m : gestor.getListaMascotas()) {
+            if (idTexto.equals(String.valueOf(m.getEspecie()))) {
+                encontrada = m;
+                break;
+            }
+        }
+
+        if (encontrada == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró mascota con ID: " + idTexto, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            // Abrir nuevo menú y cerrar este frame
+            java.awt.EventQueue.invokeLater(() -> {
+                MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
+                menu.setLocationRelativeTo(null);
+                menu.setVisible(true);
+            });
+            this.dispose();
+            return;
+        }
+
+        // Confirmación con JOptionPane (YES/NO)
+        int opcion = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "¿Desea eliminar la mascota con la ID: " + idTexto + "?",
+                "Confirmar eliminación",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+
+        if (opcion == javax.swing.JOptionPane.YES_OPTION) {
+            // Eliminar de forma segura
+            boolean eliminado = gestor.getListaMascotas().removeIf(m -> idTexto.equals(String.valueOf(m.getEspecie())));
+            if (eliminado) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Mascota eliminada correctamente.", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "No se pudo eliminar la mascota. Intente nuevamente.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Usuario eligió NO
+            javax.swing.JOptionPane.showMessageDialog(this, "Operación cancelada.", "Cancelado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        // Abrir nuevo MenuGestionMascotas (se crearán múltiples instancias si ya existe uno)
+        java.awt.EventQueue.invokeLater(() -> {
+            MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
+            menu.setLocationRelativeTo(null);
+            menu.setVisible(true);
+        });
+        this.dispose();
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
@@ -192,9 +268,12 @@ public class EliminarMascota extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIngresarId;
+    private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelVolver;
