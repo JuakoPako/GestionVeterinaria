@@ -30,25 +30,32 @@ public class VerMascotas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        lblMenu = new javax.swing.JLabel();
         lblNombreMascota = new javax.swing.JLabel();
         txtEntradaNombre = new javax.swing.JTextField();
         panelEntrar = new javax.swing.JPanel();
         lblEntrar = new javax.swing.JLabel();
         panelVolver = new javax.swing.JPanel();
         lblVolver = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(251, 252, 253));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenu.setText("Datos de la mascota");
+        jPanel1.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 40));
 
         lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblNombreMascota.setText("Ingrese la ID de su mascota");
-        jPanel1.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 190, -1));
+        jPanel1.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 190, -1));
 
         txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaNombre.setBorder(null);
         txtEntradaNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -60,9 +67,9 @@ public class VerMascotas extends javax.swing.JFrame {
                 txtEntradaNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
+        jPanel1.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 30));
 
-        panelEntrar.setBackground(new java.awt.Color(1, 136, 123));
+        panelEntrar.setBackground(new java.awt.Color(102, 153, 255));
         panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelEntrarMouseClicked(evt);
@@ -99,9 +106,9 @@ public class VerMascotas extends javax.swing.JFrame {
             .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 80, 30));
+        jPanel1.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 80, 30));
 
-        panelVolver.setBackground(new java.awt.Color(1, 136, 123));
+        panelVolver.setBackground(new java.awt.Color(245, 245, 220));
         panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelVolverMouseClicked(evt);
@@ -112,7 +119,7 @@ public class VerMascotas extends javax.swing.JFrame {
         });
 
         lblVolver.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblVolver.setForeground(new java.awt.Color(255, 255, 255));
+        lblVolver.setForeground(new java.awt.Color(102, 153, 255));
         lblVolver.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolver.setText("VOLVER");
         lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -138,7 +145,15 @@ public class VerMascotas extends javax.swing.JFrame {
             .addComponent(lblVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 80, 30));
+        jPanel1.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 80, 30));
+
+        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/iconoLupa.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 210));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 560));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -225,8 +240,11 @@ public class VerMascotas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblEntrar;
+    private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblNombreMascota;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel panelEntrar;

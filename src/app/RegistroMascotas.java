@@ -45,6 +45,8 @@ public class RegistroMascotas extends javax.swing.JFrame {
         lblRegistrar = new javax.swing.JLabel();
         panelVolverMenu = new javax.swing.JPanel();
         lblVolverMenu = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,10 +61,9 @@ public class RegistroMascotas extends javax.swing.JFrame {
 
         lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblNombreMascota.setText("Nombre de la mascota");
-        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 160, -1));
+        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 160, -1));
 
         txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaNombre.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaNombre.setBorder(null);
         txtEntradaNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -74,14 +75,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 txtEntradaNombreActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 200, 30));
+        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 200, 30));
 
         lblIdMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblIdMascota.setText("Asignele una ID a su mascota");
-        panelFondo.add(lblIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 200, -1));
+        panelFondo.add(lblIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, -1));
 
         txtEntradaId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaId.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaId.setBorder(null);
         txtEntradaId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -93,14 +93,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 txtEntradaIdActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 30));
+        panelFondo.add(txtEntradaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
 
         lblRazaMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblRazaMascota.setText("Raza de la mascota");
-        panelFondo.add(lblRazaMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 160, -1));
+        panelFondo.add(lblRazaMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 160, -1));
 
         txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaRaza.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaRaza.setBorder(null);
         txtEntradaRaza.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -112,14 +111,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 txtEntradaRazaActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, 30));
+        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 200, 30));
 
         lblEdadMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblEdadMascota.setText("Edad de la mascota (años)");
-        panelFondo.add(lblEdadMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 250, -1));
+        panelFondo.add(lblEdadMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 250, -1));
 
         txtEntradaEdad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaEdad.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaEdad.setBorder(null);
         txtEntradaEdad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -131,14 +129,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 txtEntradaEdadActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 200, 30));
+        panelFondo.add(txtEntradaEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 30));
 
         lblSexoMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSexoMascota.setText("Sexo de la mascota");
-        panelFondo.add(lblSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 160, -1));
+        panelFondo.add(lblSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 160, -1));
 
         txtEntradaSexo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaSexo.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaSexo.setBorder(null);
         txtEntradaSexo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -150,14 +147,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 txtEntradaSexoActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 200, 30));
+        panelFondo.add(txtEntradaSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 200, 30));
 
         lblSintomasMascotas.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSintomasMascotas.setText("Sintomas de la mascota");
-        panelFondo.add(lblSintomasMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 160, -1));
+        panelFondo.add(lblSintomasMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 160, -1));
 
         txtEntradaSintomas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaSintomas.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaSintomas.setBorder(null);
         txtEntradaSintomas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -169,9 +165,9 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 txtEntradaSintomasActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 200, 30));
+        panelFondo.add(txtEntradaSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 200, 30));
 
-        panelRegistrar.setBackground(new java.awt.Color(51, 102, 255));
+        panelRegistrar.setBackground(new java.awt.Color(102, 153, 255));
         panelRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelRegistrarMouseEntered(evt);
@@ -213,7 +209,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
         });
 
         lblVolverMenu.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblVolverMenu.setForeground(new java.awt.Color(51, 102, 255));
+        lblVolverMenu.setForeground(new java.awt.Color(102, 153, 255));
         lblVolverMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolverMenu.setText("VOLVER AL MENU");
         lblVolverMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -238,6 +234,14 @@ public class RegistroMascotas extends javax.swing.JFrame {
         );
 
         panelFondo.add(panelVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 130, 30));
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoRegistroMascotas.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 110, 250, 230));
+
+        panelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -340,6 +344,8 @@ public class RegistroMascotas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEdadMascota;
     private javax.swing.JLabel lblIdMascota;
     private javax.swing.JLabel lblIngreseDatos;

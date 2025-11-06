@@ -229,11 +229,11 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
             pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlVolverMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(pnlVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 120, -1));
+        jPanel1.add(pnlVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
