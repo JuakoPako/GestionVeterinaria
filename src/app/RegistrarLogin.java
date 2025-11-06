@@ -31,6 +31,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         panelFondoRegistro = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         pwContra = new javax.swing.JPasswordField();
@@ -50,6 +51,9 @@ public class RegistrarLogin extends javax.swing.JFrame {
 
         panelFondoRegistro.setBackground(new java.awt.Color(251, 252, 253));
         panelFondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/usuario.png"))); // NOI18N
+        panelFondoRegistro.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 220, 210));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
         panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
@@ -136,8 +140,8 @@ public class RegistrarLogin extends javax.swing.JFrame {
         panelFondoRegistro.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 110, 30));
 
         lblRegistrarse.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        lblRegistrarse.setText("Registre sus datos");
-        panelFondoRegistro.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        lblRegistrarse.setText("Registrese");
+        panelFondoRegistro.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         lblCorreo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblCorreo.setText("Correo");
@@ -165,7 +169,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
         lblVolverInicio.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         lblVolverInicio.setForeground(new java.awt.Color(1, 136, 123));
         lblVolverInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVolverInicio.setText("INICIO DE SESION");
+        lblVolverInicio.setText("VOLVER");
         lblVolverInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolverInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -305,6 +309,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
