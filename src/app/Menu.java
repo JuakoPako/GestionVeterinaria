@@ -92,17 +92,16 @@ public class Menu extends javax.swing.JFrame {
         pnlGestionarMascota.setLayout(pnlGestionarMascotaLayout);
         pnlGestionarMascotaLayout.setHorizontalGroup(
             pnlGestionarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGestionarMascotaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlGestionarMascotaLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblGestionarMascota)
-                .addGap(18, 18, 18))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         pnlGestionarMascotaLayout.setVerticalGroup(
             pnlGestionarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlGestionarMascotaLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(lblGestionarMascota)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         panelFondo.add(pnlGestionarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, 30));
