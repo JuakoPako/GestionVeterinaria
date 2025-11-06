@@ -75,6 +75,7 @@ public class Menu extends javax.swing.JFrame {
         lblGestionarMascota.setForeground(new java.awt.Color(255, 255, 255));
         lblGestionarMascota.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGestionarMascota.setText("GESTIONAR MASCOTAS");
+        lblGestionarMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblGestionarMascota.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblGestionarMascotaMouseClicked(evt);
@@ -111,6 +112,7 @@ public class Menu extends javax.swing.JFrame {
         lblAgendarCita.setForeground(new java.awt.Color(255, 255, 255));
         lblAgendarCita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgendarCita.setText("AGENDAR CITA");
+        lblAgendarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAgendarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAgendarCitaMouseClicked(evt);

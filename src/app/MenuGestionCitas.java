@@ -219,6 +219,7 @@ public class MenuGestionCitas extends javax.swing.JFrame {
         lblVolverMenu.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
         lblVolverMenu.setForeground(new java.awt.Color(102, 153, 255));
         lblVolverMenu.setText("VOLVER AL MENU");
+        lblVolverMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVolverMenuMouseClicked(evt);
