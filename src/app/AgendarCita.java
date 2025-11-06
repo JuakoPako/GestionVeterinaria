@@ -92,7 +92,7 @@ public class AgendarCita extends javax.swing.JFrame {
         lblSeleccionarVeterinario.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSeleccionarVeterinario.setText("Seleccione un veterinario disponible");
 
-        panelAgendar.setBackground(new java.awt.Color(51, 102, 255));
+        panelAgendar.setBackground(new java.awt.Color(102, 153, 255));
         panelAgendar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 panelAgendarMouseEntered(evt);
@@ -132,7 +132,7 @@ public class AgendarCita extends javax.swing.JFrame {
         });
 
         lblVolverMenu.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblVolverMenu.setForeground(new java.awt.Color(51, 102, 255));
+        lblVolverMenu.setForeground(new java.awt.Color(102, 153, 255));
         lblVolverMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolverMenu.setText("CANCELAR");
         lblVolverMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -149,7 +149,7 @@ public class AgendarCita extends javax.swing.JFrame {
         panelVolverMenu.setLayout(panelVolverMenuLayout);
         panelVolverMenuLayout.setHorizontalGroup(
             panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+            .addComponent(lblVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panelVolverMenuLayout.setVerticalGroup(
             panelVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,12 +247,6 @@ public class AgendarCita extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblIdMascota1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblSeleccionarVeterinario)
@@ -261,7 +255,16 @@ public class AgendarCita extends javax.swing.JFrame {
                                         .addComponent(lblAgendarHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20)
+                                        .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblIdMascota1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130))
@@ -317,7 +320,7 @@ public class AgendarCita extends javax.swing.JFrame {
         gestor.agregarCita(nuevaCita);
         javax.swing.JOptionPane.showMessageDialog(this, "Cita Agendada Correctamente.");
         
-        GestionCitasMenu menuCitas = new GestionCitasMenu(gestor);
+        MenuGestionCitas menuCitas = new MenuGestionCitas(gestor);
         menuCitas.setVisible(true);
         this.dispose();
 
@@ -332,7 +335,7 @@ public class AgendarCita extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAgendarMouseEntered
 
     private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
-        GestionCitasMenu menuCitas = new GestionCitasMenu(gestor);
+        MenuGestionCitas menuCitas = new MenuGestionCitas(gestor);
         menuCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMenuMouseClicked

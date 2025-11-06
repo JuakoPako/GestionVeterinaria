@@ -79,7 +79,7 @@ public class ActualizarCita extends javax.swing.JFrame {
         });
 
         lblVolverMenu.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
-        lblVolverMenu.setForeground(new java.awt.Color(51, 102, 255));
+        lblVolverMenu.setForeground(new java.awt.Color(102, 153, 255));
         lblVolverMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVolverMenu.setText("VOLVER ATRAS");
         lblVolverMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -109,17 +109,17 @@ public class ActualizarCita extends javax.swing.JFrame {
         lblIngreseCita.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblIngreseCita.setText("Ingrese ID Cita");
 
-        pnlVerCitas.setBackground(new java.awt.Color(51, 102, 255));
+        pnlVerCitas.setBackground(new java.awt.Color(102, 153, 255));
         pnlVerCitas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlVerCitasMouseEntered(evt);
             }
         });
 
-        lblActualizarCita.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
+        lblActualizarCita.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         lblActualizarCita.setForeground(new java.awt.Color(255, 255, 255));
         lblActualizarCita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblActualizarCita.setText("Actualizar Cita");
+        lblActualizarCita.setText("ACTUALIZAR CITA");
         lblActualizarCita.setToolTipText("");
         lblActualizarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblActualizarCita.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,7 +183,7 @@ public class ActualizarCita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMenuMouseClicked
-        GestionCitasMenu menuCitas = new GestionCitasMenu(gestor);
+        MenuGestionCitas menuCitas = new MenuGestionCitas(gestor);
         menuCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblVolverMenuMouseClicked

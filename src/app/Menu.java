@@ -36,6 +36,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         panelFondo = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         panelColor = new javax.swing.JPanel();
         lblMenu = new javax.swing.JLabel();
         pnlGestionarMascota = new javax.swing.JPanel();
@@ -51,25 +52,17 @@ public class Menu extends javax.swing.JFrame {
         panelFondo.setBackground(new java.awt.Color(251, 252, 253));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoMenuPrincipal.png"))); // NOI18N
+        panelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 80));
+
         panelColor.setBackground(new java.awt.Color(1, 136, 123));
-
-        javax.swing.GroupLayout panelColorLayout = new javax.swing.GroupLayout(panelColor);
-        panelColor.setLayout(panelColorLayout);
-        panelColorLayout.setHorizontalGroup(
-            panelColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
-        panelColorLayout.setVerticalGroup(
-            panelColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
-
-        panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 560));
+        panelColor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
 
         lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMenu.setText("Menu Principal");
-        panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 210, 40));
+        panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 210, 40));
 
         pnlGestionarMascota.setBackground(new java.awt.Color(1, 136, 123));
         pnlGestionarMascota.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,12 +92,13 @@ public class Menu extends javax.swing.JFrame {
         );
         pnlGestionarMascotaLayout.setVerticalGroup(
             pnlGestionarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGestionarMascotaLayout.createSequentialGroup()
-                .addGap(0, 13, Short.MAX_VALUE)
-                .addComponent(lblGestionarMascota))
+            .addGroup(pnlGestionarMascotaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblGestionarMascota)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelFondo.add(pnlGestionarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 180, 30));
+        panelFondo.add(pnlGestionarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, 40));
 
         pnlAgendarCita.setBackground(new java.awt.Color(1, 136, 123));
         pnlAgendarCita.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,27 +122,27 @@ public class Menu extends javax.swing.JFrame {
         pnlAgendarCitaLayout.setHorizontalGroup(
             pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgendarCitaLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(lblAgendarCita)
-                .addGap(24, 24, 24))
+                .addGap(43, 43, 43))
         );
         pnlAgendarCitaLayout.setVerticalGroup(
             pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAgendarCitaLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgendarCitaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblAgendarCita)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        panelFondo.add(pnlAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 150, 30));
+        panelFondo.add(pnlAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,13 +163,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblGestionarMascotaMouseClicked
 
     private void pnlAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAgendarCitaMouseClicked
-        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestor);
+        MenuGestionCitas ventanaCitas = new MenuGestionCitas(gestor);
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_pnlAgendarCitaMouseClicked
 
     private void lblAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgendarCitaMouseClicked
-        GestionCitasMenu ventanaCitas = new GestionCitasMenu(gestor);
+        MenuGestionCitas ventanaCitas = new MenuGestionCitas(gestor);
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAgendarCitaMouseClicked
@@ -216,6 +210,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAgendarCita;
     private javax.swing.JLabel lblGestionarMascota;
     private javax.swing.JLabel lblMenu;

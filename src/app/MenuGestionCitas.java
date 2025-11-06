@@ -10,11 +10,11 @@ package app;
  *
  * @author Joaquin
  */
-public class GestionCitasMenu extends javax.swing.JFrame {
+public class MenuGestionCitas extends javax.swing.JFrame {
 
     private GestorMain gestor;
     
-    public GestionCitasMenu(GestorMain gestor) {
+    public MenuGestionCitas(GestorMain gestor) {
         initComponents();
         this.gestor = gestor;
 
@@ -28,6 +28,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         lblGestionDeMascotas = new javax.swing.JLabel();
         pnlAgendarCita = new javax.swing.JPanel();
         lblAgendarCita = new javax.swing.JLabel();
@@ -44,23 +45,31 @@ public class GestionCitasMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoGestionCitas.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel1)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(400, Short.MAX_VALUE))
         );
 
         lblGestionDeMascotas.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         lblGestionDeMascotas.setText("Gestion de Citas");
 
-        pnlAgendarCita.setBackground(new java.awt.Color(51, 102, 255));
+        pnlAgendarCita.setBackground(new java.awt.Color(102, 153, 255));
         pnlAgendarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlAgendarCitaMouseEntered(evt);
@@ -70,7 +79,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         lblAgendarCita.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
         lblAgendarCita.setForeground(new java.awt.Color(255, 255, 255));
         lblAgendarCita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAgendarCita.setText("Agendar Citas");
+        lblAgendarCita.setText("AGENDAR CITAS");
         lblAgendarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblAgendarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -87,7 +96,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
             pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAgendarCitaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                .addComponent(lblAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlAgendarCitaLayout.setVerticalGroup(
@@ -98,7 +107,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlVerCitas.setBackground(new java.awt.Color(51, 102, 255));
+        pnlVerCitas.setBackground(new java.awt.Color(102, 153, 255));
         pnlVerCitas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlVerCitasMouseEntered(evt);
@@ -108,7 +117,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         lblVerCitas.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
         lblVerCitas.setForeground(new java.awt.Color(255, 255, 255));
         lblVerCitas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblVerCitas.setText("Ver Citas");
+        lblVerCitas.setText("VER CITAS");
         lblVerCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblVerCitas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -124,16 +133,16 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         pnlVerCitasLayout.setHorizontalGroup(
             pnlVerCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlVerCitasLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(lblVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlVerCitasLayout.setVerticalGroup(
             pnlVerCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblVerCitas, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        pnlActualizarCita.setBackground(new java.awt.Color(51, 102, 255));
+        pnlActualizarCita.setBackground(new java.awt.Color(102, 153, 255));
         pnlActualizarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlActualizarCitaMouseEntered(evt);
@@ -143,7 +152,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         lblActualizarCita.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
         lblActualizarCita.setForeground(new java.awt.Color(255, 255, 255));
         lblActualizarCita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblActualizarCita.setText("Actualizar Cita");
+        lblActualizarCita.setText("ACTUALIZAR CITAS");
         lblActualizarCita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblActualizarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,17 +167,14 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         pnlActualizarCita.setLayout(pnlActualizarCitaLayout);
         pnlActualizarCitaLayout.setHorizontalGroup(
             pnlActualizarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlActualizarCitaLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(lblActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lblActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlActualizarCitaLayout.setVerticalGroup(
             pnlActualizarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblActualizarCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        pnlCancelarCita.setBackground(new java.awt.Color(51, 102, 255));
+        pnlCancelarCita.setBackground(new java.awt.Color(102, 153, 255));
         pnlCancelarCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlCancelarCitaMouseEntered(evt);
@@ -178,7 +184,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         lblCancelarCitas.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
         lblCancelarCitas.setForeground(new java.awt.Color(255, 255, 255));
         lblCancelarCitas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCancelarCitas.setText("Cancelar Cita");
+        lblCancelarCitas.setText("CANCELAR CITAS");
         lblCancelarCitas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCancelarCitas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -193,25 +199,26 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         pnlCancelarCita.setLayout(pnlCancelarCitaLayout);
         pnlCancelarCitaLayout.setHorizontalGroup(
             pnlCancelarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCancelarCitaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblCancelarCitas, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                .addGap(5, 5, 5))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCancelarCitaLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(lblCancelarCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlCancelarCitaLayout.setVerticalGroup(
             pnlCancelarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblCancelarCitas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        pnlVolverMenu.setBackground(new java.awt.Color(51, 102, 255));
+        pnlVolverMenu.setBackground(new java.awt.Color(245, 245, 220));
         pnlVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 pnlVolverMenuMouseEntered(evt);
             }
         });
 
-        lblVolverMenu.setForeground(new java.awt.Color(255, 255, 255));
-        lblVolverMenu.setText("       Volver al Menu");
+        lblVolverMenu.setFont(new java.awt.Font("Roboto Condensed Light", 1, 12)); // NOI18N
+        lblVolverMenu.setForeground(new java.awt.Color(102, 153, 255));
+        lblVolverMenu.setText("VOLVER AL MENU");
         lblVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVolverMenuMouseClicked(evt);
@@ -222,10 +229,10 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         pnlVolverMenu.setLayout(pnlVolverMenuLayout);
         pnlVolverMenuLayout.setHorizontalGroup(
             pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVolverMenuLayout.createSequentialGroup()
+            .addGroup(pnlVolverMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(lblVolverMenu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlVolverMenuLayout.setVerticalGroup(
             pnlVolverMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,16 +247,16 @@ public class GestionCitasMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 89, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlVerCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlCancelarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22)
-                .addComponent(lblGestionDeMascotas)
-                .addGap(179, 179, 179)
+                .addGap(0, 49, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGestionDeMascotas)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnlCancelarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlVerCitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlActualizarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlAgendarCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(340, 340, 340)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -261,19 +268,16 @@ public class GestionCitasMenu extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(lblGestionDeMascotas))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(pnlAgendarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(pnlVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(pnlActualizarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(pnlCancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(63, 63, 63)
+                        .addComponent(lblGestionDeMascotas)
+                        .addGap(47, 47, 47)
+                        .addComponent(pnlAgendarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(pnlVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(pnlActualizarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(pnlCancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(pnlVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -355,6 +359,7 @@ public class GestionCitasMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblActualizarCita;
