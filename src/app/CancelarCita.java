@@ -33,6 +33,7 @@ public class CancelarCita extends javax.swing.JFrame {
             Object[] fila = {
                 i + 1,
                 c.getNombreMascota(),
+                c.getVeterinario(),
                 c.getDia(),
                 c.getHora()
             };

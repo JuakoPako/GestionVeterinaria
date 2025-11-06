@@ -38,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         panelFondo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         panelColor = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         lblMenu = new javax.swing.JLabel();
         pnlGestionarMascota = new javax.swing.JPanel();
         lblGestionarMascota = new javax.swing.JLabel();
@@ -57,6 +58,10 @@ public class Menu extends javax.swing.JFrame {
 
         panelColor.setBackground(new java.awt.Color(1, 136, 123));
         panelColor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icono blanco.png"))); // NOI18N
+        panelColor.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 110, 110));
+
         panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 230, 560));
 
         lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
@@ -86,17 +91,11 @@ public class Menu extends javax.swing.JFrame {
         pnlGestionarMascota.setLayout(pnlGestionarMascotaLayout);
         pnlGestionarMascotaLayout.setHorizontalGroup(
             pnlGestionarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlGestionarMascotaLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblGestionarMascota)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(lblGestionarMascota, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
         pnlGestionarMascotaLayout.setVerticalGroup(
             pnlGestionarMascotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlGestionarMascotaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblGestionarMascota)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblGestionarMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         panelFondo.add(pnlGestionarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, 40));
@@ -123,17 +122,11 @@ public class Menu extends javax.swing.JFrame {
         pnlAgendarCita.setLayout(pnlAgendarCitaLayout);
         pnlAgendarCitaLayout.setHorizontalGroup(
             pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAgendarCitaLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addComponent(lblAgendarCita)
-                .addGap(41, 41, 41))
+            .addComponent(lblAgendarCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
         pnlAgendarCitaLayout.setVerticalGroup(
             pnlAgendarCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAgendarCitaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblAgendarCita)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblAgendarCita, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         panelFondo.add(pnlAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, 40));
@@ -210,6 +203,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAgendarCita;
     private javax.swing.JLabel lblGestionarMascota;

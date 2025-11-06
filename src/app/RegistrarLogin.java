@@ -140,8 +140,8 @@ public class RegistrarLogin extends javax.swing.JFrame {
         panelFondoRegistro.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 110, 30));
 
         lblRegistrarse.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        lblRegistrarse.setText("Registrese");
-        panelFondoRegistro.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        lblRegistrarse.setText("Registrarse");
+        panelFondoRegistro.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         lblCorreo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblCorreo.setText("Correo");
@@ -246,7 +246,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
         String telefono = txtTelefono.getText();
         String correo = txtCorreo.getText();
 
-        //Validacion de Campos vacios
+        //verificacion de errores
         if (usuario.isEmpty() || contraseña.isEmpty() || telefono.isEmpty() || correo.isEmpty()) {
 
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");

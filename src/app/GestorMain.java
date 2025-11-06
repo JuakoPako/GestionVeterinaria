@@ -11,6 +11,8 @@ import model.Mascota;
 
 public class GestorMain {
     
+    //memoria de citas
+    
     private ArrayList<Cita> listaCitas = new ArrayList<>();
     
     public void agregarCita(Cita cita) {
@@ -29,6 +31,8 @@ public class GestorMain {
         return listaCitas;
     }
     
+    
+    //memoria de clientes
     private ArrayList<Cliente> listaClientes = new ArrayList<>();
     
     public void agregarCliente(Cliente cliente) {
@@ -39,7 +43,12 @@ public class GestorMain {
         return listaClientes;
     }
     
-        private ArrayList<Mascota> listaMascotas = new ArrayList<>();
+    
+    
+    
+    
+    //memoria de mascotas
+    private ArrayList<Mascota> listaMascotas = new ArrayList<>();
 
     public void agregarMascotas(Mascota mascota){
         listaMascotas.add(mascota);

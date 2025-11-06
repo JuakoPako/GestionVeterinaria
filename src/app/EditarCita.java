@@ -111,7 +111,7 @@ public class EditarCita extends javax.swing.JFrame {
         lblRegistrar.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         lblRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         lblRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistrar.setText("AGENDAR");
+        lblRegistrar.setText("ACTUALIZAR");
         lblRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

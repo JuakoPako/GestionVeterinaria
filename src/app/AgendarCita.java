@@ -102,7 +102,7 @@ public class AgendarCita extends javax.swing.JFrame {
         lblActualizar.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         lblActualizar.setForeground(new java.awt.Color(255, 255, 255));
         lblActualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblActualizar.setText("ACTUALIZAR");
+        lblActualizar.setText("AGENDAR");
         lblActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

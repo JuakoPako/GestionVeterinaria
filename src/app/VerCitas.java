@@ -16,7 +16,7 @@ import model.Cita;
 public class VerCitas extends javax.swing.JFrame {
 
     private GestorMain gestor;
-    
+
     public VerCitas(GestorMain gestor) {
         initComponents();
         this.gestor = gestor;
@@ -24,27 +24,26 @@ public class VerCitas extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-    String[] columnas = {"ID", "Mascota", "Día", "Hora"};
-    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+        String[] columnas = {"ID", "Mascota", "Día", "Hora"};
+        DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-    ArrayList<Cita> citas = gestor.getListaCitas();
-    for (int i = 0; i < citas.size(); i++) {
-        Cita c = citas.get(i);
-        Object[] fila = {
-            i + 1,
-            c.getNombreMascota(),
-            c.getDia(),
-            c.getHora()
-        };
-        modelo.addRow(fila);
+        ArrayList<Cita> citas = gestor.getListaCitas();
+
+        for (int i = 0; i < citas.size(); i++) {
+            Cita c = citas.get(i);
+            Object[] fila = {
+                i + 1,
+                c.getNombreMascota(),
+                c.getVeterinario(),
+                c.getDia(),
+                c.getHora()
+            };
+            modelo.addRow(fila);
         }
 
         tblCitas.setModel(modelo);
     }
 
-
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -148,7 +147,6 @@ public class VerCitas extends javax.swing.JFrame {
     private void panelVolverMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelVolverMenuMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_panelVolverMenuMouseEntered
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -23,7 +23,7 @@ public class ActualizarCita extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "Mascota", "Día", "Hora"};
+        String[] columnas = {"ID", "Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
         ArrayList<Cita> citas = gestor.getListaCitas();
@@ -32,6 +32,7 @@ public class ActualizarCita extends javax.swing.JFrame {
             Object[] fila = {
                 i + 1,
                 c.getNombreMascota(),
+                c.getVeterinario(),
                 c.getDia(),
                 c.getHora()
             };
@@ -198,11 +199,11 @@ public class ActualizarCita extends javax.swing.JFrame {
 
     private void lblActualizarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarCitaMouseClicked
         try {
-            int id = Integer.parseInt(jTextField1.getText()) - 1; // porque en la tabla el ID parte desde 1
+            int id = Integer.parseInt(jTextField1.getText()) - 1; 
             if (id >= 0 && id < gestor.getListaCitas().size()) {
                 model.Cita cita = gestor.getListaCitas().get(id);
 
-                // Abres una nueva ventana de edición pasando la cita seleccionada
+                
                 EditarCita editar = new EditarCita(gestor, cita, id);
                 editar.setVisible(true);
                 this.dispose();

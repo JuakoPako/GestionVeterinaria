@@ -15,8 +15,8 @@ public class Login extends javax.swing.JFrame {
 
     private GestorMain gestor;
     
-    public Login(GestorMain gestor1) {
-        this.gestor = gestor1;
+    public Login(GestorMain gestor) {
+        this.gestor = gestor;
         initComponents();
     }
 
