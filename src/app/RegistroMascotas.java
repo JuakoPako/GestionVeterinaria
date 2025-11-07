@@ -45,8 +45,8 @@ public class RegistroMascotas extends javax.swing.JFrame {
         lblRegistrar = new javax.swing.JLabel();
         panelVolverMenu = new javax.swing.JPanel();
         lblVolverMenu = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelColor = new javax.swing.JPanel();
+        lblIconoRegistro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -235,13 +235,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
 
         panelFondo.add(panelVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 130, 30));
 
-        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelColor.setBackground(new java.awt.Color(102, 153, 255));
+        panelColor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoRegistroMascotas.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 110, 250, 230));
+        lblIconoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoRegistroMascotas.png"))); // NOI18N
+        panelColor.add(lblIconoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 110, 250, 230));
 
-        panelFondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
+        panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -344,9 +344,8 @@ public class RegistroMascotas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEdadMascota;
+    private javax.swing.JLabel lblIconoRegistro;
     private javax.swing.JLabel lblIdMascota;
     private javax.swing.JLabel lblIngreseDatos;
     private javax.swing.JLabel lblNombreMascota;
@@ -355,6 +354,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
     private javax.swing.JLabel lblSexoMascota;
     private javax.swing.JLabel lblSintomasMascotas;
     private javax.swing.JLabel lblVolverMenu;
+    private javax.swing.JPanel panelColor;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelRegistrar;
     private javax.swing.JPanel panelVolverMenu;

@@ -27,7 +27,7 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtEntradaID" alignment="0" max="32767" attributes="0"/>
                       <Component id="panelVolverMenu" alignment="0" max="32767" attributes="0"/>
                       <Component id="pnlVerCitas" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -50,7 +50,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="lblIngreseCita" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEntradaID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="pnlVerCitas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
         <Property name="text" type="java.lang.String" value="Actualizar Cita"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtEntradaID">
     </Component>
     <Component class="javax.swing.JLabel" name="lblIngreseCita">
       <Properties>

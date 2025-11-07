@@ -52,7 +52,7 @@ public class ActualizarCita extends javax.swing.JFrame {
         panelVolverMenu = new javax.swing.JPanel();
         lblVolverMenu = new javax.swing.JLabel();
         lblGestionDeMascotas = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtEntradaID = new javax.swing.JTextField();
         lblIngreseCita = new javax.swing.JLabel();
         pnlVerCitas = new javax.swing.JPanel();
         lblActualizarCita = new javax.swing.JLabel();
@@ -151,7 +151,7 @@ public class ActualizarCita extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtEntradaID, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(panelVolverMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pnlVerCitas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(lblIngreseCita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,7 +170,7 @@ public class ActualizarCita extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(lblIngreseCita)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEntradaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(pnlVerCitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -199,7 +199,7 @@ public class ActualizarCita extends javax.swing.JFrame {
 
     private void lblActualizarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarCitaMouseClicked
         try {
-            int id = Integer.parseInt(jTextField1.getText()) - 1; 
+            int id = Integer.parseInt(txtEntradaID.getText()) - 1; 
             if (id >= 0 && id < gestor.getListaCitas().size()) {
                 model.Cita cita = gestor.getListaCitas().get(id);
 
@@ -225,7 +225,6 @@ public class ActualizarCita extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblActualizarCita;
     private javax.swing.JLabel lblGestionDeMascotas;
     private javax.swing.JLabel lblIngreseCita;
@@ -234,5 +233,6 @@ public class ActualizarCita extends javax.swing.JFrame {
     private javax.swing.JPanel pnlVerCitas;
     private javax.swing.JScrollPane spCitas;
     private javax.swing.JTable tblCitas;
+    private javax.swing.JTextField txtEntradaID;
     // End of variables declaration//GEN-END:variables
 }

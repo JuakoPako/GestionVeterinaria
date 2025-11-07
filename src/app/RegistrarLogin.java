@@ -29,10 +29,10 @@ public class RegistrarLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelFondo = new javax.swing.JPanel();
         panelFondoRegistro = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblIconoUsuario = new javax.swing.JLabel();
+        lblColor = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         pwContra = new javax.swing.JPasswordField();
         txtTelefono = new javax.swing.JTextField();
@@ -52,11 +52,11 @@ public class RegistrarLogin extends javax.swing.JFrame {
         panelFondoRegistro.setBackground(new java.awt.Color(251, 252, 253));
         panelFondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/usuario.png"))); // NOI18N
-        panelFondoRegistro.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 220, 210));
+        lblIconoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/usuario.png"))); // NOI18N
+        panelFondoRegistro.add(lblIconoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 220, 210));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
-        panelFondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
+        lblColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/colorRegistro.png"))); // NOI18N
+        panelFondoRegistro.add(lblColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
 
         txtUsuario.setBorder(null);
         txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,14 +193,14 @@ public class RegistrarLogin extends javax.swing.JFrame {
 
         panelFondoRegistro.add(panelInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 140, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
+        panelFondo.setLayout(panelFondoLayout);
+        panelFondoLayout.setHorizontalGroup(
+            panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelFondoLayout.setVerticalGroup(
+            panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelFondoRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -212,7 +212,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -221,7 +221,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -308,17 +308,17 @@ public class RegistrarLogin extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblIconoUsuario;
     private javax.swing.JLabel lblRegistrar;
     private javax.swing.JLabel lblRegistrarse;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblUsuario1;
     private javax.swing.JLabel lblVolverInicio;
     private javax.swing.JPanel panelEntrar;
+    private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelFondoRegistro;
     private javax.swing.JPanel panelInicioSesion;
     private javax.swing.JPasswordField pwContra;

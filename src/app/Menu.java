@@ -36,14 +36,16 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         panelFondo = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblIconoMenu = new javax.swing.JLabel();
         panelColor = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblIconoMascota = new javax.swing.JLabel();
         lblMenu = new javax.swing.JLabel();
         pnlGestionarMascota = new javax.swing.JPanel();
         lblGestionarMascota = new javax.swing.JLabel();
         pnlAgendarCita = new javax.swing.JPanel();
         lblAgendarCita = new javax.swing.JLabel();
+        pnlSalir = new javax.swing.JPanel();
+        lblSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(251, 252, 253));
@@ -53,14 +55,14 @@ public class Menu extends javax.swing.JFrame {
         panelFondo.setBackground(new java.awt.Color(251, 252, 253));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoMenuPrincipal.png"))); // NOI18N
-        panelFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 80));
+        lblIconoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoMenuPrincipal.png"))); // NOI18N
+        panelFondo.add(lblIconoMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, 80));
 
         panelColor.setBackground(new java.awt.Color(1, 136, 123));
         panelColor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icono blanco.png"))); // NOI18N
-        panelColor.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 110, 110));
+        lblIconoMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/icono blanco.png"))); // NOI18N
+        panelColor.add(lblIconoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 110, 110));
 
         panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 230, 560));
 
@@ -131,6 +133,37 @@ public class Menu extends javax.swing.JFrame {
 
         panelFondo.add(pnlAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, 40));
 
+        pnlSalir.setBackground(new java.awt.Color(255, 102, 102));
+        pnlSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlSalirMouseClicked(evt);
+            }
+        });
+
+        lblSalir.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        lblSalir.setForeground(new java.awt.Color(255, 255, 255));
+        lblSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalir.setText("SALIR");
+        lblSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSalirMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlSalirLayout = new javax.swing.GroupLayout(pnlSalir);
+        pnlSalir.setLayout(pnlSalirLayout);
+        pnlSalirLayout.setHorizontalGroup(
+            pnlSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+        );
+        pnlSalirLayout.setVerticalGroup(
+            pnlSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        panelFondo.add(pnlSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 180, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,6 +199,14 @@ public class Menu extends javax.swing.JFrame {
         ventanaCitas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAgendarCitaMouseClicked
+
+    private void lblSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSalirMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lblSalirMouseClicked
+
+    private void pnlSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlSalirMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlSalirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -203,14 +244,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAgendarCita;
     private javax.swing.JLabel lblGestionarMascota;
+    private javax.swing.JLabel lblIconoMascota;
+    private javax.swing.JLabel lblIconoMenu;
     private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lblSalir;
     private javax.swing.JPanel panelColor;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel pnlAgendarCita;
     private javax.swing.JPanel pnlGestionarMascota;
+    private javax.swing.JPanel pnlSalir;
     // End of variables declaration//GEN-END:variables
 }

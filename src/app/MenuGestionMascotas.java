@@ -26,9 +26,9 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelFondoFondo = new javax.swing.JPanel();
         panelFondo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblMenuPrincipalIcono = new javax.swing.JLabel();
         lblGestionDeMascotas = new javax.swing.JLabel();
         panelRegistro = new javax.swing.JPanel();
         lblRegistro = new javax.swing.JLabel();
@@ -43,20 +43,20 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(251, 252, 253));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelFondoFondo.setBackground(new java.awt.Color(251, 252, 253));
+        panelFondoFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelFondo.setBackground(new java.awt.Color(102, 153, 255));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/menu.png"))); // NOI18N
-        panelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 190, 170));
+        lblMenuPrincipalIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/menu.png"))); // NOI18N
+        panelFondo.add(lblMenuPrincipalIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 190, 170));
 
-        jPanel1.add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 240, 560));
+        panelFondoFondo.add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 240, 560));
 
         lblGestionDeMascotas.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         lblGestionDeMascotas.setText("Gestion de mascotas");
-        jPanel1.add(lblGestionDeMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+        panelFondoFondo.add(lblGestionDeMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         panelRegistro.setBackground(new java.awt.Color(102, 153, 255));
         panelRegistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,7 +90,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
             .addComponent(lblRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 130, 30));
+        panelFondoFondo.add(panelRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 130, 30));
 
         panelVerMascota.setBackground(new java.awt.Color(102, 153, 255));
         panelVerMascota.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,7 +124,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
             .addComponent(lblVerMascota, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelVerMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 130, 30));
+        panelFondoFondo.add(panelVerMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 130, 30));
 
         panelActualizar.setBackground(new java.awt.Color(102, 153, 255));
         panelActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,7 +161,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
             .addComponent(lblActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 30));
+        panelFondoFondo.add(panelActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 130, 30));
 
         panelEliminar.setBackground(new java.awt.Color(102, 153, 255));
         panelEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,7 +198,7 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
             .addComponent(lblEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 130, 30));
+        panelFondoFondo.add(panelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 130, 30));
 
         pnlVolverMenu.setBackground(new java.awt.Color(245, 245, 220));
         pnlVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,17 +234,17 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(pnlVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 120, 40));
+        panelFondoFondo.add(pnlVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelFondoFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelFondoFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -322,17 +322,17 @@ public class MenuGestionMascotas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblActualizar;
     private javax.swing.JLabel lblEliminar;
     private javax.swing.JLabel lblGestionDeMascotas;
+    private javax.swing.JLabel lblMenuPrincipalIcono;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JLabel lblVerMascota;
     private javax.swing.JLabel lblVolverMenu;
     private javax.swing.JPanel panelActualizar;
     private javax.swing.JPanel panelEliminar;
     private javax.swing.JPanel panelFondo;
+    private javax.swing.JPanel panelFondoFondo;
     private javax.swing.JPanel panelRegistro;
     private javax.swing.JPanel panelVerMascota;
     private javax.swing.JPanel pnlVolverMenu;

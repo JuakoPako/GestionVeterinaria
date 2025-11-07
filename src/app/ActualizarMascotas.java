@@ -26,7 +26,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelFondo = new javax.swing.JPanel();
         lblIngresarId = new javax.swing.JLabel();
         txtEntradaIngresarId = new javax.swing.JTextField();
         panelBuscar = new javax.swing.JPanel();
@@ -45,18 +45,18 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         lblGuardar = new javax.swing.JLabel();
         panelVolver = new javax.swing.JPanel();
         lblVolver = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        panelColor = new javax.swing.JPanel();
+        lblIconoActualizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(251, 252, 253));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelFondo.setBackground(new java.awt.Color(251, 252, 253));
+        panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIngresarId.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
         lblIngresarId.setText("Ingrese la ID de su mascota");
-        jPanel1.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 250, -1));
+        panelFondo.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 250, -1));
 
         txtEntradaIngresarId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaIngresarId.setBorder(null);
@@ -70,7 +70,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaIngresarIdActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 200, 30));
+        panelFondo.add(txtEntradaIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 200, 30));
 
         panelBuscar.setBackground(new java.awt.Color(102, 153, 255));
         panelBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,11 +109,11 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             .addComponent(lblBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 80, 30));
+        panelFondo.add(panelBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 80, 30));
 
         lblNombre.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblNombre.setText("Nombre");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, -1));
+        panelFondo.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, -1));
 
         txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaNombre.setBorder(null);
@@ -127,11 +127,11 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
+        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
 
         lblRaza.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblRaza.setText("Tipo");
-        jPanel1.add(lblRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, -1));
+        panelFondo.add(lblRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, -1));
 
         txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaRaza.setBorder(null);
@@ -145,11 +145,11 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaRazaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 200, 30));
+        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 200, 30));
 
         lblEdad.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblEdad.setText("Edad");
-        jPanel1.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 160, -1));
+        panelFondo.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 160, -1));
 
         txtEntradaEdad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaEdad.setBorder(null);
@@ -163,11 +163,11 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaEdadActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 30));
+        panelFondo.add(txtEntradaEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 30));
 
         lblSexo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSexo.setText("Sexo");
-        jPanel1.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 250, -1));
+        panelFondo.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 250, -1));
 
         txtEntradaSexo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaSexo.setBorder(null);
@@ -181,11 +181,11 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaSexoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 200, 30));
+        panelFondo.add(txtEntradaSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 200, 30));
 
         lblSintomas.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSintomas.setText("Sintomas");
-        jPanel1.add(lblSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 250, -1));
+        panelFondo.add(lblSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 250, -1));
 
         txtEntradaSintomas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaSintomas.setBorder(null);
@@ -199,7 +199,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaSintomasActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEntradaSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 200, 30));
+        panelFondo.add(txtEntradaSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 200, 30));
 
         panelGuardar.setBackground(new java.awt.Color(102, 153, 255));
         panelGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,7 +238,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             .addComponent(lblGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 80, 30));
+        panelFondo.add(panelGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 80, 30));
 
         panelVolver.setBackground(new java.awt.Color(245, 245, 220));
         panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -277,17 +277,17 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             .addComponent(lblVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 80, 30));
+        panelFondo.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 80, 30));
 
-        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelColor.setBackground(new java.awt.Color(102, 153, 255));
+        panelColor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoActualizar.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 190, -1));
+        lblIconoActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/IconoActualizar.png"))); // NOI18N
+        panelColor.add(lblIconoActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 190, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 230, 560));
+        panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 230, 560));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
+        getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -472,12 +472,10 @@ public class ActualizarMascotas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblGuardar;
+    private javax.swing.JLabel lblIconoActualizar;
     private javax.swing.JLabel lblIngresarId;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRaza;
@@ -485,6 +483,8 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     private javax.swing.JLabel lblSintomas;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel panelBuscar;
+    private javax.swing.JPanel panelColor;
+    private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelGuardar;
     private javax.swing.JPanel panelVolver;
     private javax.swing.JTextField txtEntradaEdad;
