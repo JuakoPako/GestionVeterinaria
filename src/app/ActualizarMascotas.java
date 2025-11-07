@@ -130,7 +130,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         jPanel1.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
 
         lblRaza.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblRaza.setText("Raza");
+        lblRaza.setText("Tipo");
         jPanel1.add(lblRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, -1));
 
         txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -352,7 +352,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             return;
         }
 
-        // Buscar la mascota por ID. En tu modelo actual getEspecie() devuelve el id.
+        
         model.Mascota encontrada = null;
         for (model.Mascota m : gestor.getListaMascotas()) {
             if (idBuscada.equals(String.valueOf(m.getEspecie()))) {
@@ -363,7 +363,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
 
         if (encontrada == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "No se encontró mascota con ID: " + idBuscada, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            // limpiar campos por si acaso
+            // limpieza de campos
             txtEntradaNombre.setText("");
             txtEntradaRaza.setText("");
             txtEntradaEdad.setText("");
@@ -372,14 +372,14 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             return;
         }
 
-        // Rellenar campos (se sobreescribe el contenido actual)
+        // Rellenar campos
         txtEntradaNombre.setText(encontrada.getNombre());
         txtEntradaRaza.setText(encontrada.getRaza());
         txtEntradaEdad.setText(encontrada.getEdad());
         txtEntradaSexo.setText(encontrada.getSexo());
         txtEntradaSintomas.setText(encontrada.getObservaciones());
 
-        // Guardar referencia temporal en el frame para usarla en Guardar (añade field 'current' abajo)
+        
         this.current = encontrada;
     }//GEN-LAST:event_lblBuscarMouseClicked
 
@@ -401,28 +401,27 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             return;
         }
 
-        // Leer valores editados
+        
         String nombre = txtEntradaNombre.getText().trim();
         String raza = txtEntradaRaza.getText().trim();
         String edad = txtEntradaEdad.getText().trim();
         String sexo = txtEntradaSexo.getText().trim();
         String observ = txtEntradaSintomas.getText().trim();
 
-        // Validaciones simples
+        
         if (nombre.isEmpty() || raza.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Nombre y raza son obligatorios", "Validación", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Aplicar cambios al objeto actual
+        
         current.setNombre(nombre);
         current.setRaza(raza);
         current.setEdad(edad);
         current.setSexo(sexo);
         current.setObservaciones(observ);
 
-        // Persistir en GestorMascotas: la lista contiene la misma referencia, así que ya está actualizado.
-        // Si quieres asegurarte de que la lista refleja la versión actual, reemplaza por id:
+        
         boolean actualizado = false;
         for (int i = 0; i < gestor.getListaMascotas().size(); i++) {
             model.Mascota m = gestor.getListaMascotas().get(i);
@@ -434,7 +433,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         }
 
         javax.swing.JOptionPane.showMessageDialog(this, "Cambios guardados", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        // intentar reusar la ventana padre si es MenuGestionMascotas
+        
         
     }//GEN-LAST:event_lblGuardarMouseClicked
 

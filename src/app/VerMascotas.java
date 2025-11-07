@@ -176,12 +176,11 @@ public class VerMascotas extends javax.swing.JFrame {
         boolean encontrado = false;
         if (gestor != null && gestor.getListaMascotas() != null) {
             for (model.Mascota m : gestor.getListaMascotas()) {
-                // Nota: en tu modelo actual el getter del id es getEspecie() (ver comentario abajo).
-                String idMascota = m.getEspecie(); // temporal, usar getId() tras arreglar modelo
+                String idMascota = m.getEspecie(); 
                 if (idBuscada.equals(idMascota)) {
                     encontrado = true;
                     String msg = String.format(
-                            "ID: %s%nNombre: %s%nRaza: %s%nEdad: %s%nSexo: %s%nObservaciones: %s",
+                            "ID: %s%nNombre: %s%nTipo: %s%nEdad: %s%nSexo: %s%nObservaciones: %s",
                             idMascota,
                             safe(m.getNombre()),
                             safe(m.getRaza()),
@@ -252,4 +251,4 @@ public class VerMascotas extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables
 }
-//HOLA
+

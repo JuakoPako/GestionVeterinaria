@@ -181,7 +181,6 @@ public class EliminarMascota extends javax.swing.JFrame {
             return;
         }
 
-        // Buscar la mascota por ID (nota: en tu modelo actual getEspecie() devuelve el id)
         model.Mascota encontrada = null;
         for (model.Mascota m : gestor.getListaMascotas()) {
             if (idTexto.equals(String.valueOf(m.getEspecie()))) {
@@ -191,8 +190,7 @@ public class EliminarMascota extends javax.swing.JFrame {
         }
 
         if (encontrada == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró mascota con ID: " + idTexto, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            // Abrir nuevo menú y cerrar este frame
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontro mascota con ID: " + idTexto, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             java.awt.EventQueue.invokeLater(() -> {
                 MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
                 menu.setLocationRelativeTo(null);
@@ -202,29 +200,25 @@ public class EliminarMascota extends javax.swing.JFrame {
             return;
         }
 
-        // Confirmación con JOptionPane (YES/NO)
         int opcion = javax.swing.JOptionPane.showConfirmDialog(
                 this,
                 "¿Desea eliminar la mascota con la ID: " + idTexto + "?",
-                "Confirmar eliminación",
+                "Confirmar eliminacion",
                 javax.swing.JOptionPane.YES_NO_OPTION,
                 javax.swing.JOptionPane.WARNING_MESSAGE
         );
 
         if (opcion == javax.swing.JOptionPane.YES_OPTION) {
-            // Eliminar de forma segura
             boolean eliminado = gestor.getListaMascotas().removeIf(m -> idTexto.equals(String.valueOf(m.getEspecie())));
             if (eliminado) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Mascota eliminada correctamente.", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog(this, "Mascota eliminada correctamente.", "Exito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "No se pudo eliminar la mascota. Intente nuevamente.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            // Usuario eligió NO
-            javax.swing.JOptionPane.showMessageDialog(this, "Operación cancelada.", "Cancelado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Operacion cancelada.", "Cancelado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
 
-        // Abrir nuevo MenuGestionMascotas (se crearán múltiples instancias si ya existe uno)
         java.awt.EventQueue.invokeLater(() -> {
             MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
             menu.setLocationRelativeTo(null);

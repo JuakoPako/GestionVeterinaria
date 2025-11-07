@@ -96,7 +96,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
         panelFondo.add(txtEntradaId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 200, 30));
 
         lblRazaMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblRazaMascota.setText("Raza de la mascota");
+        lblRazaMascota.setText("Tipo de la mascota");
         panelFondo.add(lblRazaMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 160, -1));
 
         txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
