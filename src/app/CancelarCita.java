@@ -24,7 +24,7 @@ public class CancelarCita extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "Mascota", "Día", "Hora"};
+        String[] columnas = {"ID", "Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
         ArrayList<Cita> citas = gestor.getListaCitas();
@@ -209,7 +209,8 @@ public class CancelarCita extends javax.swing.JFrame {
             int id = Integer.parseInt(textoId) - 1; 
 
             if (id >= 0 && id < gestor.getListaCitas().size()) {
-                gestor.getListaCitas().remove(id);
+                Cita cita = gestor.getListaCitas().get(id);
+                gestor.eliminarCita(cita);
                 javax.swing.JOptionPane.showMessageDialog(this, "Cita cancelada correctamente.");
                 mostrarCitasEnTabla(); // 
             } else {

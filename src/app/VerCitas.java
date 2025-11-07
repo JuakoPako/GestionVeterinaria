@@ -24,7 +24,7 @@ public class VerCitas extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "Mascota", "Día", "Hora"};
+        String[] columnas = {"ID", "Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
         ArrayList<Cita> citas = gestor.getListaCitas();
