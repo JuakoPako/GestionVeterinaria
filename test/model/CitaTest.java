@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Franco
- */
+
 public class CitaTest {
-    
+
     public CitaTest() {
     }
 
@@ -20,95 +13,90 @@ public class CitaTest {
     public void testGetNombreMascota() {
         System.out.println("getNombreMascota");
         Cita instance = new Cita();
-        String expResult = "";
         String result = instance.getNombreMascota();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertTrue("El valor por defecto de nombreMascota debe ser null o vacía",
+                result == null || result.equals(""));
     }
 
     @Test
     public void testSetNombreMascota() {
         System.out.println("setNombreMascota");
-        String nombreMascota = "";
+        String nombreMascota = "Miguel";
         Cita instance = new Cita();
         instance.setNombreMascota(nombreMascota);
-        fail("The test case is a prototype.");
+        String result = instance.getNombreMascota();
+        assertEquals("El getter debe devolver el valor establecido por el setter", nombreMascota, result);
     }
 
     @Test
     public void testGetVeterinario() {
         System.out.println("getVeterinario");
         Cita instance = new Cita();
-        String expResult = "";
         String result = instance.getVeterinario();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertTrue("El valor por defecto de veterinario debe ser null o cadena vacía",
+                result == null || result.equals(""));
     }
 
     @Test
     public void testSetVeterinario() {
         System.out.println("setVeterinario");
-        String veterinario = "";
+        String veterinario = "Dr Perez";
         Cita instance = new Cita();
         instance.setVeterinario(veterinario);
-        fail("The test case is a prototype.");
+        assertEquals("El getter debe devolver el veterinario establecido por el setter", veterinario, instance.getVeterinario());
     }
 
     @Test
     public void testGetDia() {
         System.out.println("getDia");
         Cita instance = new Cita();
-        String expResult = "";
         String result = instance.getDia();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertTrue("El valor por defecto de dia debe ser null o cadena vacía",
+                result == null || result.equals(""));
     }
 
     @Test
     public void testSetDia() {
         System.out.println("setDia");
-        String fecha = "";
+        String fecha = "2025-11-13";
         Cita instance = new Cita();
         instance.setDia(fecha);
-        fail("The test case is a prototype.");
+        assertEquals("El getter debe devolver la fecha establecida por el setter", fecha, instance.getDia());
     }
 
     @Test
     public void testGetHora() {
         System.out.println("getHora");
         Cita instance = new Cita();
-        String expResult = "";
         String result = instance.getHora();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertTrue("El valor por defecto de hora debe ser null o cadena vacía",
+                result == null || result.equals(""));
     }
 
     @Test
     public void testSetHora() {
         System.out.println("setHora");
-        String hora = "";
+        String hora = "09:30";
         Cita instance = new Cita();
         instance.setHora(hora);
-        fail("The test case is a prototype.");
+        assertEquals("El getter debe devolver la hora establecida por el setter", hora, instance.getHora());
     }
 
     @Test
     public void testGetMotivo() {
         System.out.println("getMotivo");
         Cita instance = new Cita();
-        String expResult = "";
         String result = instance.getMotivo();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertTrue("El valor por defecto de motivo debe ser null o cadena vacía",
+                result == null || result.equals(""));
     }
 
     @Test
     public void testSetMotivo() {
         System.out.println("setMotivo");
-        String motivo = "";
+        String motivo = "Control anual";
         Cita instance = new Cita();
         instance.setMotivo(motivo);
-        fail("The test case is a prototype.");
+        assertEquals("El getter debe devolver el motivo establecido por el setter", motivo, instance.getMotivo());
     }
-    
 }
