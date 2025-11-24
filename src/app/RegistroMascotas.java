@@ -380,11 +380,5 @@ public class RegistroMascotas extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntradaObservaciones;
     private javax.swing.JTextField txtEntradaSexo;
     // End of variables declaration//GEN-END:variables
-    private void cargarTabla(){
-        try {
-            DAOMascota oDaoMas = new DAOMascota();
-            
-            String fila
-        }
-    }
+
 }

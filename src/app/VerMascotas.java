@@ -4,6 +4,9 @@
  */
 package app;
 
+import bd.DAOMascota;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 import model.Mascota;
 
 /**
@@ -11,7 +14,7 @@ import model.Mascota;
  * @author Franco
  */
 public class VerMascotas extends javax.swing.JFrame {
-
+    DefaultTableModel oModel = new DefaultTableModel();
     private GestorMain gestor;
 
     public VerMascotas(GestorMain gestor) {
@@ -39,6 +42,8 @@ public class VerMascotas extends javax.swing.JFrame {
         lblVolver = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblIconoLupa = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,11 +54,11 @@ public class VerMascotas extends javax.swing.JFrame {
         lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMenu.setText("Datos de la mascota");
-        panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 280, 40));
+        panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 40));
 
         lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblNombreMascota.setText("Ingrese la ID de su mascota");
-        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 190, -1));
+        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 190, -1));
 
         txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaNombre.setBorder(null);
@@ -67,7 +72,7 @@ public class VerMascotas extends javax.swing.JFrame {
                 txtEntradaNombreActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 30));
+        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 200, 30));
 
         panelEntrar.setBackground(new java.awt.Color(102, 153, 255));
         panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +111,7 @@ public class VerMascotas extends javax.swing.JFrame {
             .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondo.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 80, 30));
+        panelFondo.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 80, 30));
 
         panelVolver.setBackground(new java.awt.Color(245, 245, 220));
         panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,7 +150,7 @@ public class VerMascotas extends javax.swing.JFrame {
             .addComponent(lblVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondo.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 80, 30));
+        panelFondo.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 80, 30));
 
         jPanel2.setBackground(new java.awt.Color(102, 153, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,6 +159,21 @@ public class VerMascotas extends javax.swing.JFrame {
         jPanel2.add(lblIconoLupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 210));
 
         panelFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 560));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 360));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -169,39 +189,7 @@ public class VerMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        String idBuscada = txtEntradaNombre.getText().trim();
-        if (idBuscada.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese una ID", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
-        }
-        boolean encontrado = false;
-        if (gestor != null && gestor.getListaMascotas() != null) {
-            for (model.Mascota m : gestor.getListaMascotas()) {
-                String idMascota = m.getEspecie(); 
-                if (idBuscada.equals(idMascota)) {
-                    encontrado = true;
-                    String msg = String.format(
-                            "ID: %s%nNombre: %s%nTipo: %s%nEdad: %s%nSexo: %s%nObservaciones: %s",
-                            idMascota,
-                            safe(m.getNombre()),
-                            safe(m.getRaza()),
-                            safe(m.getEdad()),
-                            safe(m.getSexo()),
-                            safe(m.getObservaciones())
-                    );
-                    javax.swing.JOptionPane.showMessageDialog(this, msg, "Datos de la mascota", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                }
-            }
-        }
-
-        if (!encontrado) {
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró mascota con ID: " + idBuscada, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
-
-    private String safe(String s) {
-        return s == null ? "" : s;
-
+        cargarTabla();
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
@@ -240,6 +228,8 @@ public class VerMascotas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIconoLupa;
     private javax.swing.JLabel lblMenu;
@@ -250,5 +240,27 @@ public class VerMascotas extends javax.swing.JFrame {
     private javax.swing.JPanel panelVolver;
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables
+
+        private void cargarTabla() {
+        try {
+            DAOMascota oDaoMas = new DAOMascota();
+
+            String[] fila = new String()[6];
+
+            oModel.setRowCount(0);
+            for (Mascota oMascota : oDaoMas.getMascotas(txtEntradaNombre.getText())) {
+                fila[0] = "" + oMascota.getId();
+                fila[1] = "" + oMascota.getNombre();
+                fila[2] = "" + oMascota.getEspecie();
+                fila[3] = "" + oMascota.getEdad();
+                fila[4] = "" + oMascota.getSexo();
+                fila[5] = "" + oMascota.getObservaciones();
+
+                oModel.addRow(fila);
+            }
+        } catch (SQLException ex) {
+
+        }
+    }
 }
 
