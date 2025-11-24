@@ -5,74 +5,72 @@
 package model;
 
 public class Mascota {
-    
+
+    private int id;
     private String nombre;
-    private String id;
-    private String raza;
-    private String edad;
+    private String especie;
+    private int edad;
     private String sexo;
     private String observaciones;
 
     public Mascota() {
     }
 
-    public Mascota(String nombre, String id, String raza, String edad, String sexo, String observaciones) {
-        this.nombre = nombre;
+    public Mascota(int id, String nombre, String especie, int edad, String sexo, String observaciones) {
         this.id = id;
-        this.raza = raza;
+        this.nombre = nombre;
+        this.especie = especie;
         this.edad = edad;
         this.sexo = sexo;
         this.observaciones = observaciones;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getEspecie() {
-        return id;
+        return especie;
     }
 
-    public void setEspecie(String especie) {
-        this.id = especie;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
-
-    public String getEdad() {
+    public int getEdad() {
         return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
     }
 
     public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
     public String getObservaciones() {
         return observaciones;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    
-    
-    
-}
+
+ }
