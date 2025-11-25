@@ -35,10 +35,15 @@ public class DAOMascota {
     }
 
     public void crearMascotas(Mascota oMascota) throws SQLException {
-        String sql = "INSERT INTO mascota VALUES(null,'" + oMascota.getNombre() + "','" + oMascota.getEspecie() + "'," + oMascota.getEdad() + "," + oMascota.getSexo() + "," + oMascota.getObservaciones() + ");";
-        oConexion.ejecutar(sql);
-        System.out.println(sql);
-    }
+    String sql = "INSERT INTO mascota VALUES (null, '"
+            + oMascota.getNombre() + "', '"
+            + oMascota.getEspecie() + "', "
+            + oMascota.getEdad() + ", '"
+            + oMascota.getSexo() + "', '"
+            + oMascota.getObservaciones() + "');";
+    oConexion.ejecutar(sql);
+    System.out.println(sql);
+}
 
     public List<Mascota> getMascotas(String filtro) throws SQLException {
         ArrayList<Mascota> listaMascotas = new ArrayList<>();
