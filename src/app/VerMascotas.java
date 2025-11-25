@@ -6,6 +6,8 @@ package app;
 
 import bd.DAOMascota;
 import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Mascota;
 
@@ -14,12 +16,13 @@ import model.Mascota;
  * @author Franco
  */
 public class VerMascotas extends javax.swing.JFrame {
-    DefaultTableModel oModel = new DefaultTableModel();
+
     private GestorMain gestor;
 
     public VerMascotas(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
+        
 
     }
 
@@ -43,7 +46,7 @@ public class VerMascotas extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblIconoLupa = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblMascotas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -160,7 +163,7 @@ public class VerMascotas extends javax.swing.JFrame {
 
         panelFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 560));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -171,7 +174,7 @@ public class VerMascotas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblMascotas);
 
         panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 360));
 
@@ -189,7 +192,7 @@ public class VerMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        cargarTabla();
+        cargarTabla("");
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
@@ -229,7 +232,6 @@ public class VerMascotas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIconoLupa;
     private javax.swing.JLabel lblMenu;
@@ -238,29 +240,43 @@ public class VerMascotas extends javax.swing.JFrame {
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelVolver;
+    private javax.swing.JTable tblMascotas;
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables
 
-        private void cargarTabla() {
+    private void cargarTabla(String filtro) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Nombre");
+        model.addColumn("Especie");
+        model.addColumn("Edad");
+        model.addColumn("Sexo");
+        model.addColumn("Observaciones");
+
         try {
-            DAOMascota oDaoMas = new DAOMascota();
+            DAOMascota dao = new DAOMascota();
+            List<Mascota> lista = dao.getMascotas(filtro);
 
-            String[] fila = new String()[6];
-
-            oModel.setRowCount(0);
-            for (Mascota oMascota : oDaoMas.getMascotas(txtEntradaNombre.getText())) {
-                fila[0] = "" + oMascota.getId();
-                fila[1] = "" + oMascota.getNombre();
-                fila[2] = "" + oMascota.getEspecie();
-                fila[3] = "" + oMascota.getEdad();
-                fila[4] = "" + oMascota.getSexo();
-                fila[5] = "" + oMascota.getObservaciones();
-
-                oModel.addRow(fila);
+            for (Mascota m : lista) {
+                Object[] fila = {
+                    m.getId(),
+                    m.getNombre(),
+                    m.getEspecie(),
+                    m.getEdad(),
+                    m.getSexo(),
+                    m.getObservaciones()
+                };
+                model.addRow(fila);
             }
-        } catch (SQLException ex) {
 
+            tblMascotas.setModel(model);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar mascotas: " + ex.getMessage(),
+                    "Error BD",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
-}
 
+}
