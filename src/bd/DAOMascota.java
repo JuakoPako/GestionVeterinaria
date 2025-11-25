@@ -30,7 +30,7 @@ public class DAOMascota {
                 "localhost",
                 "clinicaveterinaria",
                 "root",
-                ""//pass
+                "1997"//pass
         );
     }
 

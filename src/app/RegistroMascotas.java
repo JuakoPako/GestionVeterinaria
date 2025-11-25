@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Mascota;
+import app.VerMascotas;
 
 /**
  *
@@ -301,6 +302,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
         try {
             if (!txtEntradaNombre.equals("") && !txtEntradaEspecie.equals("") && (int) spnEdadMascota.getValue() > 0 && !txtEntradaSexo.equals("") && !txtEntradaObservaciones.equals("")) {
                 DAOMascota oDao = new DAOMascota();
+                
                 Mascota oMascota = new Mascota();
                 oMascota.setNombre(txtEntradaNombre.getText());
                 oMascota.setEspecie(txtEntradaEspecie.getText());
@@ -309,7 +311,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 oMascota.setObservaciones(txtEntradaObservaciones.getText());
                 spnEdadMascota.setValue(0);
                 txtEntradaNombre.requestFocus();
-
+                
                 JOptionPane.showMessageDialog(this, "Se inserto correctamente la mascota de nombre: " + oMascota.getNombre());
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Porfavor complete todos los valores");

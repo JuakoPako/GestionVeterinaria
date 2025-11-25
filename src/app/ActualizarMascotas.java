@@ -373,12 +373,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         }
 
         // Rellenar campos
-        txtEntradaNombre.setText(encontrada.getNombre());
-        txtEntradaRaza.setText(encontrada.getRaza());
-        txtEntradaEdad.setText(encontrada.getEdad());
-        txtEntradaSexo.setText(encontrada.getSexo());
-        txtEntradaSintomas.setText(encontrada.getObservaciones());
-
+        
         
         this.current = encontrada;
     }//GEN-LAST:event_lblBuscarMouseClicked
@@ -415,11 +410,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         }
 
         
-        current.setNombre(nombre);
-        current.setRaza(raza);
-        current.setEdad(edad);
-        current.setSexo(sexo);
-        current.setObservaciones(observ);
+        
 
         
         boolean actualizado = false;
