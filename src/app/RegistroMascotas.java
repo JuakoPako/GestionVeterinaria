@@ -23,6 +23,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
     public RegistroMascotas(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
+        
     }
 
     /**
@@ -34,7 +35,6 @@ public class RegistroMascotas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         panelFondo = new javax.swing.JPanel();
         lblIngreseDatos = new javax.swing.JLabel();
         lblNombreMascota = new javax.swing.JLabel();
@@ -53,8 +53,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
         lblVolverMenu = new javax.swing.JLabel();
         panelColor = new javax.swing.JPanel();
         lblIconoRegistro = new javax.swing.JLabel();
-        rbtnMacho = new javax.swing.JRadioButton();
-        rbtnHembra = new javax.swing.JRadioButton();
+        cbSexoMascota = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -220,11 +219,13 @@ public class RegistroMascotas extends javax.swing.JFrame {
 
         panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 220, 560));
 
-        rbtnMacho.setText("Macho");
-        panelFondo.add(rbtnMacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
-
-        rbtnHembra.setText("Hembra");
-        panelFondo.add(rbtnHembra, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
+        cbSexoMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Hembra" }));
+        cbSexoMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSexoMascotaActionPerformed(evt);
+            }
+        });
+        panelFondo.add(cbSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -311,12 +312,16 @@ public class RegistroMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelVolverMenuMouseEntered
 
+    private void cbSexoMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoMascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSexoMascotaActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cbSexoMascota;
     private javax.swing.JLabel lblEdadMascota;
     private javax.swing.JLabel lblEspecieMascota;
     private javax.swing.JLabel lblIconoRegistro;
@@ -330,8 +335,6 @@ public class RegistroMascotas extends javax.swing.JFrame {
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelRegistrar;
     private javax.swing.JPanel panelVolverMenu;
-    private javax.swing.JRadioButton rbtnHembra;
-    private javax.swing.JRadioButton rbtnMacho;
     private javax.swing.JSpinner spnEdadMascota;
     private javax.swing.JTextField txtEntradaEspecie;
     private javax.swing.JTextField txtEntradaNombre;
