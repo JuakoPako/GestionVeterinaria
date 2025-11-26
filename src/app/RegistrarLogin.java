@@ -4,7 +4,11 @@
  */
 package app;
 
+import bd.DAOCliente;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Cliente;
 
 /**
@@ -252,10 +256,29 @@ public class RegistrarLogin extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
             return;
         }
+        
+        try {
+            DAOCliente oDAOCliente = new DAOCliente();
+            
+            Cliente nuevoCliente = new Cliente();
+            nuevoCliente.setNombreUsuario(usuario);
+            nuevoCliente.setContraseña(contraseña);
+            nuevoCliente.setCorreo(correo);
+            nuevoCliente.setTelefono(telefono);
+            
+            
+            gestor.agregarCliente(nuevoCliente);
+        
+        
+        } catch (SQLException ex) {
+            System.out.println(""+ex);
+        }
+        
+        
 
-        Cliente nuevoCliente = new Cliente(usuario, contraseña, telefono, correo);
+        
 
-        gestor.agregarCliente(nuevoCliente);
+        
 
         javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
 
