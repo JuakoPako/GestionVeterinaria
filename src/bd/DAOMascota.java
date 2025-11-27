@@ -61,6 +61,7 @@ public class DAOMascota {
             oMascota.setEdad(oConexion.rs.getInt(4));
             oMascota.setSexo(oConexion.rs.getString(5));
             oMascota.setObservaciones(oConexion.rs.getString(6));
+            oMascota.setIdCliente(oConexion.rs.getInt(7));
 
             listaMascotas.add(oMascota);
         }

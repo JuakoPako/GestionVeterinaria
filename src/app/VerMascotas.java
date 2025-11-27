@@ -57,11 +57,11 @@ public class VerMascotas extends javax.swing.JFrame {
         lblMenu.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMenu.setText("Datos de la mascota");
-        panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 40));
+        panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 250, 40));
 
-        lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         lblNombreMascota.setText("Ingrese el nombre de su mascota");
-        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 230, -1));
+        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 230, -1));
 
         txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaNombre.setBorder(null);
@@ -75,7 +75,7 @@ public class VerMascotas extends javax.swing.JFrame {
                 txtEntradaNombreActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 200, 30));
+        panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 200, 30));
 
         panelEntrar.setBackground(new java.awt.Color(102, 153, 255));
         panelEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,7 +114,7 @@ public class VerMascotas extends javax.swing.JFrame {
             .addComponent(lblEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondo.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 80, 30));
+        panelFondo.add(panelEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 80, 30));
 
         panelVolver.setBackground(new java.awt.Color(245, 245, 220));
         panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,7 +153,7 @@ public class VerMascotas extends javax.swing.JFrame {
             .addComponent(lblVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondo.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 80, 30));
+        panelFondo.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 80, 30));
 
         jPanel2.setBackground(new java.awt.Color(102, 153, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,18 +165,23 @@ public class VerMascotas extends javax.swing.JFrame {
 
         tblMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Especie", "Edad", "Sexo", "Observaciones"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblMascotas);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 510, 360));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 530, 360));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -265,7 +270,9 @@ public class VerMascotas extends javax.swing.JFrame {
                     m.getEspecie(),
                     m.getEdad(),
                     m.getSexo(),
-                    m.getObservaciones()
+                    m.getObservaciones(),
+                    
+                        
                 };
                 model.addRow(fila);
             }
