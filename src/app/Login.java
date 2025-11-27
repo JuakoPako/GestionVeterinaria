@@ -4,9 +4,10 @@
  */
 package app;
 
+import bd.DAOCliente;
 import java.awt.Color;
 import model.Cliente;
-
+import java.sql.SQLException;
 /**
  *
  * @author Franco
@@ -14,7 +15,7 @@ import model.Cliente;
 public class Login extends javax.swing.JFrame {
 
     private GestorMain gestor;
-    
+
     public Login(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
@@ -225,28 +226,31 @@ public class Login extends javax.swing.JFrame {
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
 
-        
-    String nombreUsuario = txtEntradaUsuario.getText();
-    String password = new String(pfEntradaContraseña.getPassword());
-    
-    boolean encontrado = false;
+        String nombreUsuario = txtEntradaUsuario.getText();
+        String password = new String(pfEntradaContraseña.getPassword());
 
-    for (Cliente cliente : gestor.getListaClientes()) {
-        if (cliente.getNombreUsuario().equals(nombreUsuario) && 
-            cliente.getContraseña().equals(password)) {
-            encontrado = true;
-            break;
+        boolean encontrado = false;
+
+        try {
+            DAOCliente oDAO = new DAOCliente();
+            Cliente cliente = oDAO.buscarCliente(nombreUsuario, password);
+
+            if (cliente != null) {
+                
+                Sesion.clienteActual = cliente;
+                
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Has iniciado sesión correctamente");
+
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(rootPane, "Credenciales incorrectas");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error SQL: " + ex);
         }
-    }
-
-    if (encontrado) {
-        javax.swing.JOptionPane.showMessageDialog(rootPane, "Has iniciado sesión correctamente");
-        Menu menu = new Menu();
-        menu.setVisible(true);
-        this.dispose();
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(rootPane, "Credenciales incorrectas");
-    }
 
 
     }//GEN-LAST:event_lblEntrarMouseClicked

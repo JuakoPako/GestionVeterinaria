@@ -257,6 +257,8 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 oMascota.setEdad((int) spnEdadMascota.getValue());
                 oMascota.setSexo(sexo);
                 oMascota.setObservaciones(txtEntradaObservaciones.getText());
+                
+                oMascota.setIdCliente(Sesion.clienteActual.getId());
 
                 oDao.crearMascotas(oMascota);
 

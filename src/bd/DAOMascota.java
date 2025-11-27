@@ -30,7 +30,7 @@ public class DAOMascota {
                 "localhost",
                 "clinicaveterinaria",
                 "root",
-                "1997"//pass
+                ""//pass
         );
     }
 
@@ -40,7 +40,9 @@ public class DAOMascota {
             + oMascota.getEspecie() + "', "
             + oMascota.getEdad() + ", '"
             + oMascota.getSexo() + "', '"
-            + oMascota.getObservaciones() + "');";
+            + oMascota.getObservaciones() + "', "
+            + oMascota.getIdCliente() + ");";  
+
     oConexion.ejecutar(sql);
     System.out.println(sql);
 }

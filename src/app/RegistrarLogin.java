@@ -5,10 +5,10 @@
 package app;
 
 import bd.DAOCliente;
-import java.awt.Color;
+
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import model.Cliente;
 
 /**

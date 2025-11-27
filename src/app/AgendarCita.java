@@ -4,11 +4,12 @@
  */
 package app;
 
+import bd.DAOCita;
 import java.util.ArrayList;
 import model.Cita;
 import model.Mascota;
 import model.Veterinario;
-
+import java.sql.SQLException;
 /**
  *
  * @author Joaquin
@@ -16,21 +17,17 @@ import model.Veterinario;
 public class AgendarCita extends javax.swing.JFrame {
 
     private ArrayList<Veterinario> veterinarios;
-    
+
     private GestorMain gestor;
-    
-    
+
     public AgendarCita(GestorMain gestor) {
         initComponents();
         this.gestor = gestor;
         inicializarVeterinarios();
         inicializarMascotas();
-        
+
     }
-    
-    
-    
-    
+
     private void inicializarVeterinarios() {
         veterinarios = new ArrayList<>();
         veterinarios.add(new Veterinario("Dr. Martín Torres", "Atención General", "+56 9 8456 3271"));
@@ -38,24 +35,21 @@ public class AgendarCita extends javax.swing.JFrame {
         veterinarios.add(new Veterinario("Dr. Felipe Muñoz", "Cirugía Menor", "+56 9 7765 9842"));
         veterinarios.add(new Veterinario("Dra. Valentina Pérez", "Odontología Animal", "+56 9 6523 1189"));
         veterinarios.add(new Veterinario("Dr. Ignacio Herrera", "Urgencias", "+56 9 9012 7755"));
-        
+
         cmbVeterinarios.removeAllItems();
-        for (Veterinario v :  veterinarios) {
-        
+        for (Veterinario v : veterinarios) {
+
             cmbVeterinarios.addItem(v.toString());
-            
+
         }
     }
-    
-    
+
     private void inicializarMascotas() {
         cmbMascotas.removeAllItems();
-        for (Mascota m: gestor.getListaMascotas()) {
+        for (Mascota m : gestor.getListaMascotas()) {
             cmbMascotas.addItem(m.getNombre());
         }
     }
-    
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -305,24 +299,40 @@ public class AgendarCita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseClicked
-        
+
         String nombreMascota = (String) cmbMascotas.getSelectedItem();
         String veterinario = (String) cmbVeterinarios.getSelectedItem();
         String dia = (String) cmbDia.getSelectedItem();
         String hora = (String) cmbHoras.getSelectedItem();
         String motivo = txtAreaMotivo.getText();
 
-        if (nombreMascota.isEmpty() || veterinario.isEmpty() || dia.isEmpty() || hora.isEmpty() || motivo.isEmpty()){
+        if (nombreMascota.isEmpty() || veterinario.isEmpty() || dia.isEmpty() || hora.isEmpty() || motivo.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
             return;
         }
-        Cita nuevaCita = new Cita(nombreMascota, veterinario, dia, hora, motivo);
-        gestor.agregarCita(nuevaCita);
-        javax.swing.JOptionPane.showMessageDialog(this, "Cita Agendada Correctamente.");
-        
-        MenuGestionCitas menuCitas = new MenuGestionCitas(gestor);
-        menuCitas.setVisible(true);
-        this.dispose();
+
+        try {
+            DAOCita oDAOCita = new DAOCita();
+
+            Cita nuevaCita = new Cita();
+            nuevaCita.setNombreMascota(nombreMascota);
+            nuevaCita.setVeterinario(veterinario);
+            nuevaCita.setDia(dia);
+            nuevaCita.setHora(hora);
+            nuevaCita.setMotivo(motivo);
+
+            oDAOCita.crearCita(nuevaCita);   
+            gestor.agregarCita(nuevaCita);   
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Cita Agendada Correctamente.");
+
+            MenuGestionCitas menuCitas = new MenuGestionCitas(gestor);
+            menuCitas.setVisible(true);
+            this.dispose();
+
+        } catch (SQLException ex) {
+            System.out.println("" + ex);
+        }
 
     }//GEN-LAST:event_lblActualizarMouseClicked
 
@@ -363,7 +373,6 @@ public class AgendarCita extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

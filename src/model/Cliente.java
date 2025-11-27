@@ -6,6 +6,7 @@ package model;
 
 public class Cliente {
     
+    private int id;
     private String nombreUsuario;
     private String contraseña;
     private String telefono;
@@ -14,11 +15,20 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nombreUsuario, String contraseña, String telefono, String correo) {
+    public Cliente(int id, String nombreUsuario, String contraseña, String telefono, String correo) {
+        this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
         this.telefono = telefono;
         this.correo = correo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombreUsuario() {
@@ -37,7 +47,6 @@ public class Cliente {
         this.contraseña = contraseña;
     }
 
-
     public String getTelefono() {
         return telefono;
     }
@@ -53,11 +62,8 @@ public class Cliente {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
     
-    
-    public void verificarDatos() {
-        
-    }
     
     
 }
