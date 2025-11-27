@@ -60,8 +60,8 @@ public class VerMascotas extends javax.swing.JFrame {
         panelFondo.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 40));
 
         lblNombreMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblNombreMascota.setText("Ingrese la ID de su mascota");
-        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 190, -1));
+        lblNombreMascota.setText("Ingrese el nombre de su mascota");
+        panelFondo.add(lblNombreMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 230, -1));
 
         txtEntradaNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaNombre.setBorder(null);
@@ -159,9 +159,9 @@ public class VerMascotas extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconoLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/iconoLupa.png"))); // NOI18N
-        jPanel2.add(lblIconoLupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 250, 210));
+        jPanel2.add(lblIconoLupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 80, 240, 210));
 
-        panelFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 260, 560));
+        panelFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 230, 560));
 
         tblMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,7 +176,7 @@ public class VerMascotas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblMascotas);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 360));
+        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 510, 360));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -192,7 +192,8 @@ public class VerMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        cargarTabla("");
+        String filtro = txtEntradaNombre.getText().trim();
+        cargarTabla(filtro);
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered

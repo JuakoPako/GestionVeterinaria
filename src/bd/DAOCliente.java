@@ -28,7 +28,7 @@ public class DAOCliente {
                 "localhost",
                 "clinicaveterinaria",
                 "root",
-                ""//pass
+                "1997"//pass
         );
     }
 
