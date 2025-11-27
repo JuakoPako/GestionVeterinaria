@@ -8,7 +8,6 @@ package bd;
 import java.sql.SQLException;
 import model.Cliente;
 
-
 /**
  *
  * @author A
@@ -18,7 +17,7 @@ import model.Cliente;
 public class DAOCliente {
 
     private Conexion oConexion;
-  
+
 
     /*
      constructor de DAO
@@ -29,21 +28,21 @@ public class DAOCliente {
                 "localhost",
                 "clinicaveterinaria",
                 "root",
-                "1997"//pass
+                ""//pass
         );
+    }
+
+    public void crearCliente(Cliente oCliente) throws SQLException {
+        String sql = "INSERT INTO cliente VALUES (null, '"
+                + oCliente.getNombreUsuario() + "', '"
+                + oCliente.getContraseña() + "', '"
+                + oCliente.getTelefono() + "', '"
+                + oCliente.getCorreo() + "', null);";
+
+        oConexion.ejecutar(sql);
+        System.out.println(sql);
     }
     
     
-public void crearCliente(Cliente oCliente) throws SQLException {
-    String sql = "INSERT INTO cliente VALUES (null, '"
-            + oCliente.getNombreUsuario() + "', '"
-            + oCliente.getContraseña() + "', '"
-            + oCliente.getCorreo() + "', '"
-            + oCliente.getTelefono() + "');";
-
-    oConexion.ejecutar(sql);
-    System.out.println(sql);
-}
-
 
 }

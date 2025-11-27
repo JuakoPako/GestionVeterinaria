@@ -266,7 +266,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
             nuevoCliente.setCorreo(correo);
             nuevoCliente.setTelefono(telefono);
             
-            
+            oDAOCliente.crearCliente(nuevoCliente);
             gestor.agregarCliente(nuevoCliente);
         
         
