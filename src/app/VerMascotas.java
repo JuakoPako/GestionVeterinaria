@@ -22,6 +22,7 @@ public class VerMascotas extends javax.swing.JFrame {
     public VerMascotas(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
+        cargarTabla("");
         
 
     }
