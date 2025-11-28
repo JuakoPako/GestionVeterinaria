@@ -4,6 +4,13 @@
  */
 package app;
 
+import bd.DAOMascota;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Mascota;
+
 /**
  *
  * @author Laboratorio
@@ -11,17 +18,40 @@ package app;
 public class Menu extends javax.swing.JFrame {
 
     private GestorMain gestor;
+
+    DAOMascota daoMascota;
+
     
+
+
+
     //primer inicio
-    
     public Menu() {
-    initComponents();
-    this.gestor = new GestorMain();
+        try {
+            this.daoMascota = new DAOMascota();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        initComponents();
+        this.gestor = new GestorMain();
+        
+            try {
+        ArrayList<Mascota> mascotasBD = new ArrayList<>(daoMascota.getMascotas("")); // "" = todas
+        for (Mascota m : mascotasBD) {
+            gestor.agregarMascotas(m);
+        }
+    } catch (SQLException ex) {
+        System.out.println("Error al cargar mascotas: " + ex.getMessage());
     }
-    
-    
+    }
+
     //para volver al menu y mantener el gestor
     public Menu(GestorMain gestor) {
+        try {
+            this.daoMascota = new DAOMascota();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
         this.gestor = gestor;
     }
@@ -183,9 +213,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_pnlGestionarMascotaMouseClicked
 
     private void lblGestionarMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGestionarMascotaMouseClicked
-    MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestor);
-    menuMascotas.setVisible(true);
-    this.dispose();
+        MenuGestionMascotas menuMascotas = new MenuGestionMascotas(gestor);
+        menuMascotas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_lblGestionarMascotaMouseClicked
 
     private void pnlAgendarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlAgendarCitaMouseClicked

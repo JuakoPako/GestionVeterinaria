@@ -5,11 +5,17 @@
 package app;
 
 import bd.DAOCita;
+import com.toedter.calendar.JCalendar;
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import model.Cita;
 import model.Mascota;
 import model.Veterinario;
 import java.sql.SQLException;
+import java.util.Date;
+
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Joaquin
@@ -20,12 +26,18 @@ public class AgendarCita extends javax.swing.JFrame {
 
     private GestorMain gestor;
 
+    private JCalendar calendar;
+
     public AgendarCita(GestorMain gestor) {
         initComponents();
         this.gestor = gestor;
         inicializarVeterinarios();
         inicializarMascotas();
-
+        calendar = new JCalendar();
+        pnlCalendario.setLayout(new BorderLayout()); // importante para que se muestre correctamente
+        pnlCalendario.add(calendar, BorderLayout.CENTER);
+        pnlCalendario.revalidate();
+        pnlCalendario.repaint();
     }
 
     private void inicializarVeterinarios() {
@@ -44,11 +56,14 @@ public class AgendarCita extends javax.swing.JFrame {
         }
     }
 
+    // Cargar mascotas desde la BD
     private void inicializarMascotas() {
-        cmbMascotas.removeAllItems();
+
+        DefaultComboBoxModel<Mascota> modelo = new DefaultComboBoxModel<>();
         for (Mascota m : gestor.getListaMascotas()) {
-            cmbMascotas.addItem(m.getNombre());
+            modelo.addElement(m);  // guardamos el objeto completo
         }
+        cmbMascotas.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")
@@ -68,12 +83,11 @@ public class AgendarCita extends javax.swing.JFrame {
         lblIdMascota1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaMotivo = new javax.swing.JTextArea();
-        panelSeleccionDia = new javax.swing.JPanel();
-        lblSeleccionarMascota2 = new javax.swing.JLabel();
-        cmbDia = new javax.swing.JComboBox<>();
+        pnlCalendario = new javax.swing.JPanel();
         panelSeleccionHora = new javax.swing.JPanel();
-        lblSeleccionarMascota3 = new javax.swing.JLabel();
         cmbHoras = new javax.swing.JComboBox<>();
+        lblSeleccionarDia = new javax.swing.JLabel();
+        lblSeleccionarMascota3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,7 +164,6 @@ public class AgendarCita extends javax.swing.JFrame {
             .addComponent(lblVolverMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        cmbMascotas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbMascotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMascotasActionPerformed(evt);
@@ -166,41 +179,16 @@ public class AgendarCita extends javax.swing.JFrame {
         txtAreaMotivo.setRows(5);
         jScrollPane1.setViewportView(txtAreaMotivo);
 
-        lblSeleccionarMascota2.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblSeleccionarMascota2.setText("Seleccione un Dia");
-
-        cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" }));
-        cmbDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbDiaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelSeleccionDiaLayout = new javax.swing.GroupLayout(panelSeleccionDia);
-        panelSeleccionDia.setLayout(panelSeleccionDiaLayout);
-        panelSeleccionDiaLayout.setHorizontalGroup(
-            panelSeleccionDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSeleccionDiaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelSeleccionDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSeleccionarMascota2, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                    .addGroup(panelSeleccionDiaLayout.createSequentialGroup()
-                        .addComponent(cmbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+        javax.swing.GroupLayout pnlCalendarioLayout = new javax.swing.GroupLayout(pnlCalendario);
+        pnlCalendario.setLayout(pnlCalendarioLayout);
+        pnlCalendarioLayout.setHorizontalGroup(
+            pnlCalendarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 191, Short.MAX_VALUE)
         );
-        panelSeleccionDiaLayout.setVerticalGroup(
-            panelSeleccionDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelSeleccionDiaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSeleccionarMascota2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        pnlCalendarioLayout.setVerticalGroup(
+            pnlCalendarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
         );
-
-        lblSeleccionarMascota3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblSeleccionarMascota3.setText("Seleccione Hora");
 
         cmbHoras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "09:00", "12:00", "15:00", "17:00" }));
         cmbHoras.addActionListener(new java.awt.event.ActionListener() {
@@ -215,22 +203,22 @@ public class AgendarCita extends javax.swing.JFrame {
             panelSeleccionHoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeleccionHoraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelSeleccionHoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSeleccionarMascota3, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addGroup(panelSeleccionHoraLayout.createSequentialGroup()
-                        .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         panelSeleccionHoraLayout.setVerticalGroup(
             panelSeleccionHoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeleccionHoraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSeleccionarMascota3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(37, 37, 37)
                 .addComponent(cmbHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
+
+        lblSeleccionarDia.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblSeleccionarDia.setText("Seleccione un Dia");
+
+        lblSeleccionarMascota3.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblSeleccionarMascota3.setText("Seleccione Hora");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,58 +229,79 @@ public class AgendarCita extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(141, 141, 141))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSeleccionarVeterinario)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblSeleccionarMascota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblAgendarHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(panelSeleccionHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblIdMascota1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(panelSeleccionDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(130, 130, 130))
+                                        .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(lblIdMascota1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSeleccionarVeterinario)
+                                    .addComponent(cmbVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(52, 52, 52))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblSeleccionarMascota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblAgendarHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(130, 130, 130)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblSeleccionarMascota3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelSeleccionHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(92, 92, 92)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cmbVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblSeleccionarDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(90, 90, 90))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnlCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lblAgendarHora)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(panelSeleccionDia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblSeleccionarMascota)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(lblSeleccionarVeterinario)))
-                    .addComponent(panelSeleccionHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(lblAgendarHora)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSeleccionarMascota)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSeleccionarVeterinario)
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSeleccionarMascota3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelSeleccionHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(cmbVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblIdMascota1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelVolverMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(lblSeleccionarDia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -300,13 +309,23 @@ public class AgendarCita extends javax.swing.JFrame {
 
     private void lblActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarMouseClicked
 
-        String nombreMascota = (String) cmbMascotas.getSelectedItem();
+        Mascota seleccionada = (Mascota) cmbMascotas.getSelectedItem();
+        if (seleccionada == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor selecciona una mascota.");
+            return;
+        }
+        int idMascota = seleccionada.getId(); // ya tienes el ID directo
+
         String veterinario = (String) cmbVeterinarios.getSelectedItem();
-        String dia = (String) cmbDia.getSelectedItem();
+        Date fechaSeleccionada = calendar.getDate(); 
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String dia = sdf.format(fechaSeleccionada); // ahora dia = "2025-11-28"
+        
         String hora = (String) cmbHoras.getSelectedItem();
         String motivo = txtAreaMotivo.getText();
 
-        if (nombreMascota.isEmpty() || veterinario.isEmpty() || dia.isEmpty() || hora.isEmpty() || motivo.isEmpty()) {
+        // Validación de campos
+        if (veterinario == null || dia == null || hora == null || motivo.trim().isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
             return;
         }
@@ -314,24 +333,27 @@ public class AgendarCita extends javax.swing.JFrame {
         try {
             DAOCita oDAOCita = new DAOCita();
 
+            
             Cita nuevaCita = new Cita();
-            nuevaCita.setNombreMascota(nombreMascota);
+            nuevaCita.setIdMascota(idMascota); 
             nuevaCita.setVeterinario(veterinario);
             nuevaCita.setDia(dia);
             nuevaCita.setHora(hora);
             nuevaCita.setMotivo(motivo);
-
-            oDAOCita.crearCita(nuevaCita);   
-            gestor.agregarCita(nuevaCita);   
+            nuevaCita.setIdCliente(Sesion.clienteActual.getId());
+            
+            oDAOCita.crearCita(nuevaCita);
+            gestor.agregarCita(nuevaCita);
 
             javax.swing.JOptionPane.showMessageDialog(this, "Cita Agendada Correctamente.");
 
+            // Volver al menú
             MenuGestionCitas menuCitas = new MenuGestionCitas(gestor);
             menuCitas.setVisible(true);
             this.dispose();
 
         } catch (SQLException ex) {
-            System.out.println("" + ex);
+            System.out.println("Error al agendar cita: " + ex);
         }
 
     }//GEN-LAST:event_lblActualizarMouseClicked
@@ -362,10 +384,6 @@ public class AgendarCita extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbMascotasActionPerformed
 
-    private void cmbDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDiaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbDiaActionPerformed
-
     private void cmbHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbHorasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbHorasActionPerformed
@@ -376,23 +394,22 @@ public class AgendarCita extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbHoras;
-    private javax.swing.JComboBox<String> cmbMascotas;
+    private javax.swing.JComboBox<Mascota> cmbMascotas;
     private javax.swing.JComboBox<String> cmbVeterinarios;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblActualizar;
     private javax.swing.JLabel lblAgendarHora;
     private javax.swing.JLabel lblIdMascota1;
+    private javax.swing.JLabel lblSeleccionarDia;
     private javax.swing.JLabel lblSeleccionarMascota;
-    private javax.swing.JLabel lblSeleccionarMascota2;
     private javax.swing.JLabel lblSeleccionarMascota3;
     private javax.swing.JLabel lblSeleccionarVeterinario;
     private javax.swing.JLabel lblVolverMenu;
     private javax.swing.JPanel panelAgendar;
-    private javax.swing.JPanel panelSeleccionDia;
     private javax.swing.JPanel panelSeleccionHora;
     private javax.swing.JPanel panelVolverMenu;
+    private javax.swing.JPanel pnlCalendario;
     private javax.swing.JTextArea txtAreaMotivo;
     // End of variables declaration//GEN-END:variables
 }

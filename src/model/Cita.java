@@ -6,7 +6,8 @@ package model;
 
 public class Cita {
     private int idCita;
-    private String nombreMascota;
+    private int idMascota;
+    private int idCliente;
     private String veterinario;
     private String dia;
     private String hora;
@@ -15,9 +16,10 @@ public class Cita {
     public Cita() {
     }
 
-    public Cita(String nombreMascota, String veterinario, String dia, String hora, String motivo) {
-        
-        this.nombreMascota = nombreMascota;
+    public Cita(int idCita, int idMascota, int idCliente, String veterinario, String dia, String hora, String motivo) {
+        this.idCita = idCita;
+        this.idMascota = idMascota;
+        this.idCliente = idCliente;
         this.veterinario = veterinario;
         this.dia = dia;
         this.hora = hora;
@@ -32,12 +34,20 @@ public class Cita {
         this.idCita = idCita;
     }
 
-    public String getNombreMascota() {
-        return nombreMascota;
+    public int getIdMascota() {
+        return idMascota;
     }
 
-    public void setNombreMascota(String nombreMascota) {
-        this.nombreMascota = nombreMascota;
+    public void setIdMascota(int idMascota) {
+        this.idMascota = idMascota;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getVeterinario() {
@@ -71,6 +81,9 @@ public class Cita {
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
+
+    
+    
 
     
     

@@ -4,10 +4,12 @@
  */
 package app;
 
+import bd.DAOCita;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import model.Cita;
+import java.sql.SQLException;
 
 /**
  *
@@ -24,21 +26,27 @@ public class VerCitas extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "Mascota", "Veterinario", "Día", "Hora"};
+        String[] columnas = {"ID", "ID Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-        ArrayList<Cita> citas = gestor.getListaCitas();
+        try {
+            DAOCita daoCita = new DAOCita(); // conecta a la base de datos
+            ArrayList<Cita> citas = daoCita.getListaCitas(); // obtiene todas las citas
 
-        for (int i = 0; i < citas.size(); i++) {
-            Cita c = citas.get(i);
-            Object[] fila = {
-                i + 1,
-                c.getNombreMascota(),
-                c.getVeterinario(),
-                c.getDia(),
-                c.getHora()
-            };
-            modelo.addRow(fila);
+            for (int i = 0; i < citas.size(); i++) {
+                Cita c = citas.get(i);
+                Object[] fila = {
+                    i + 1,          
+                    c.getIdMascota(), 
+                    c.getVeterinario(),
+                    c.getDia(),
+                    c.getHora()
+                };
+                modelo.addRow(fila);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener citas: " + ex.getMessage());
         }
 
         tblCitas.setModel(modelo);

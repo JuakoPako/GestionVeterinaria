@@ -4,6 +4,7 @@
  */
 package app;
 
+import bd.DAOMascota;
 import java.util.ArrayList;
 import model.Cita;
 import model.Cliente;
@@ -48,6 +49,9 @@ public class GestorMain {
     
     
     //memoria de mascotas
+    
+
+    
     private ArrayList<Mascota> listaMascotas = new ArrayList<>();
 
     public void agregarMascotas(Mascota mascota){

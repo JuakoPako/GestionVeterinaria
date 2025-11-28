@@ -83,5 +83,8 @@ public class Mascota {
         this.idCliente = idCliente;
     }
 
-    
+    @Override
+    public String toString() {
+    return this.getNombre(); 
+}
  }
