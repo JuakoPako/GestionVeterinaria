@@ -26,17 +26,17 @@ public class VerCitas extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "ID Mascota", "Veterinario", "Día", "Hora"};
+        String[] columnas = {"ID CITA", "ID Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
         try {
-            DAOCita daoCita = new DAOCita(); // conecta a la base de datos
-            ArrayList<Cita> citas = daoCita.getListaCitas(); // obtiene todas las citas
+            DAOCita daoCita = new DAOCita(); 
+            ArrayList<Cita> citas = daoCita.getListaCitas(); 
 
             for (int i = 0; i < citas.size(); i++) {
                 Cita c = citas.get(i);
                 Object[] fila = {
-                    i + 1,          
+                    c.getIdCita(),          
                     c.getIdMascota(), 
                     c.getVeterinario(),
                     c.getDia(),

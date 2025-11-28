@@ -34,7 +34,7 @@ public class AgendarCita extends javax.swing.JFrame {
         inicializarVeterinarios();
         inicializarMascotas();
         calendar = new JCalendar();
-        pnlCalendario.setLayout(new BorderLayout()); // importante para que se muestre correctamente
+        pnlCalendario.setLayout(new BorderLayout()); 
         pnlCalendario.add(calendar, BorderLayout.CENTER);
         pnlCalendario.revalidate();
         pnlCalendario.repaint();
@@ -56,12 +56,12 @@ public class AgendarCita extends javax.swing.JFrame {
         }
     }
 
-    // Cargar mascotas desde la BD
+    
     private void inicializarMascotas() {
 
         DefaultComboBoxModel<Mascota> modelo = new DefaultComboBoxModel<>();
         for (Mascota m : gestor.getListaMascotas()) {
-            modelo.addElement(m);  // guardamos el objeto completo
+            modelo.addElement(m);  
         }
         cmbMascotas.setModel(modelo);
     }
@@ -314,13 +314,11 @@ public class AgendarCita extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor selecciona una mascota.");
             return;
         }
-        int idMascota = seleccionada.getId(); // ya tienes el ID directo
-
+        int idMascota = seleccionada.getId(); 
         String veterinario = (String) cmbVeterinarios.getSelectedItem();
         Date fechaSeleccionada = calendar.getDate(); 
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String dia = sdf.format(fechaSeleccionada); // ahora dia = "2025-11-28"
-        
+        String dia = sdf.format(fechaSeleccionada); // 
         String hora = (String) cmbHoras.getSelectedItem();
         String motivo = txtAreaMotivo.getText();
 

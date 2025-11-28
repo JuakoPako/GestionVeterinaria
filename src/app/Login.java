@@ -229,7 +229,7 @@ public class Login extends javax.swing.JFrame {
         String nombreUsuario = txtEntradaUsuario.getText();
         String password = new String(pfEntradaContraseña.getPassword());
 
-        boolean encontrado = false;
+        
 
         try {
             DAOCliente oDAO = new DAOCliente();

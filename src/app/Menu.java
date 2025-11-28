@@ -36,7 +36,7 @@ public class Menu extends javax.swing.JFrame {
         this.gestor = new GestorMain();
         
             try {
-        ArrayList<Mascota> mascotasBD = new ArrayList<>(daoMascota.getMascotas("")); // "" = todas
+        ArrayList<Mascota> mascotasBD = new ArrayList<>(daoMascota.getMascotas("")); 
         for (Mascota m : mascotasBD) {
             gestor.agregarMascotas(m);
         }
