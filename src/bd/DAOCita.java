@@ -1,5 +1,6 @@
 package bd;
 
+import app.Sesion;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cita;
@@ -12,7 +13,7 @@ public class DAOCita {
         oConexion = new Conexion("localhost", "clinicaveterinaria", "root", "");
     }
 
-    // Crear cita
+
     public void crearCita(Cita oCita) throws SQLException {
         String sql = "INSERT INTO cita VALUES (null, '"
                 + oCita.getVeterinario() + "', '"
@@ -37,13 +38,14 @@ public class DAOCita {
         System.out.println(sql);
     }
 
-    public ArrayList<Cita> getListaCitas() {
+    public ArrayList<Cita> getListaCitas() throws SQLException {
         ArrayList<Cita> lista = new ArrayList<>();
-        try {
+
             String sql = "SELECT cita.id_cita, cita.vet_cita, cita.dia_cita, cita.hora_cita, cita.motivo_cita, "
                     + "cita.FK_mascota, cita.FK_cliente, mascota.nombre_mascota "
                     + "FROM cita "
-                    + "JOIN mascota ON cita.FK_mascota = mascota.id_mascota";
+                    + "JOIN mascota ON cita.FK_mascota = mascota.id_mascota "
+                    + "WHERE cita.FK_cliente = "+Sesion.clienteActual.getId()+";";
 
             oConexion.rs = oConexion.ejecutarSelect(sql);
 
@@ -60,10 +62,16 @@ public class DAOCita {
                 lista.add(c);
             }
             oConexion.rs.close();
-        } catch (Exception e) {
-            System.out.println("Error al obtener citas: " + e.getMessage());
-        }
+
         return lista;
     }
+    
+    
+        public void borrarCita(int id) throws SQLException {
+        String sql = "delete from cita where id_cita=" + id + "";
+        oConexion.ejecutar(sql);
+        System.out.println(sql);
 
+    }
+        
 }

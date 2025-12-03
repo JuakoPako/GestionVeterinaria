@@ -4,7 +4,12 @@
  */
 package app;
 
+import bd.DAOCita;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Cita;
 
@@ -24,20 +29,28 @@ public class CancelarCita extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "Mascota", "Veterinario", "Día", "Hora"};
+        String[] columnas = {"ID CITA", "ID Mascota", "Nombre Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-        ArrayList<Cita> citas = gestor.getListaCitas();
-        for (int i = 0; i < citas.size(); i++) {
-            Cita c = citas.get(i);
-            Object[] fila = {
-                i + 1,
-                c.getNombreMascota(),
-                c.getVeterinario(),
-                c.getDia(),
-                c.getHora()
-            };
-            modelo.addRow(fila);
+        try {
+            DAOCita daoCita = new DAOCita();
+            ArrayList<Cita> citas = daoCita.getListaCitas();
+
+            for (int i = 0; i < citas.size(); i++) {
+                Cita c = citas.get(i);
+                Object[] fila = {
+                    c.getIdCita(),
+                    c.getIdMascota(),
+                    c.getNombreMascota(),
+                    c.getVeterinario(),
+                    c.getDia(),
+                    c.getHora()
+                };
+                modelo.addRow(fila);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener citas: " + ex.getMessage());
         }
 
         tblCitas.setModel(modelo);
@@ -199,26 +212,31 @@ public class CancelarCita extends javax.swing.JFrame {
 
     private void lblCancelarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCancelarCitaMouseClicked
         try {
-            String textoId = txtIdCita.getText().trim();
+            int idBuscado = Integer.parseInt(txtIdCita.getText().trim());
 
-            if (textoId.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Por favor ingrese un ID de cita.");
-                return;
+            DAOCita oDAOCita = new DAOCita();
+            ArrayList<model.Cita> lista = oDAOCita.getListaCitas();
+
+            model.Cita citaEncontrada = null;
+            for (model.Cita c : lista) {
+                if (c.getIdCita() == idBuscado) {
+                    citaEncontrada = c;
+                    break;
+                }
             }
 
-            int id = Integer.parseInt(textoId) - 1; 
-
-            if (id >= 0 && id < gestor.getListaCitas().size()) {
-                Cita cita = gestor.getListaCitas().get(id);
-                gestor.eliminarCita(cita);
-                javax.swing.JOptionPane.showMessageDialog(this, "Cita cancelada correctamente.");
-                mostrarCitasEnTabla(); // 
+            if (citaEncontrada != null) {
+                oDAOCita.borrarCita(citaEncontrada.getIdCita());
+                mostrarCitasEnTabla();
+                JOptionPane.showMessageDialog(this, "Cita Cancelada con Exito.");
             } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "No existe una cita con ese ID.");
+                javax.swing.JOptionPane.showMessageDialog(this, "ID no válido");
             }
 
         } catch (NumberFormatException e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.");
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un número válido");
+        } catch (SQLException ex) {
+            Logger.getLogger(ActualizarCita.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_lblCancelarCitaMouseClicked
