@@ -4,7 +4,11 @@
  */
 package app;
 
+import bd.DAOCita;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import model.Cita;
 
@@ -23,20 +27,28 @@ public class ActualizarCita extends javax.swing.JFrame {
     }
 
     private void mostrarCitasEnTabla() {
-        String[] columnas = {"ID", "Mascota", "Veterinario", "Día", "Hora"};
+        String[] columnas = {"ID CITA", "ID Mascota", "Nombre Mascota", "Veterinario", "Día", "Hora"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-        ArrayList<Cita> citas = gestor.getListaCitas();
-        for (int i = 0; i < citas.size(); i++) {
-            Cita c = citas.get(i);
-            Object[] fila = {
-                i + 1,
-                c.getNombreMascota(),
-                c.getVeterinario(),
-                c.getDia(),
-                c.getHora()
-            };
-            modelo.addRow(fila);
+        try {
+            DAOCita daoCita = new DAOCita();
+            ArrayList<Cita> citas = daoCita.getListaCitas();
+
+            for (int i = 0; i < citas.size(); i++) {
+                Cita c = citas.get(i);
+                Object[] fila = {
+                    c.getIdCita(),
+                    c.getIdMascota(),
+                    c.getNombreMascota(),
+                    c.getVeterinario(),
+                    c.getDia(),
+                    c.getHora()
+                };
+                modelo.addRow(fila);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener citas: " + ex.getMessage());
         }
 
         tblCitas.setModel(modelo);
@@ -106,6 +118,12 @@ public class ActualizarCita extends javax.swing.JFrame {
 
         lblGestionDeMascotas.setFont(new java.awt.Font("Roboto Black", 1, 22)); // NOI18N
         lblGestionDeMascotas.setText("Actualizar Cita");
+
+        txtEntradaID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEntradaIDActionPerformed(evt);
+            }
+        });
 
         lblIngreseCita.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblIngreseCita.setText("Ingrese ID Cita");
@@ -199,19 +217,31 @@ public class ActualizarCita extends javax.swing.JFrame {
 
     private void lblActualizarCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblActualizarCitaMouseClicked
         try {
-            int id = Integer.parseInt(txtEntradaID.getText()) - 1; 
-            if (id >= 0 && id < gestor.getListaCitas().size()) {
-                model.Cita cita = gestor.getListaCitas().get(id);
+            int idBuscado = Integer.parseInt(txtEntradaID.getText().trim());
 
-                
-                EditarCita editar = new EditarCita(gestor, cita, id);
+            DAOCita oDAOCita = new DAOCita();
+            ArrayList<model.Cita> lista = oDAOCita.getListaCitas();
+
+            model.Cita citaEncontrada = null;
+            for (model.Cita c : lista) {
+                if (c.getIdCita() == idBuscado) {
+                    citaEncontrada = c;
+                    break;
+                }
+            }
+
+            if (citaEncontrada != null) {
+                EditarCita editar = new EditarCita(gestor, citaEncontrada, idBuscado);
                 editar.setVisible(true);
                 this.dispose();
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "ID no válido");
             }
+
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un número válido");
+        } catch (SQLException ex) {
+            Logger.getLogger(ActualizarCita.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_lblActualizarCitaMouseClicked
 
@@ -222,6 +252,10 @@ public class ActualizarCita extends javax.swing.JFrame {
     private void pnlVerCitasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlVerCitasMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlVerCitasMouseEntered
+
+    private void txtEntradaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEntradaIDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

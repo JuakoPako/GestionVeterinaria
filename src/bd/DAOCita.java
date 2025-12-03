@@ -25,10 +25,26 @@ public class DAOCita {
         System.out.println(sql);
     }
 
+    public void actualizarCita(Cita oCita) throws SQLException {
+        String sql = "UPDATE cita SET "
+                + "vet_cita = '" + oCita.getVeterinario() + "', "
+                + "dia_cita = '" + oCita.getDia() + "', "
+                + "hora_cita = '" + oCita.getHora() + "', "
+                + "motivo_cita = '" + oCita.getMotivo() + "' "
+                + "WHERE id_cita = " + oCita.getIdCita();
+
+        oConexion.ejecutar(sql);
+        System.out.println(sql);
+    }
+
     public ArrayList<Cita> getListaCitas() {
         ArrayList<Cita> lista = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM cita";
+            String sql = "SELECT cita.id_cita, cita.vet_cita, cita.dia_cita, cita.hora_cita, cita.motivo_cita, "
+                    + "cita.FK_mascota, cita.FK_cliente, mascota.nombre_mascota "
+                    + "FROM cita "
+                    + "JOIN mascota ON cita.FK_mascota = mascota.id_mascota";
+
             oConexion.rs = oConexion.ejecutarSelect(sql);
 
             while (oConexion.rs.next()) {
@@ -40,7 +56,7 @@ public class DAOCita {
                 c.setMotivo(oConexion.rs.getString(5));
                 c.setIdMascota(oConexion.rs.getInt(6));
                 c.setIdCliente(oConexion.rs.getInt(7));
-
+                c.setNombreMascota(oConexion.rs.getString(8));
                 lista.add(c);
             }
             oConexion.rs.close();
@@ -49,5 +65,5 @@ public class DAOCita {
         }
         return lista;
     }
-    
+
 }

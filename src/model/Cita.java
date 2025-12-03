@@ -12,7 +12,9 @@ public class Cita {
     private String dia;
     private String hora;
     private String motivo;
-
+    private String nombreMascota;
+    
+    
     public Cita() {
     }
 
@@ -80,6 +82,14 @@ public class Cita {
 
     public void setMotivo(String motivo) {
         this.motivo = motivo;
+    }
+
+    public String getNombreMascota() {
+        return nombreMascota;
+    }
+
+    public void setNombreMascota(String nombreMascota) {
+        this.nombreMascota = nombreMascota;
     }
 
     

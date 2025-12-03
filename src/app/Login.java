@@ -111,9 +111,6 @@ public class Login extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblEntrarMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblEntrarMouseEntered(evt);
-            }
         });
 
         javax.swing.GroupLayout panelEntrarLayout = new javax.swing.GroupLayout(panelEntrar);
@@ -152,9 +149,6 @@ public class Login extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblRegistrar1MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblRegistrar1MouseEntered(evt);
-            }
         });
 
         javax.swing.GroupLayout panelInicioSesionLayout = new javax.swing.GroupLayout(panelInicioSesion);
@@ -191,11 +185,6 @@ public class Login extends javax.swing.JFrame {
     private void pfEntradaContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfEntradaContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pfEntradaContraseñaActionPerformed
-
-    private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
-
-
-    }//GEN-LAST:event_lblEntrarMouseEntered
 
     private void panelEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelEntrarMouseEntered
 
@@ -264,10 +253,6 @@ public class Login extends javax.swing.JFrame {
         registrarVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblRegistrar1MouseClicked
-
-    private void lblRegistrar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrar1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblRegistrar1MouseEntered
 
     private void panelInicioSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioSesionMouseEntered
         // TODO add your handling code here:
