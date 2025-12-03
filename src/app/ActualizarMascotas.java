@@ -7,6 +7,10 @@ package app;
 import model.Mascota;
 import app.VerMascotas;
 import bd.DAOMascota;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class ActualizarMascotas extends javax.swing.JFrame {
 
@@ -16,7 +20,9 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     public ActualizarMascotas(GestorMain gestor) {
         this.gestor = gestor;
         initComponents();
-        
+        cbSexoMascota.addItem("Macho");
+        cbSexoMascota.addItem("Hembra");
+        cbSexoMascota.setSelectedIndex(-1);
 
     }
 
@@ -39,9 +45,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         lblRaza = new javax.swing.JLabel();
         txtEntradaRaza = new javax.swing.JTextField();
         lblEdad = new javax.swing.JLabel();
-        txtEntradaEdad = new javax.swing.JTextField();
         lblSexo = new javax.swing.JLabel();
-        txtEntradaSexo = new javax.swing.JTextField();
         lblSintomas = new javax.swing.JLabel();
         txtEntradaSintomas = new javax.swing.JTextField();
         panelGuardar = new javax.swing.JPanel();
@@ -51,7 +55,9 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         panelColor = new javax.swing.JPanel();
         lblIconoActualizar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblMascota = new javax.swing.JTable();
+        spnEdadMascota = new javax.swing.JSpinner();
+        cbSexoMascota = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,37 +162,9 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         lblEdad.setText("Edad");
         panelFondo.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 160, -1));
 
-        txtEntradaEdad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaEdad.setBorder(null);
-        txtEntradaEdad.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaEdadMousePressed(evt);
-            }
-        });
-        txtEntradaEdad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaEdadActionPerformed(evt);
-            }
-        });
-        panelFondo.add(txtEntradaEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 200, 30));
-
         lblSexo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSexo.setText("Sexo");
         panelFondo.add(lblSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 250, -1));
-
-        txtEntradaSexo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaSexo.setBorder(null);
-        txtEntradaSexo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaSexoMousePressed(evt);
-            }
-        });
-        txtEntradaSexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaSexoActionPerformed(evt);
-            }
-        });
-        panelFondo.add(txtEntradaSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 200, 30));
 
         lblSintomas.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSintomas.setText("Sintomas");
@@ -292,7 +270,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
 
         panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 230, 700));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMascota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -300,9 +278,17 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 "ID", "Nombre", "Especie", "Edad", "Sexo", "Observaciones"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblMascota);
 
         panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 710, 130));
+        panelFondo.add(spnEdadMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 70, -1));
+
+        cbSexoMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSexoMascotaActionPerformed(evt);
+            }
+        });
+        panelFondo.add(cbSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, -1, -1));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
@@ -333,22 +319,6 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaRazaActionPerformed
 
-    private void txtEntradaEdadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaEdadMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaEdadMousePressed
-
-    private void txtEntradaEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaEdadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaEdadActionPerformed
-
-    private void txtEntradaSexoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaSexoMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaSexoMousePressed
-
-    private void txtEntradaSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaSexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaSexoActionPerformed
-
     private void txtEntradaSintomasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaSintomasMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaSintomasMousePressed
@@ -358,7 +328,8 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaSintomasActionPerformed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
-
+        String filtro = txtEntradaIngresarId.getText().trim();
+        cargarTabla(filtro);
     }//GEN-LAST:event_lblBuscarMouseClicked
 
     private void lblBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseEntered
@@ -374,6 +345,70 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_panelBuscarMouseEntered
 
     private void lblGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseClicked
+        try {
+            Object seleccionado = cbSexoMascota.getSelectedItem();
+            String sexo = (seleccionado == null) ? "" : (seleccionado.toString().equalsIgnoreCase("Macho") ? "M" : "H");
+
+            if (txtEntradaIngresarId.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Primero ingrese la ID de la mascota y cárguela.", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (txtEntradaNombre.getText().trim().isEmpty()
+                    || txtEntradaRaza.getText().trim().isEmpty()
+                    || (int) spnEdadMascota.getValue() <= 0
+                    || sexo.isEmpty()
+                    || txtEntradaSintomas.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor complete todos los valores", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int opcion = JOptionPane.showConfirmDialog(this, "¿Quieres actualizar realmente el registro?", "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
+            if (opcion != JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(this, "Operación cancelada");
+                return;
+            }
+
+            model.Mascota oMascota = new model.Mascota();
+            try {
+                oMascota.setId(Integer.parseInt(txtEntradaIngresarId.getText().trim()));
+            } catch (NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(this, "ID inválida", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            oMascota.setNombre(txtEntradaNombre.getText().trim());
+            oMascota.setEspecie(txtEntradaRaza.getText().trim());
+            oMascota.setEdad((int) spnEdadMascota.getValue());
+            oMascota.setSexo(sexo);
+            oMascota.setObservaciones(txtEntradaSintomas.getText().trim());
+
+            bd.DAOMascota oDao = new bd.DAOMascota();
+            try {
+                oDao.actualizarMascota(oMascota); // aquí se usa exactamente la firma que tienes
+                JOptionPane.showMessageDialog(this, "Se actualizó la mascota: " + oMascota.getNombre(), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error al actualizar: " + ex.getMessage(), "Error BD", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            txtEntradaNombre.setText("");
+            txtEntradaRaza.setText("");
+            spnEdadMascota.setValue(0);
+            cbSexoMascota.setSelectedIndex(-1);
+            txtEntradaSintomas.setText("");
+            txtEntradaIngresarId.setText("");
+            txtEntradaNombre.requestFocus();
+
+            try {
+                cargarTabla(""); // o cargarTablaPorId(oMascota.getId()) si prefieres mostrar solo esa fila
+            } catch (Exception ex) {
+                System.err.println("Error al refrescar tabla: " + ex.getMessage());
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_lblGuardarMouseClicked
 
@@ -407,13 +442,17 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelVolverMouseEntered
 
+    private void cbSexoMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSexoMascotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSexoMascotaActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbSexoMascota;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblGuardar;
@@ -429,13 +468,46 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelGuardar;
     private javax.swing.JPanel panelVolver;
-    private javax.swing.JTextField txtEntradaEdad;
+    private javax.swing.JSpinner spnEdadMascota;
+    private javax.swing.JTable tblMascota;
     private javax.swing.JTextField txtEntradaIngresarId;
     private javax.swing.JTextField txtEntradaNombre;
     private javax.swing.JTextField txtEntradaRaza;
-    private javax.swing.JTextField txtEntradaSexo;
     private javax.swing.JTextField txtEntradaSintomas;
     // End of variables declaration//GEN-END:variables
 
-    
+    public void cargarTabla(String filtro) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Nombre");
+        model.addColumn("Especie");
+        model.addColumn("Edad");
+        model.addColumn("Sexo");
+        model.addColumn("Observaciones");
+
+        try {
+            DAOMascota dao = new DAOMascota();
+            List<Mascota> lista = dao.getMascotas(filtro);
+
+            for (Mascota m : lista) {
+                Object[] fila = {
+                    m.getId(),
+                    m.getNombre(),
+                    m.getEspecie(),
+                    m.getEdad(),
+                    m.getSexo(),
+                    m.getObservaciones(),};
+                model.addRow(fila);
+            }
+
+            tblMascota.setModel(model);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar mascotas: " + ex.getMessage(),
+                    "Error BD",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }

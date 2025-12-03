@@ -67,7 +67,7 @@ public class DAOMascota {
     public void actualizarMascota(Mascota oMascota) throws SQLException {
         String sql = "UPDATE mascota SET "
                 + "nombre_mascota = '" + oMascota.getNombre() + "', "
-                + "especie_especie = '" + oMascota.getEspecie() + "', "
+                + "especie_mascota = '" + oMascota.getEspecie() + "', "
                 + "edad_mascota = " + oMascota.getEdad() + ", "
                 + "sexo_mascota = '" + oMascota.getSexo() + "', "
                 + "observaciones_mascota = '" + oMascota.getObservaciones() + "' "
