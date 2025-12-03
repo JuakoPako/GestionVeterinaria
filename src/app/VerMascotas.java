@@ -251,7 +251,7 @@ public class VerMascotas extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarTabla(String filtro) {
+    public void cargarTabla(String filtro) {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID");
         model.addColumn("Nombre");

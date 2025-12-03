@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bd;
 
 import java.sql.SQLException;
@@ -30,22 +25,22 @@ public class DAOMascota {
                 "localhost",
                 "clinicaveterinaria",
                 "root",
-                ""//pass
+                "1997"//pass
         );
     }
 
     public void crearMascotas(Mascota oMascota) throws SQLException {
-    String sql = "INSERT INTO mascota VALUES (null, '"
-            + oMascota.getNombre() + "', '"
-            + oMascota.getEspecie() + "', "
-            + oMascota.getEdad() + ", '"
-            + oMascota.getSexo() + "', '"
-            + oMascota.getObservaciones() + "', "
-            + oMascota.getIdCliente() + ");";  
+        String sql = "INSERT INTO mascota VALUES (null, '"
+                + oMascota.getNombre() + "', '"
+                + oMascota.getEspecie() + "', "
+                + oMascota.getEdad() + ", '"
+                + oMascota.getSexo() + "', '"
+                + oMascota.getObservaciones() + "', "
+                + oMascota.getIdCliente() + ");";
 
-    oConexion.ejecutar(sql);
-    System.out.println(sql);
-}
+        oConexion.ejecutar(sql);
+        System.out.println(sql);
+    }
 
     public List<Mascota> getMascotas(String filtro) throws SQLException {
         ArrayList<Mascota> listaMascotas = new ArrayList<>();
@@ -67,6 +62,19 @@ public class DAOMascota {
         }
         oConexion.rs.close();
         return listaMascotas;
+    }
+
+    public void actualizarMascota(Mascota oMascota) throws SQLException {
+        String sql = "UPDATE mascota SET "
+                + "nombre_mascota = '" + oMascota.getNombre() + "', "
+                + "especie_especie = '" + oMascota.getEspecie() + "', "
+                + "edad_mascota = " + oMascota.getEdad() + ", "
+                + "sexo_mascota = '" + oMascota.getSexo() + "', "
+                + "observaciones_mascota = '" + oMascota.getObservaciones() + "' "
+                + "WHERE id_mascota = " + oMascota.getId() + ";";
+
+        oConexion.ejecutar(sql);
+        System.out.println(sql);
     }
 
 }
