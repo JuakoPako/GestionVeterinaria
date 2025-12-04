@@ -34,7 +34,10 @@ public class EditarCita extends javax.swing.JFrame {
 
         inicializarVeterinarios();
         inicializarMascotas();
+
         calendar = new JCalendar();
+        calendar.setMinSelectableDate(new Date());
+
         pnlCalendario.setLayout(new BorderLayout());
         pnlCalendario.add(calendar, BorderLayout.CENTER);
         pnlCalendario.revalidate();
@@ -352,7 +355,7 @@ public class EditarCita extends javax.swing.JFrame {
             this.dispose();
 
         } catch (SQLException ex) {
-            System.out.println("Error al actualizar cita: " + ex);
+            System.out.println("" + ex);
         }
     }//GEN-LAST:event_lblActualizarMouseClicked
 

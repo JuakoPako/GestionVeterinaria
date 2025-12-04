@@ -33,8 +33,11 @@ public class AgendarCita extends javax.swing.JFrame {
         this.gestor = gestor;
         inicializarVeterinarios();
         inicializarMascotas();
+
         calendar = new JCalendar();
-        pnlCalendario.setLayout(new BorderLayout()); 
+        calendar.setMinSelectableDate(new Date());
+
+        pnlCalendario.setLayout(new BorderLayout());
         pnlCalendario.add(calendar, BorderLayout.CENTER);
         pnlCalendario.revalidate();
         pnlCalendario.repaint();
@@ -56,12 +59,11 @@ public class AgendarCita extends javax.swing.JFrame {
         }
     }
 
-    
     private void inicializarMascotas() {
 
         DefaultComboBoxModel<Mascota> modelo = new DefaultComboBoxModel<>();
         for (Mascota m : gestor.getListaMascotas()) {
-            modelo.addElement(m);  
+            modelo.addElement(m);
         }
         cmbMascotas.setModel(modelo);
     }
@@ -314,9 +316,9 @@ public class AgendarCita extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor selecciona una mascota.");
             return;
         }
-        int idMascota = seleccionada.getId(); 
+        int idMascota = seleccionada.getId();
         String veterinario = (String) cmbVeterinarios.getSelectedItem();
-        Date fechaSeleccionada = calendar.getDate(); 
+        Date fechaSeleccionada = calendar.getDate();
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String dia = sdf.format(fechaSeleccionada); // 
         String hora = (String) cmbHoras.getSelectedItem();
@@ -331,15 +333,14 @@ public class AgendarCita extends javax.swing.JFrame {
         try {
             DAOCita oDAOCita = new DAOCita();
 
-            
             Cita nuevaCita = new Cita();
-            nuevaCita.setIdMascota(idMascota); 
+            nuevaCita.setIdMascota(idMascota);
             nuevaCita.setVeterinario(veterinario);
             nuevaCita.setDia(dia);
             nuevaCita.setHora(hora);
             nuevaCita.setMotivo(motivo);
             nuevaCita.setIdCliente(Sesion.clienteActual.getId());
-            
+
             oDAOCita.crearCita(nuevaCita);
             gestor.agregarCita(nuevaCita);
 

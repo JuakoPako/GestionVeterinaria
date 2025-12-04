@@ -48,7 +48,7 @@ public class ActualizarCita extends javax.swing.JFrame {
             }
 
         } catch (SQLException ex) {
-            System.out.println("Error al obtener citas: " + ex.getMessage());
+            System.out.println("" + ex);
         }
 
         tblCitas.setModel(modelo);
@@ -241,7 +241,7 @@ public class ActualizarCita extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ingrese un número válido");
         } catch (SQLException ex) {
-            Logger.getLogger(ActualizarCita.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(""+ex);
         }
     }//GEN-LAST:event_lblActualizarCitaMouseClicked
 

@@ -75,7 +75,8 @@ public class Login extends javax.swing.JFrame {
         lblContraseña.setText("Contraseña");
         panelFondo.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 110, -1));
 
-        pfEntradaContraseña.setText("************");
+        pfEntradaContraseña.setText("**********");
+        pfEntradaContraseña.setToolTipText("");
         pfEntradaContraseña.setBorder(null);
         pfEntradaContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {

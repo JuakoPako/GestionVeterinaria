@@ -7,7 +7,7 @@ package app;
 import bd.DAOCliente;
 
 import java.sql.SQLException;
-
+import javax.swing.JOptionPane;
 
 import model.Cliente;
 
@@ -256,29 +256,31 @@ public class RegistrarLogin extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.");
             return;
         }
-        
+
+        if (!(correo.endsWith("@gmail.com")
+                || correo.endsWith("@hotmail.com")
+                || correo.endsWith("@outlook.com")
+                || correo.endsWith("@yahoo.com"))) {
+
+            JOptionPane.showMessageDialog(this,
+                    "El correo debe terminar en @gmail.com, @hotmail.com, @outlook.com o @yahoo.com.");
+            return;
+        }
         try {
             DAOCliente oDAOCliente = new DAOCliente();
-            
+
             Cliente nuevoCliente = new Cliente();
             nuevoCliente.setNombreUsuario(usuario);
             nuevoCliente.setContraseña(contraseña);
             nuevoCliente.setCorreo(correo);
             nuevoCliente.setTelefono(telefono);
-            
+
             oDAOCliente.crearCliente(nuevoCliente);
             gestor.agregarCliente(nuevoCliente);
-        
-        
+
         } catch (SQLException ex) {
-            System.out.println(""+ex);
+            System.out.println("" + ex);
         }
-        
-        
-
-        
-
-        
 
         javax.swing.JOptionPane.showMessageDialog(this, "Usuario registrado correctamente.");
 
@@ -300,15 +302,15 @@ public class RegistrarLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioMousePressed
 
     private void pwContraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pwContraMousePressed
-        
+
     }//GEN-LAST:event_pwContraMousePressed
 
     private void txtTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMousePressed
-        
+
     }//GEN-LAST:event_txtTelefonoMousePressed
 
     private void txtCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoMousePressed
-        
+
     }//GEN-LAST:event_txtCorreoMousePressed
 
     private void lblVolverInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverInicioMouseClicked
@@ -328,7 +330,6 @@ public class RegistrarLogin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblColor;

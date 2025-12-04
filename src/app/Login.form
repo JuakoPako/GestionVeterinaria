@@ -103,7 +103,8 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="pfEntradaContrase&#xf1;a">
           <Properties>
-            <Property name="text" type="java.lang.String" value="************"/>
+            <Property name="text" type="java.lang.String" value="**********"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
