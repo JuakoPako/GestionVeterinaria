@@ -45,7 +45,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
         lblRegistrar = new javax.swing.JLabel();
         lblRegistrarse = new javax.swing.JLabel();
         lblCorreo = new javax.swing.JLabel();
-        lblUsuario1 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         panelInicioSesion = new javax.swing.JPanel();
@@ -151,9 +151,9 @@ public class RegistrarLogin extends javax.swing.JFrame {
         lblCorreo.setText("Correo");
         panelFondoRegistro.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 90, -1));
 
-        lblUsuario1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblUsuario1.setText("Usuario");
-        panelFondoRegistro.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, -1));
+        lblUsuario.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblUsuario.setText("Usuario");
+        panelFondoRegistro.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 60, -1));
 
         lblContraseña.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblContraseña.setText("Contraseña");
@@ -339,7 +339,7 @@ public class RegistrarLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblRegistrar;
     private javax.swing.JLabel lblRegistrarse;
     private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblUsuario1;
+    private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblVolverInicio;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondo;

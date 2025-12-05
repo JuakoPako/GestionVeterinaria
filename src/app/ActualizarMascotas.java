@@ -36,14 +36,15 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     private void initComponents() {
 
         panelFondo = new javax.swing.JPanel();
-        lblIngresarId = new javax.swing.JLabel();
+        lblIngresarId1 = new javax.swing.JLabel();
+        lblActualizarDatos = new javax.swing.JLabel();
         txtEntradaIngresarId = new javax.swing.JTextField();
         panelBuscar = new javax.swing.JPanel();
         lblBuscar = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         txtEntradaNombre = new javax.swing.JTextField();
-        lblRaza = new javax.swing.JLabel();
-        txtEntradaRaza = new javax.swing.JTextField();
+        lblTipo = new javax.swing.JLabel();
+        txtEntradaTipo = new javax.swing.JTextField();
         lblEdad = new javax.swing.JLabel();
         lblSexo = new javax.swing.JLabel();
         lblSintomas = new javax.swing.JLabel();
@@ -53,12 +54,11 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         lblVolver = new javax.swing.JLabel();
         panelColor = new javax.swing.JPanel();
         lblIconoActualizar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spanelMascotas = new javax.swing.JScrollPane();
         tblMascota = new javax.swing.JTable();
         spnEdadMascota = new javax.swing.JSpinner();
         cbSexoMascota = new javax.swing.JComboBox<>();
-        lblIngresarId1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        spanelSintomas = new javax.swing.JScrollPane();
         txtaEntradaSintomas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,9 +67,13 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         panelFondo.setBackground(new java.awt.Color(251, 252, 253));
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblIngresarId.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        lblIngresarId.setText("Actualiza los datos de tu mascota");
-        panelFondo.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 310, -1));
+        lblIngresarId1.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        lblIngresarId1.setText("Ingrese la ID de su mascota");
+        panelFondo.add(lblIngresarId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 250, -1));
+
+        lblActualizarDatos.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        lblActualizarDatos.setText("Actualiza los datos de tu mascota");
+        panelFondo.add(lblActualizarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 310, -1));
 
         txtEntradaIngresarId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaIngresarId.setBorder(null);
@@ -142,23 +146,23 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         });
         panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 200, 30));
 
-        lblRaza.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblRaza.setText("Tipo");
-        panelFondo.add(lblRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 200, -1));
+        lblTipo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblTipo.setText("Tipo");
+        panelFondo.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 200, -1));
 
-        txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaRaza.setBorder(null);
-        txtEntradaRaza.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEntradaTipo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaTipo.setBorder(null);
+        txtEntradaTipo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaRazaMousePressed(evt);
+                txtEntradaTipoMousePressed(evt);
             }
         });
-        txtEntradaRaza.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaRazaActionPerformed(evt);
+                txtEntradaTipoActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 200, 30));
+        panelFondo.add(txtEntradaTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 200, 30));
 
         lblEdad.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblEdad.setText("Edad");
@@ -266,9 +270,9 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 "ID", "Nombre", "Especie", "Edad", "Sexo", "Observaciones"
             }
         ));
-        jScrollPane1.setViewportView(tblMascota);
+        spanelMascotas.setViewportView(tblMascota);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 710, 130));
+        panelFondo.add(spanelMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 710, 130));
         panelFondo.add(spnEdadMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 70, -1));
 
         cbSexoMascota.addActionListener(new java.awt.event.ActionListener() {
@@ -278,17 +282,13 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         });
         panelFondo.add(cbSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, -1, -1));
 
-        lblIngresarId1.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        lblIngresarId1.setText("Ingrese la ID de su mascota");
-        panelFondo.add(lblIngresarId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 250, -1));
-
         txtaEntradaSintomas.setColumns(20);
         txtaEntradaSintomas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtaEntradaSintomas.setRows(5);
         txtaEntradaSintomas.setBorder(null);
-        jScrollPane2.setViewportView(txtaEntradaSintomas);
+        spanelSintomas.setViewportView(txtaEntradaSintomas);
 
-        panelFondo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
+        panelFondo.add(spanelSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
@@ -311,13 +311,13 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
-    private void txtEntradaRazaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaRazaMousePressed
+    private void txtEntradaTipoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaTipoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaRazaMousePressed
+    }//GEN-LAST:event_txtEntradaTipoMousePressed
 
-    private void txtEntradaRazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaRazaActionPerformed
+    private void txtEntradaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaRazaActionPerformed
+    }//GEN-LAST:event_txtEntradaTipoActionPerformed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
         String filtro = txtEntradaIngresarId.getText().trim();
@@ -347,7 +347,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             }
 
             if (txtEntradaNombre.getText().trim().isEmpty()
-                    || txtEntradaRaza.getText().trim().isEmpty()
+                    || txtEntradaTipo.getText().trim().isEmpty()
                     || (int) spnEdadMascota.getValue() <= 0
                     || sexo.isEmpty()
                     || txtaEntradaSintomas.getText().trim().isEmpty()) {
@@ -370,7 +370,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             }
 
             oMascota.setNombre(txtEntradaNombre.getText().trim());
-            oMascota.setEspecie(txtEntradaRaza.getText().trim());
+            oMascota.setEspecie(txtEntradaTipo.getText().trim());
             oMascota.setEdad((int) spnEdadMascota.getValue());
             oMascota.setSexo(sexo);
             oMascota.setObservaciones(txtaEntradaSintomas.getText().trim());
@@ -385,7 +385,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             }
 
             txtEntradaNombre.setText("");
-            txtEntradaRaza.setText("");
+            txtEntradaTipo.setText("");
             spnEdadMascota.setValue(0);
             cbSexoMascota.setSelectedIndex(-1);
             txtaEntradaSintomas.setText("");
@@ -444,29 +444,29 @@ public class ActualizarMascotas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbSexoMascota;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblActualizarDatos;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblGuardar;
     private javax.swing.JLabel lblIconoActualizar;
-    private javax.swing.JLabel lblIngresarId;
     private javax.swing.JLabel lblIngresarId1;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblRaza;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblSintomas;
+    private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblVolver;
     private javax.swing.JPanel panelBuscar;
     private javax.swing.JPanel panelColor;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelGuardar;
     private javax.swing.JPanel panelVolver;
+    private javax.swing.JScrollPane spanelMascotas;
+    private javax.swing.JScrollPane spanelSintomas;
     private javax.swing.JSpinner spnEdadMascota;
     private javax.swing.JTable tblMascota;
     private javax.swing.JTextField txtEntradaIngresarId;
     private javax.swing.JTextField txtEntradaNombre;
-    private javax.swing.JTextField txtEntradaRaza;
+    private javax.swing.JTextField txtEntradaTipo;
     private javax.swing.JTextArea txtaEntradaSintomas;
     // End of variables declaration//GEN-END:variables
 

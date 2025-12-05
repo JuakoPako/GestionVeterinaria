@@ -44,9 +44,9 @@ public class VerMascotas extends javax.swing.JFrame {
         lblEntrar = new javax.swing.JLabel();
         panelVolver = new javax.swing.JPanel();
         lblVolver = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        panelColor = new javax.swing.JPanel();
         lblIconoLupa = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spanelTablaMascotas = new javax.swing.JScrollPane();
         tblMascotas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,13 +156,13 @@ public class VerMascotas extends javax.swing.JFrame {
 
         panelFondo.add(panelVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 80, 30));
 
-        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelColor.setBackground(new java.awt.Color(102, 153, 255));
+        panelColor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconoLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/iconoLupa.png"))); // NOI18N
-        jPanel2.add(lblIconoLupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 80, 240, 210));
+        panelColor.add(lblIconoLupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 80, 240, 210));
 
-        panelFondo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 230, 560));
+        panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 230, 560));
 
         tblMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -180,9 +180,9 @@ public class VerMascotas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblMascotas);
+        spanelTablaMascotas.setViewportView(tblMascotas);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 530, 360));
+        panelFondo.add(spanelTablaMascotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 530, 360));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
@@ -237,16 +237,16 @@ public class VerMascotas extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEntrar;
     private javax.swing.JLabel lblIconoLupa;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblNombreMascota;
     private javax.swing.JLabel lblVolver;
+    private javax.swing.JPanel panelColor;
     private javax.swing.JPanel panelEntrar;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelVolver;
+    private javax.swing.JScrollPane spanelTablaMascotas;
     private javax.swing.JTable tblMascotas;
     private javax.swing.JTextField txtEntradaNombre;
     // End of variables declaration//GEN-END:variables

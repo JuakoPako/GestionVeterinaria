@@ -71,15 +71,15 @@ public class Menu extends javax.swing.JFrame {
         lblIconoMenu = new javax.swing.JLabel();
         panelColor = new javax.swing.JPanel();
         lblIconoMascota = new javax.swing.JLabel();
-        lblBienvenida = new javax.swing.JLabel();
+        lblCerrarSesion = new javax.swing.JLabel();
         pnlGestionarMascota = new javax.swing.JPanel();
         lblGestionarMascota = new javax.swing.JLabel();
         pnlAgendarCita = new javax.swing.JPanel();
         lblAgendarCita = new javax.swing.JLabel();
         pnlSalir = new javax.swing.JPanel();
         lblSalir = new javax.swing.JLabel();
-        lblMenu1 = new javax.swing.JLabel();
-        lblBienvenida1 = new javax.swing.JLabel();
+        lblMenuPrincipal = new javax.swing.JLabel();
+        lblBienvenida = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(251, 252, 253));
@@ -100,16 +100,16 @@ public class Menu extends javax.swing.JFrame {
 
         panelFondo.add(panelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 230, 560));
 
-        lblBienvenida.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        lblBienvenida.setForeground(new java.awt.Color(1, 136, 123));
-        lblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBienvenida.setText("Cerrar Sesion");
-        lblBienvenida.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCerrarSesion.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        lblCerrarSesion.setForeground(new java.awt.Color(1, 136, 123));
+        lblCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCerrarSesion.setText("Cerrar Sesion");
+        lblCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBienvenidaMouseClicked(evt);
+                lblCerrarSesionMouseClicked(evt);
             }
         });
-        panelFondo.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 520, 140, 40));
+        panelFondo.add(lblCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 520, 140, 40));
 
         pnlGestionarMascota.setBackground(new java.awt.Color(1, 136, 123));
         pnlGestionarMascota.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,16 +204,16 @@ public class Menu extends javax.swing.JFrame {
 
         panelFondo.add(pnlSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 180, 40));
 
-        lblMenu1.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
-        lblMenu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenu1.setText("Menu Principal");
-        panelFondo.add(lblMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 210, 40));
+        lblMenuPrincipal.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        lblMenuPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenuPrincipal.setText("Menu Principal");
+        panelFondo.add(lblMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 210, 40));
 
-        lblBienvenida1.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
-        lblBienvenida1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBienvenida1.setText("Bienvenido "+Sesion.clienteActual.getNombreUsuario().toUpperCase());
-        lblBienvenida1.setSize(lblBienvenida1.getPreferredSize());
-        panelFondo.add(lblBienvenida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, 30));
+        lblBienvenida.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        lblBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBienvenida.setText("Bienvenido "+Sesion.clienteActual.getNombreUsuario().toUpperCase());
+        lblBienvenida.setSize(lblBienvenida.getPreferredSize());
+        panelFondo.add(lblBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,7 +259,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pnlSalirMouseClicked
 
-    private void lblBienvenidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBienvenidaMouseClicked
+    private void lblCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarSesionMouseClicked
         int opcion = JOptionPane.showConfirmDialog(null, "¿Deseas cerrar sesion?", "Confirmar", JOptionPane.YES_NO_OPTION);
         
         if (opcion == JOptionPane.YES_OPTION){
@@ -276,7 +276,7 @@ public class Menu extends javax.swing.JFrame {
             
         }
         
-    }//GEN-LAST:event_lblBienvenidaMouseClicked
+    }//GEN-LAST:event_lblCerrarSesionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -316,11 +316,11 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblAgendarCita;
     private javax.swing.JLabel lblBienvenida;
-    private javax.swing.JLabel lblBienvenida1;
+    private javax.swing.JLabel lblCerrarSesion;
     private javax.swing.JLabel lblGestionarMascota;
     private javax.swing.JLabel lblIconoMascota;
     private javax.swing.JLabel lblIconoMenu;
-    private javax.swing.JLabel lblMenu1;
+    private javax.swing.JLabel lblMenuPrincipal;
     private javax.swing.JLabel lblSalir;
     private javax.swing.JPanel panelColor;
     private javax.swing.JPanel panelFondo;

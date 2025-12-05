@@ -42,8 +42,8 @@ public class RegistroMascotas extends javax.swing.JFrame {
         lblIngreseDatos = new javax.swing.JLabel();
         lblNombreMascota = new javax.swing.JLabel();
         txtEntradaNombre = new javax.swing.JTextField();
-        lblEspecieMascota = new javax.swing.JLabel();
-        txtEntradaEspecie = new javax.swing.JTextField();
+        lblTipoMascota = new javax.swing.JLabel();
+        txtEntradaTipo = new javax.swing.JTextField();
         lblEdadMascota = new javax.swing.JLabel();
         spnEdadMascota = new javax.swing.JSpinner();
         lblSexoMascota = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
         panelColor = new javax.swing.JPanel();
         lblIconoRegistro = new javax.swing.JLabel();
         cbSexoMascota = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spanelSintomas = new javax.swing.JScrollPane();
         txtaSintomasMascotas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,23 +87,23 @@ public class RegistroMascotas extends javax.swing.JFrame {
         });
         panelFondo.add(txtEntradaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 200, 30));
 
-        lblEspecieMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
-        lblEspecieMascota.setText("Tipo de mascota");
-        panelFondo.add(lblEspecieMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 160, -1));
+        lblTipoMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
+        lblTipoMascota.setText("Tipo de mascota");
+        panelFondo.add(lblTipoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 160, -1));
 
-        txtEntradaEspecie.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaEspecie.setBorder(null);
-        txtEntradaEspecie.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtEntradaTipo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtEntradaTipo.setBorder(null);
+        txtEntradaTipo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaEspecieMousePressed(evt);
+                txtEntradaTipoMousePressed(evt);
             }
         });
-        txtEntradaEspecie.addActionListener(new java.awt.event.ActionListener() {
+        txtEntradaTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaEspecieActionPerformed(evt);
+                txtEntradaTipoActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaEspecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 200, 30));
+        panelFondo.add(txtEntradaTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 200, 30));
 
         lblEdadMascota.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblEdadMascota.setText("Edad de la mascota (años)");
@@ -205,9 +205,9 @@ public class RegistroMascotas extends javax.swing.JFrame {
         txtaSintomasMascotas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtaSintomasMascotas.setRows(5);
         txtaSintomasMascotas.setBorder(null);
-        jScrollPane1.setViewportView(txtaSintomasMascotas);
+        spanelSintomas.setViewportView(txtaSintomasMascotas);
 
-        panelFondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
+        panelFondo.add(spanelSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
 
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 640));
 
@@ -222,25 +222,25 @@ public class RegistroMascotas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaNombreActionPerformed
 
-    private void txtEntradaEspecieMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaEspecieMousePressed
+    private void txtEntradaTipoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaTipoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaEspecieMousePressed
+    }//GEN-LAST:event_txtEntradaTipoMousePressed
 
-    private void txtEntradaEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaEspecieActionPerformed
+    private void txtEntradaTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaEspecieActionPerformed
+    }//GEN-LAST:event_txtEntradaTipoActionPerformed
 
     private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
 
         try {
             Object seleccionado = cbSexoMascota.getSelectedItem();
             String sexo = (seleccionado == null) ? "" : (seleccionado.toString().equalsIgnoreCase("Macho") ? "M" : "H");
-            if (!txtEntradaNombre.getText().isEmpty() && !txtEntradaEspecie.getText().isEmpty() && (int) spnEdadMascota.getValue() > 0 && !sexo.isEmpty() && !txtaSintomasMascotas.getText().isEmpty()) {
+            if (!txtEntradaNombre.getText().isEmpty() && !txtEntradaTipo.getText().isEmpty() && (int) spnEdadMascota.getValue() > 0 && !sexo.isEmpty() && !txtaSintomasMascotas.getText().isEmpty()) {
                 DAOMascota oDao = new DAOMascota();
 
                 Mascota oMascota = new Mascota();
                 oMascota.setNombre(txtEntradaNombre.getText());
-                oMascota.setEspecie(txtEntradaEspecie.getText());
+                oMascota.setEspecie(txtEntradaTipo.getText());
                 oMascota.setEdad((int) spnEdadMascota.getValue());
                 oMascota.setSexo(sexo);
                 oMascota.setObservaciones(txtaSintomasMascotas.getText());
@@ -250,7 +250,7 @@ public class RegistroMascotas extends javax.swing.JFrame {
                 oDao.crearMascotas(oMascota);
 
                 txtEntradaNombre.setText("");
-                txtEntradaEspecie.setText("");
+                txtEntradaTipo.setText("");
                 spnEdadMascota.setValue(0);
                 cbSexoMascota.setSelectedIndex(-1);
                 txtaSintomasMascotas.setText("");
@@ -298,23 +298,23 @@ public class RegistroMascotas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbSexoMascota;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEdadMascota;
-    private javax.swing.JLabel lblEspecieMascota;
     private javax.swing.JLabel lblIconoRegistro;
     private javax.swing.JLabel lblIngreseDatos;
     private javax.swing.JLabel lblNombreMascota;
     private javax.swing.JLabel lblRegistrar;
     private javax.swing.JLabel lblSexoMascota;
     private javax.swing.JLabel lblSintomasMascotas;
+    private javax.swing.JLabel lblTipoMascota;
     private javax.swing.JLabel lblVolverMenu;
     private javax.swing.JPanel panelColor;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelRegistrar;
     private javax.swing.JPanel panelVolverMenu;
+    private javax.swing.JScrollPane spanelSintomas;
     private javax.swing.JSpinner spnEdadMascota;
-    private javax.swing.JTextField txtEntradaEspecie;
     private javax.swing.JTextField txtEntradaNombre;
+    private javax.swing.JTextField txtEntradaTipo;
     private javax.swing.JTextArea txtaSintomasMascotas;
     // End of variables declaration//GEN-END:variables
 
