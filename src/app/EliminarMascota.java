@@ -4,6 +4,13 @@
  */
 package app;
 
+import bd.DAOMascota;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Mascota;
 
 /**
@@ -51,7 +58,6 @@ public class EliminarMascota extends javax.swing.JFrame {
         panelFondo.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 190, -1));
 
         txtEntradaId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaId.setForeground(new java.awt.Color(204, 204, 204));
         txtEntradaId.setBorder(null);
         txtEntradaId.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -170,61 +176,50 @@ public class EliminarMascota extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEntradaIdActionPerformed
 
     private void lblEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseClicked
-        String idTexto = txtEntradaId.getText().trim();
-        if (idTexto.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese una ID", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        if (gestor == null || gestor.getListaMascotas() == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Gestor no inicializado", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        model.Mascota encontrada = null;
-        for (model.Mascota m : gestor.getListaMascotas()) {
-            if (idTexto.equals(String.valueOf(m.getEspecie()))) {
-                encontrada = m;
-                break;
+        try {                                       
+            String idTexto = txtEntradaId.getText().trim(); // ajusta el nombre si tu campo es distinto
+            if (idTexto.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Ingrese la ID de la mascota a eliminar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                return;
             }
-        }
-
-        if (encontrada == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontro mascota con ID: " + idTexto, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            java.awt.EventQueue.invokeLater(() -> {
-                MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
-                menu.setLocationRelativeTo(null);
-                menu.setVisible(true);
-            });
-            this.dispose();
-            return;
-        }
-
-        int opcion = javax.swing.JOptionPane.showConfirmDialog(
-                this,
-                "¿Desea eliminar la mascota con la ID: " + idTexto + "?",
-                "Confirmar eliminacion",
-                javax.swing.JOptionPane.YES_NO_OPTION,
-                javax.swing.JOptionPane.WARNING_MESSAGE
-        );
-
-        if (opcion == javax.swing.JOptionPane.YES_OPTION) {
-            boolean eliminado = gestor.getListaMascotas().removeIf(m -> idTexto.equals(String.valueOf(m.getEspecie())));
-            if (eliminado) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Mascota eliminada correctamente.", "Exito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "No se pudo eliminar la mascota. Intente nuevamente.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            
+            int id;
+            try {
+                id = Integer.parseInt(idTexto);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "ID inválida.", "Validación", JOptionPane.WARNING_MESSAGE);
+                return;
             }
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Operacion cancelada.", "Cancelado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            
+            int opcion = JOptionPane.showConfirmDialog(this,
+                    "¿Desea eliminar definitivamente la mascota con ID = " + id + "?",
+                    "Confirmar",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE);
+            
+            if (opcion != JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(this, "Operación cancelada.");
+                return;
+            }
+            
+            bd.DAOMascota dao = new DAOMascota();
+            try {
+                dao.borrarMascota(id);
+                JOptionPane.showMessageDialog(this, "Mascota eliminada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                
+                try {
+                    cargarTabla("");
+                } catch (Exception e) {
+                    System.err.println("" + e.getMessage());
+                }
+                
+                txtEntradaId.setText("");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar: " + ex.getMessage(), "Error Base de datos", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EliminarMascota.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        java.awt.EventQueue.invokeLater(() -> {
-            MenuGestionMascotas menu = new MenuGestionMascotas(gestor);
-            menu.setLocationRelativeTo(null);
-            menu.setVisible(true);
-        });
-        this.dispose();
     }//GEN-LAST:event_lblEntrarMouseClicked
 
     private void lblEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEntrarMouseEntered
@@ -273,5 +268,36 @@ public class EliminarMascota extends javax.swing.JFrame {
     private javax.swing.JPanel panelVolver;
     private javax.swing.JTextField txtEntradaId;
     // End of variables declaration//GEN-END:variables
+
+    public void cargarTabla(String filtro) {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Nombre");
+        model.addColumn("Especie");
+        model.addColumn("Edad");
+        model.addColumn("Sexo");
+        model.addColumn("Observaciones");
+
+        try {
+            DAOMascota dao = new DAOMascota();
+            List<Mascota> lista = dao.getMascotas(filtro);
+
+            for (Mascota m : lista) {
+                Object[] fila = {
+                    m.getId(),
+                    m.getNombre(),
+                    m.getEspecie(),
+                    m.getEdad(),
+                    m.getSexo(),
+                    m.getObservaciones(),};
+                model.addRow(fila);
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Error al cargar mascotas: " + ex.getMessage(),
+                    "Error BD",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
-//HOLA

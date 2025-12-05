@@ -76,5 +76,11 @@ public class DAOMascota {
         oConexion.ejecutar(sql);
         System.out.println(sql);
     }
+    
+    public void borrarMascota (int id) throws SQLException {
+        String sql = "DELETE FROM mascota WHERE id_mascota =" + id + ";";
+        oConexion.ejecutar(sql);
+        System.out.println(sql);
+    }
 
 }

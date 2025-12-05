@@ -47,7 +47,6 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         lblEdad = new javax.swing.JLabel();
         lblSexo = new javax.swing.JLabel();
         lblSintomas = new javax.swing.JLabel();
-        txtEntradaSintomas = new javax.swing.JTextField();
         panelGuardar = new javax.swing.JPanel();
         lblGuardar = new javax.swing.JLabel();
         panelVolver = new javax.swing.JPanel();
@@ -58,6 +57,9 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         tblMascota = new javax.swing.JTable();
         spnEdadMascota = new javax.swing.JSpinner();
         cbSexoMascota = new javax.swing.JComboBox<>();
+        lblIngresarId1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtaEntradaSintomas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,8 +68,8 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         panelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIngresarId.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
-        lblIngresarId.setText("Ingrese la ID de su mascota");
-        panelFondo.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 250, -1));
+        lblIngresarId.setText("Actualiza los datos de tu mascota");
+        panelFondo.add(lblIngresarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 310, -1));
 
         txtEntradaIngresarId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaIngresarId.setBorder(null);
@@ -142,7 +144,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
 
         lblRaza.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblRaza.setText("Tipo");
-        panelFondo.add(lblRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 200, -1));
+        panelFondo.add(lblRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 200, -1));
 
         txtEntradaRaza.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         txtEntradaRaza.setBorder(null);
@@ -156,7 +158,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                 txtEntradaRazaActionPerformed(evt);
             }
         });
-        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 200, 30));
+        panelFondo.add(txtEntradaRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 200, 30));
 
         lblEdad.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblEdad.setText("Edad");
@@ -169,20 +171,6 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         lblSintomas.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         lblSintomas.setText("Sintomas");
         panelFondo.add(lblSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 250, -1));
-
-        txtEntradaSintomas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        txtEntradaSintomas.setBorder(null);
-        txtEntradaSintomas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtEntradaSintomasMousePressed(evt);
-            }
-        });
-        txtEntradaSintomas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntradaSintomasActionPerformed(evt);
-            }
-        });
-        panelFondo.add(txtEntradaSintomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 200, 30));
 
         panelGuardar.setBackground(new java.awt.Color(102, 153, 255));
         panelGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,7 +209,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             .addComponent(lblGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondo.add(panelGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, 80, 30));
+        panelFondo.add(panelGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 650, 80, 30));
 
         panelVolver.setBackground(new java.awt.Color(245, 245, 220));
         panelVolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -290,6 +278,18 @@ public class ActualizarMascotas extends javax.swing.JFrame {
         });
         panelFondo.add(cbSexoMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, -1, -1));
 
+        lblIngresarId1.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        lblIngresarId1.setText("Ingrese la ID de su mascota");
+        panelFondo.add(lblIngresarId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 250, -1));
+
+        txtaEntradaSintomas.setColumns(20);
+        txtaEntradaSintomas.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        txtaEntradaSintomas.setRows(5);
+        txtaEntradaSintomas.setBorder(null);
+        jScrollPane2.setViewportView(txtaEntradaSintomas);
+
+        panelFondo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
+
         getContentPane().add(panelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         pack();
@@ -318,14 +318,6 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     private void txtEntradaRazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaRazaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEntradaRazaActionPerformed
-
-    private void txtEntradaSintomasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEntradaSintomasMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaSintomasMousePressed
-
-    private void txtEntradaSintomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntradaSintomasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntradaSintomasActionPerformed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
         String filtro = txtEntradaIngresarId.getText().trim();
@@ -358,7 +350,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
                     || txtEntradaRaza.getText().trim().isEmpty()
                     || (int) spnEdadMascota.getValue() <= 0
                     || sexo.isEmpty()
-                    || txtEntradaSintomas.getText().trim().isEmpty()) {
+                    || txtaEntradaSintomas.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Por favor complete todos los valores", "Validación", JOptionPane.WARNING_MESSAGE);
                 return;
             }
@@ -381,7 +373,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             oMascota.setEspecie(txtEntradaRaza.getText().trim());
             oMascota.setEdad((int) spnEdadMascota.getValue());
             oMascota.setSexo(sexo);
-            oMascota.setObservaciones(txtEntradaSintomas.getText().trim());
+            oMascota.setObservaciones(txtaEntradaSintomas.getText().trim());
 
             bd.DAOMascota oDao = new bd.DAOMascota();
             try {
@@ -396,7 +388,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
             txtEntradaRaza.setText("");
             spnEdadMascota.setValue(0);
             cbSexoMascota.setSelectedIndex(-1);
-            txtEntradaSintomas.setText("");
+            txtaEntradaSintomas.setText("");
             txtEntradaIngresarId.setText("");
             txtEntradaNombre.requestFocus();
 
@@ -453,11 +445,13 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbSexoMascota;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblGuardar;
     private javax.swing.JLabel lblIconoActualizar;
     private javax.swing.JLabel lblIngresarId;
+    private javax.swing.JLabel lblIngresarId1;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRaza;
     private javax.swing.JLabel lblSexo;
@@ -473,7 +467,7 @@ public class ActualizarMascotas extends javax.swing.JFrame {
     private javax.swing.JTextField txtEntradaIngresarId;
     private javax.swing.JTextField txtEntradaNombre;
     private javax.swing.JTextField txtEntradaRaza;
-    private javax.swing.JTextField txtEntradaSintomas;
+    private javax.swing.JTextArea txtaEntradaSintomas;
     // End of variables declaration//GEN-END:variables
 
     public void cargarTabla(String filtro) {
